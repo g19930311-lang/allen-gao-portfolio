@@ -8,10 +8,14 @@
     <meta name="keywords" content="高洁,Allen Gao,新媒体运营,品牌策划,短视频运营,直播电商,私域运营,杭州">
     <meta name="author" content="高洁 Allen Gao">
     <meta name="theme-color" content="#0a0a0f">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <meta property="og:type" content="website">
     <meta property="og:title" content="高洁 Allen Gao | 新媒体运营与品牌策划">
     <meta property="og:description" content="9年新媒体行业深耕，从0到1搭建品牌矩阵">
     <meta property="og:locale" content="zh_CN">
+    <meta property="og:image" content="https://g19930311-lang.github.io/allen-gao-portfolio/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -90,8 +94,8 @@
             color: var(--text-primary); text-decoration: none; letter-spacing: 2px; cursor: pointer;
         }
         .logo span { color: var(--accent); }
-        .nav-right { display: flex; align-items: center; gap: 1.5rem; }
-        .nav-links { display: flex; gap: 1.8rem; list-style: none; }
+        .nav-right { display: flex; align-items: center; gap: 1rem; }
+        .nav-links { display: flex; gap: 1.6rem; list-style: none; }
         .nav-links a {
             color: var(--text-secondary); text-decoration: none; font-size: 0.88rem;
             transition: color 0.3s ease; position: relative;
@@ -112,6 +116,15 @@
             font-size: 1rem; transition: all 0.3s ease; flex-shrink: 0; font-family: inherit;
         }
         .theme-toggle:hover { border-color: var(--accent); color: var(--accent); transform: rotate(20deg); }
+        .lang-toggle {
+            height: 38px; padding: 0 0.9rem; border-radius: 30px;
+            border: 1px solid var(--border-hover); background: transparent;
+            color: var(--text-secondary); cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.8rem; transition: all 0.3s ease; flex-shrink: 0; font-family: inherit;
+            letter-spacing: 1px;
+        }
+        .lang-toggle:hover { border-color: var(--accent); color: var(--accent); }
         .menu-toggle {
             display: none; width: 38px; height: 38px;
             border: 1px solid var(--border-hover); border-radius: 10px;
@@ -126,12 +139,12 @@
         .mobile-menu {
             position: fixed; inset: 0; background: var(--bg-dark); z-index: 99;
             display: flex; flex-direction: column; align-items: center; justify-content: center;
-            gap: 1.4rem; opacity: 0; visibility: hidden;
+            gap: 1.2rem; opacity: 0; visibility: hidden;
             transition: opacity 0.35s ease, visibility 0.35s ease;
         }
         .mobile-menu.open { opacity: 1; visibility: visible; }
         .mobile-menu a {
-            font-family: 'Noto Serif SC', serif; font-size: 1.4rem;
+            font-family: 'Noto Serif SC', serif; font-size: 1.3rem;
             color: var(--text-primary); text-decoration: none; transition: color 0.3s ease;
         }
         .mobile-menu a:hover { color: var(--accent); }
@@ -453,6 +466,7 @@
         .footer-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
         .footer-links a { color: var(--text-secondary); text-decoration: none; transition: color 0.3s ease; }
         .footer-links a:hover { color: var(--accent); }
+        #busuanzi { margin-top: 0.8rem; font-size: 0.75rem; }
         #back-top {
             position: fixed; right: 24px; bottom: 24px;
             width: 46px; height: 46px; border-radius: 50%;
@@ -506,6 +520,56 @@
             color: rgba(255,255,255,0.75); font-size: 0.85rem;
             text-align: center; max-width: 80%;
         }
+        /* 作品详情弹窗 */
+        .detail-modal {
+            position: fixed; inset: 0; background: rgba(0,0,0,0.88);
+            backdrop-filter: blur(8px);
+            z-index: 550; display: flex; align-items: center; justify-content: center;
+            padding: 3% 4%;
+            opacity: 0; visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .detail-modal.open { opacity: 1; visibility: visible; }
+        .detail-card {
+            width: min(820px, 100%);
+            max-height: 92vh; overflow-y: auto;
+            background: var(--bg-card); border: 1px solid var(--border-hover);
+            border-radius: 20px;
+        }
+        .detail-media {
+            width: 100%; aspect-ratio: 16/9; background: var(--bg-elevated);
+            display: flex; align-items: center; justify-content: center;
+            position: relative; overflow: hidden;
+        }
+        .detail-media img { width: 100%; height: 100%; object-fit: cover; }
+        .detail-media video { width: 100%; height: 100%; object-fit: cover; }
+        .detail-media .ph { color: var(--text-muted); font-size: 0.9rem; }
+        .detail-close {
+            position: absolute; top: 16px; right: 16px;
+            width: 38px; height: 38px; border-radius: 50%;
+            border: 1px solid rgba(255,255,255,0.25);
+            background: rgba(0,0,0,0.5); backdrop-filter: blur(6px);
+            color: #fff; font-size: 1.1rem; cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            transition: all 0.3s ease; z-index: 2; font-family: inherit;
+        }
+        .detail-close:hover { background: var(--accent); border-color: var(--accent); }
+        .detail-body { padding: 2rem 2.2rem 2.4rem; }
+        .detail-cat { color: var(--accent); font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 0.6rem; }
+        .detail-title { font-family: 'Noto Serif SC', serif; font-size: 1.6rem; margin-bottom: 1rem; line-height: 1.35; }
+        .detail-metrics {
+            display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.4rem;
+        }
+        .detail-metric {
+            padding: 0.7rem 1.2rem; background: var(--accent-glow);
+            border: 1px solid rgba(232,93,63,0.3); border-radius: 12px;
+        }
+        .detail-metric .n {
+            font-family: 'Noto Serif SC', serif; font-size: 1.3rem; font-weight: 700;
+            color: var(--accent); line-height: 1;
+        }
+        .detail-metric .l { font-size: 0.72rem; color: var(--text-secondary); margin-top: 0.3rem; }
+        .detail-desc { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.9; white-space: pre-line; }
         .toast-area {
             position: fixed; right: 20px; bottom: 20px;
             z-index: 400; display: flex; flex-direction: column;
@@ -533,7 +597,7 @@
         .admin-overlay.open { opacity: 1; visibility: visible; }
         .admin-panel {
             position: absolute; top: 0; right: 0; bottom: 0;
-            width: min(680px, 100%);
+            width: min(700px, 100%);
             background: var(--bg-dark);
             border-left: 1px solid var(--border-hover);
             display: flex; flex-direction: column;
@@ -561,7 +625,7 @@
             padding: 0 1rem; gap: 0.2rem; overflow-x: auto;
         }
         .admin-tab {
-            padding: 0.8rem 1.1rem; background: none; border: none;
+            padding: 0.8rem 1.05rem; background: none; border: none;
             border-bottom: 2px solid transparent;
             color: var(--text-secondary); font-size: 0.88rem;
             cursor: pointer; white-space: nowrap; font-family: inherit;
@@ -602,6 +666,7 @@
         .a-btn.primary:hover { background: var(--accent-light); }
         .a-btn.danger:hover { border-color: var(--danger); color: var(--danger); }
         .a-btn.mini { padding: 0.3rem 0.75rem; font-size: 0.75rem; border-radius: 7px; }
+        .a-btn:disabled { opacity: 0.5; cursor: not-allowed; }
         .img-upload-box {
             border: 1px dashed var(--border-hover); border-radius: 10px;
             padding: 1rem; text-align: center; cursor: pointer;
@@ -703,6 +768,7 @@
             .toast-area { right: 12px; left: 12px; bottom: 78px; max-width: none; }
             .a-row, .a-row3 { grid-template-columns: 1fr; }
             .admin-body { padding: 1.1rem; }
+            .detail-body { padding: 1.5rem 1.4rem 1.8rem; }
         }
         @media (prefers-reduced-motion: reduce) {
             * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
@@ -723,27 +789,28 @@
         <a class="logo" id="siteLogo" title="连点三次进入管理后台">ALLEN<span>.</span>GAO</a>
         <div class="nav-right">
             <ul class="nav-links">
-                <li><a href="#about" data-nav="about">关于我</a></li>
-                <li><a href="#skills" data-nav="skills">能力</a></li>
-                <li><a href="#experience" data-nav="experience">经历</a></li>
-                <li><a href="#portfolio" data-nav="portfolio">作品集</a></li>
-                <li><a href="#life" data-nav="life">我的生活</a></li>
-                <li><a href="#social" data-nav="social">社交媒体</a></li>
-                <li><a href="#contact" data-nav="contact">联系我</a></li>
+                <li><a href="#about" data-nav="about" data-i18n="nav_about">关于我</a></li>
+                <li><a href="#skills" data-nav="skills" data-i18n="nav_skills">能力</a></li>
+                <li><a href="#experience" data-nav="experience" data-i18n="nav_exp">经历</a></li>
+                <li><a href="#portfolio" data-nav="portfolio" data-i18n="nav_works">作品集</a></li>
+                <li><a href="#life" data-nav="life" data-i18n="nav_life">我的生活</a></li>
+                <li><a href="#social" data-nav="social" data-i18n="nav_social">社交媒体</a></li>
+                <li><a href="#contact" data-nav="contact" data-i18n="nav_contact">联系我</a></li>
             </ul>
+            <button class="lang-toggle" id="langToggle" aria-label="切换语言">EN</button>
             <button class="theme-toggle" id="themeToggle" aria-label="切换主题" title="切换明暗主题">🌙</button>
             <button class="menu-toggle" id="menuToggle" aria-label="打开菜单"><span></span><span></span><span></span></button>
         </div>
     </nav>
 
     <div class="mobile-menu" id="mobileMenu">
-        <a href="#about">关于我</a>
-        <a href="#skills">能力</a>
-        <a href="#experience">经历</a>
-        <a href="#portfolio">作品集</a>
-        <a href="#life">我的生活</a>
-        <a href="#social">社交媒体</a>
-        <a href="#contact">联系我</a>
+        <a href="#about" data-i18n="nav_about">关于我</a>
+        <a href="#skills" data-i18n="nav_skills">能力</a>
+        <a href="#experience" data-i18n="nav_exp">经历</a>
+        <a href="#portfolio" data-i18n="nav_works">作品集</a>
+        <a href="#life" data-i18n="nav_life">我的生活</a>
+        <a href="#social" data-i18n="nav_social">社交媒体</a>
+        <a href="#contact" data-i18n="nav_contact">联系我</a>
     </div>
 
     <section class="hero" id="top">
@@ -759,8 +826,9 @@
             </p>
             <div class="hero-stats" id="heroStats"></div>
             <div class="hero-cta">
-                <a href="#portfolio" class="btn btn-primary">查看作品</a>
-                <a href="#contact" class="btn btn-secondary">联系我</a>
+                <a href="#portfolio" class="btn btn-primary" data-i18n="hero_view">查看作品</a>
+                <a href="#contact" class="btn btn-secondary" data-i18n="hero_contact">联系我</a>
+                <button class="btn btn-secondary" id="heroResumeBtn" data-i18n="hero_resume">下载简历</button>
             </div>
         </div>
         <div class="scroll-hint">
@@ -770,8 +838,8 @@
     </section>
 
     <section class="section" id="about">
-        <h2 class="section-title fade-in">关于我</h2>
-        <p class="section-subtitle fade-in">致力于品牌 / 营销 / 内容 / 产品 / 服务一体化</p>
+        <h2 class="section-title fade-in" data-i18n="sec_about">关于我</h2>
+        <p class="section-subtitle fade-in" data-i18n="sec_about_sub">致力于品牌 / 营销 / 内容 / 产品 / 服务一体化</p>
         <div class="about-grid">
             <div class="about-image fade-in">
                 <div class="about-image-frame" id="avatarFrame" title="在后台『内容』标签中上传照片">
@@ -790,173 +858,124 @@
     </section>
 
     <section class="section" id="skills">
-        <h2 class="section-title fade-in">专业能力</h2>
-        <p class="section-subtitle fade-in">9年积累的核心技能分布</p>
+        <h2 class="section-title fade-in" data-i18n="sec_skills">专业能力</h2>
+        <p class="section-subtitle fade-in" data-i18n="sec_skills_sub">9年积累的核心技能分布</p>
         <div class="skill-bars fade-in" id="skillBars"></div>
     </section>
 
     <section class="section" id="experience">
-        <h2 class="section-title fade-in">工作经历</h2>
-        <p class="section-subtitle fade-in">从基层到管理，每一步都扎实有力</p>
-        <div class="timeline">
-            <div class="timeline-item fade-in">
-                <div class="timeline-content">
-                    <div class="timeline-date">2023.06 - 2024.10</div>
-                    <div class="timeline-title">新媒体运营</div>
-                    <div class="timeline-company">杭州玖逸行特斯拉授权钣喷中心</div>
-                    <div class="timeline-desc">对接特斯拉厂家品牌活动，执行C类活动；构建公司新媒体矩阵，对接媒介机构，储备达人资源；品牌内容的制作输出及调性把控；组织交流会、商务拜访，维护合作关系。</div>
-                </div>
-                <div class="timeline-dot"></div>
-            </div>
-            <div class="timeline-item fade-in">
-                <div class="timeline-content">
-                    <div class="timeline-date">2022.05 - 2023.06</div>
-                    <div class="timeline-title">高级新媒体运营</div>
-                    <div class="timeline-company">杭州锐鲨科技有限公司（蘑菇街子公司）</div>
-                    <div class="timeline-desc">蘑菇街子公司S级项目PM，负责安踏会员项目；短视频内容创意策划，月度视频传播量30W+；月度直播GMV 20W+；月度私域沉淀企微好友2W+。</div>
-                </div>
-                <div class="timeline-dot"></div>
-            </div>
-            <div class="timeline-item fade-in">
-                <div class="timeline-content">
-                    <div class="timeline-date">2021.09 - 2022.05</div>
-                    <div class="timeline-title">品牌策划及新媒体运营</div>
-                    <div class="timeline-company">杭州橙色星球科技有限公司</div>
-                    <div class="timeline-desc">搭建品牌形象及维护策略，撰写PR公关稿件；组建新媒体内容传播矩阵；建立健全公司VI视觉体系；协助电商端内容输出详情页产品文案、海报等。</div>
-                </div>
-                <div class="timeline-dot"></div>
-            </div>
-            <div class="timeline-item fade-in">
-                <div class="timeline-content">
-                    <div class="timeline-date">2020.03 - 2021.09</div>
-                    <div class="timeline-title">新媒体运营总监</div>
-                    <div class="timeline-company">中鑫之宝汽车服务有限公司</div>
-                    <div class="timeline-desc">搭建私域运营体系；单独运营"发动机精修"项目品牌策划；打造"汽车维修技术研究院"公众号及视频号；对团队人员进行管理、培训。</div>
-                </div>
-                <div class="timeline-dot"></div>
-            </div>
-            <div class="timeline-item fade-in">
-                <div class="timeline-content">
-                    <div class="timeline-date">2019.02 - 2020.03</div>
-                    <div class="timeline-title">新媒体运营总监</div>
-                    <div class="timeline-company">河南深蓝电子商务有限公司</div>
-                    <div class="timeline-desc">组建短视频运营、直播运营团队；定位打造"蓝兮儿"价值品牌及抖音账号矩阵；蓝兮儿微商城筹建与完善；直播运营数据增长及方案策划。</div>
-                </div>
-                <div class="timeline-dot"></div>
-            </div>
-            <div class="timeline-item fade-in">
-                <div class="timeline-content">
-                    <div class="timeline-date">2017.01 - 2019.02</div>
-                    <div class="timeline-title">新媒体运营主管</div>
-                    <div class="timeline-company">河南纳食信息科技有限公司</div>
-                    <div class="timeline-desc">负责新媒体运营策划，文案选编；微信公众平台运营管理，55万粉丝订阅号；社群建设与维护；线下糖酒会、商会论坛活动策划与执行。</div>
-                </div>
-                <div class="timeline-dot"></div>
-            </div>
-        </div>
+        <h2 class="section-title fade-in" data-i18n="sec_exp">工作经历</h2>
+        <p class="section-subtitle fade-in" data-i18n="sec_exp_sub">从基层到管理，每一步都扎实有力</p>
+        <div class="timeline" id="timelineWrap"></div>
     </section>
 
     <section class="section" id="portfolio">
-        <h2 class="section-title fade-in">作品集</h2>
-        <p class="section-subtitle fade-in">精选项目案例，展示专业能力</p>
+        <h2 class="section-title fade-in" data-i18n="sec_works">作品集</h2>
+        <p class="section-subtitle fade-in" data-i18n="sec_works_sub">精选项目案例，展示专业能力</p>
         <div class="portfolio-filter fade-in" id="portfolioFilter">
-            <button class="filter-btn active" data-filter="all">全部</button>
-            <button class="filter-btn" data-filter="video">短视频</button>
-            <button class="filter-btn" data-filter="brand">品牌策划</button>
-            <button class="filter-btn" data-filter="live">直播运营</button>
-            <button class="filter-btn" data-filter="private">私域运营</button>
-            <button class="filter-btn" data-filter="content">内容运营</button>
+            <button class="filter-btn active" data-filter="all" data-i18n="f_all">全部</button>
+            <button class="filter-btn" data-filter="video" data-i18n="f_video">短视频</button>
+            <button class="filter-btn" data-filter="brand" data-i18n="f_brand">品牌策划</button>
+            <button class="filter-btn" data-filter="live" data-i18n="f_live">直播运营</button>
+            <button class="filter-btn" data-filter="private" data-i18n="f_private">私域运营</button>
+            <button class="filter-btn" data-filter="content" data-i18n="f_content">内容运营</button>
         </div>
         <div class="portfolio-grid" id="portfolioGrid"></div>
-        <div class="highlight-grid fade-in">
-            <div class="highlight-card"><div class="num">55W+</div><div class="txt">公众号粉丝矩阵</div></div>
-            <div class="highlight-card"><div class="num">100+</div><div class="txt">服务门店覆盖</div></div>
-            <div class="highlight-card"><div class="num">30W+</div><div class="txt">月度视频传播量</div></div>
-            <div class="highlight-card"><div class="num">9年</div><div class="txt">行业深耕经验</div></div>
-        </div>
+        <div class="highlight-grid fade-in" id="highlightGrid"></div>
     </section>
 
     <section class="section" id="life">
-        <h2 class="section-title fade-in">我的生活</h2>
-        <p class="section-subtitle fade-in">工作之外，认真生活 —— 兴趣、爱好与热爱的一切</p>
+        <h2 class="section-title fade-in" data-i18n="sec_life">我的生活</h2>
+        <p class="section-subtitle fade-in" data-i18n="sec_life_sub">工作之外，认真生活 —— 兴趣、爱好与热爱的一切</p>
         <div class="life-grid" id="lifeGrid"></div>
     </section>
 
     <section class="section" id="social">
-        <h2 class="section-title fade-in">社交媒体</h2>
-        <p class="section-subtitle fade-in">关注我，一起记录品牌与生活</p>
+        <h2 class="section-title fade-in" data-i18n="sec_social">社交媒体</h2>
+        <p class="section-subtitle fade-in" data-i18n="sec_social_sub">关注我，一起记录品牌与生活</p>
         <div class="social-grid" id="socialGrid"></div>
         <div class="social-links-row fade-in" id="socialLinksRow"></div>
     </section>
 
     <section class="section" id="contact">
-        <h2 class="section-title fade-in">联系我</h2>
-        <p class="section-subtitle fade-in">期待与您合作，共创品牌价值</p>
+        <h2 class="section-title fade-in" data-i18n="sec_contact">联系我</h2>
+        <p class="section-subtitle fade-in" data-i18n="sec_contact_sub">期待与您合作，共创品牌价值</p>
         <div class="contact-wrap fade-in">
             <div class="contact-grid">
                 <div class="contact-card">
                     <div class="contact-icon">📱</div>
                     <div>
-                        <div class="contact-label">电话</div>
+                        <div class="contact-label" data-i18n="ct_phone">电话</div>
                         <div class="contact-value"><a id="contactPhoneLink" href="tel:18100338800">18100338800</a></div>
                     </div>
-                    <button class="copy-btn" id="copyPhone">复制</button>
+                    <button class="copy-btn" id="copyPhone" data-i18n="ct_copy">复制</button>
                 </div>
                 <div class="contact-card">
                     <div class="contact-icon">✉️</div>
                     <div>
-                        <div class="contact-label">邮箱</div>
+                        <div class="contact-label" data-i18n="ct_email">邮箱</div>
                         <div class="contact-value"><a id="contactEmailLink" href="mailto:AllenGaoChina@outlook.com">AllenGaoChina@outlook.com</a></div>
                     </div>
-                    <button class="copy-btn" id="copyEmail">复制</button>
+                    <button class="copy-btn" id="copyEmail" data-i18n="ct_copy">复制</button>
                 </div>
                 <div class="contact-card">
                     <div class="contact-icon">📍</div>
                     <div>
-                        <div class="contact-label">所在地</div>
+                        <div class="contact-label" data-i18n="ct_loc">所在地</div>
                         <div class="contact-value" id="contactLocation">浙江杭州</div>
                     </div>
                 </div>
                 <div class="contact-card">
                     <div class="contact-icon">💼</div>
                     <div>
-                        <div class="contact-label">求职意向</div>
+                        <div class="contact-label" data-i18n="ct_intent">求职意向</div>
                         <div class="contact-value" id="contactIntent">新媒体运营 / 品牌策划</div>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">📄</div>
+                    <div>
+                        <div class="contact-label" data-i18n="ct_resume">简历</div>
+                        <div class="contact-value"><button class="copy-btn" id="contactResumeBtn" data-i18n="ct_dl">下载简历</button></div>
                     </div>
                 </div>
             </div>
             <form class="contact-form" id="contactForm" novalidate>
-                <h3>给我留言</h3>
+                <h3 data-i18n="form_title">给我留言</h3>
                 <div class="form-row">
-                    <label for="cName">您的称呼 *</label>
-                    <input type="text" id="cName" placeholder="请输入您的姓名或公司名称">
-                    <div class="form-error" id="errName">请填写您的称呼</div>
+                    <label for="cName" data-i18n="form_name">您的称呼 *</label>
+                    <input type="text" id="cName" data-i18n-ph="form_name_ph" placeholder="请输入您的姓名或公司名称">
+                    <div class="form-error" id="errName" data-i18n="form_err_name">请填写您的称呼</div>
                 </div>
                 <div class="form-row">
-                    <label for="cContact">联系方式 *</label>
-                    <input type="text" id="cContact" placeholder="手机号或邮箱">
-                    <div class="form-error" id="errContact">请填写有效的手机号或邮箱</div>
+                    <label for="cContact" data-i18n="form_contact">联系方式 *</label>
+                    <input type="text" id="cContact" data-i18n-ph="form_contact_ph" placeholder="手机号或邮箱">
+                    <div class="form-error" id="errContact" data-i18n="form_err_contact">请填写有效的手机号或邮箱</div>
                 </div>
                 <div class="form-row">
-                    <label for="cMsg">留言内容 *</label>
-                    <textarea id="cMsg" rows="4" placeholder="简单描述您的需求或合作意向"></textarea>
-                    <div class="form-error" id="errMsg">请填写留言内容（至少 5 个字）</div>
+                    <label for="cMsg" data-i18n="form_msg">留言内容 *</label>
+                    <textarea id="cMsg" rows="4" data-i18n-ph="form_msg_ph" placeholder="简单描述您的需求或合作意向"></textarea>
+                    <div class="form-error" id="errMsg" data-i18n="form_err_msg">请填写留言内容（至少 5 个字）</div>
                 </div>
-                <button type="submit" class="btn btn-primary">发送留言</button>
-                <div class="form-note">提交后将调用本机邮件客户端，直接发送至我的邮箱</div>
+                <button type="submit" class="btn btn-primary" data-i18n="form_send">发送留言</button>
+                <div class="form-note" data-i18n="form_note">提交后将调用本机邮件客户端，直接发送至我的邮箱</div>
             </form>
         </div>
     </section>
 
     <footer>
         <div class="footer-links">
-            <a href="#about">关于我</a>
-            <a href="#portfolio">作品集</a>
-            <a href="#social">社交媒体</a>
-            <a href="#contact">联系我</a>
-            <a href="#" id="adminEntry">管理后台</a>
+            <a href="#about" data-i18n="nav_about">关于我</a>
+            <a href="#portfolio" data-i18n="nav_works">作品集</a>
+            <a href="#social" data-i18n="nav_social">社交媒体</a>
+            <a href="#contact" data-i18n="nav_contact">联系我</a>
+            <a href="#" id="adminEntry" data-i18n="admin">管理后台</a>
         </div>
-        <p>© <span id="year"></span> 高洁 Allen Gao · 新媒体运营与品牌策划 · 用内容创造价值</p>
+        <p>© <span id="year"></span> <span data-i18n="footer_line">高洁 Allen Gao · 新媒体运营与品牌策划 · 用内容创造价值</span></p>
+        <div id="busuanzi" style="display:none">
+            <span data-i18n="footer_visits">本站访问</span> <span id="busuanzi_value_site_pv">0</span> ·
+            <span data-i18n="footer_visitors">访客</span> <span id="busuanzi_value_site_uv">0</span>
+        </div>
     </footer>
 
     <button id="back-top" aria-label="返回顶部">↑</button>
@@ -969,6 +988,19 @@
         <div class="lightbox-caption" id="lightboxCaption"></div>
     </div>
 
+    <div class="detail-modal" id="detailModal">
+        <div class="detail-card">
+            <div class="detail-media" id="detailMedia"><div class="ph">加载中…</div></div>
+            <button class="detail-close" id="detailClose" aria-label="关闭">✕</button>
+            <div class="detail-body">
+                <div class="detail-cat" id="detailCat"></div>
+                <h3 class="detail-title" id="detailTitle"></h3>
+                <div class="detail-metrics" id="detailMetrics"></div>
+                <p class="detail-desc" id="detailDesc"></p>
+            </div>
+        </div>
+    </div>
+
     <div class="toast-area" id="toastArea"></div>
 
     <!-- 管理后台 -->
@@ -976,8 +1008,8 @@
         <div class="admin-panel">
             <div class="admin-head">
                 <div>
-                    <h2>管理后台</h2>
-                    <div class="sub">改动自动保存在本机浏览器 · 发布后全站可见</div>
+                    <h2 data-i18n="admin_title">管理后台</h2>
+                    <div class="sub" data-i18n="admin_sub">改动自动保存在本机浏览器 · 发布后全站可见</div>
                 </div>
                 <button class="admin-close" id="adminClose" aria-label="关闭后台">✕</button>
             </div>
@@ -986,6 +1018,7 @@
                 <button class="admin-tab" data-tab="works">作品</button>
                 <button class="admin-tab" data-tab="life">生活</button>
                 <button class="admin-tab" data-tab="social">社交</button>
+                <button class="admin-tab" data-tab="exp">经历</button>
                 <button class="admin-tab" data-tab="backup">发布 / 备份</button>
             </div>
             <div class="admin-body">
@@ -1027,7 +1060,7 @@
 
                     <div class="a-group-title">关于我</div>
                     <div class="a-field">
-                        <label>个人照片（自动压缩）</label>
+                        <label>个人照片（自动压缩，存本地数据库）</label>
                         <div class="img-upload-box" id="avatarBox">
                             <div id="avatarPrevWrap"><div>🖼️</div><div class="up-label">点击上传照片</div></div>
                         </div>
@@ -1045,6 +1078,16 @@
                     <div class="a-field">
                         <label>技能标签（逗号分隔）</label>
                         <input type="text" id="inTags">
+                    </div>
+
+                    <div class="a-group-title">简历下载</div>
+                    <div class="a-field">
+                        <label>简历 PDF（可选，≤ 2MB，存本地数据库）</label>
+                        <div class="img-upload-box" id="resumeBox">
+                            <div id="resumePrev"><div>📄</div><div class="up-label">点击上传简历 PDF</div></div>
+                        </div>
+                        <input type="file" id="inResume" accept=".pdf,application/pdf" style="display:none">
+                        <button class="a-btn mini danger" id="resumeClear" style="margin-top:0.5rem">清除简历</button>
                     </div>
 
                     <div class="a-group-title">能力条</div>
@@ -1082,8 +1125,12 @@
                         </select>
                     </div>
                     <div class="a-field">
+                        <label>数据成果（多个用英文分号 ; 分隔，如：30W+ 月传播量;20W+ GMV）</label>
+                        <input type="text" id="workMetrics" placeholder="30W+ 月传播;20W+ 直播GMV">
+                    </div>
+                    <div class="a-field">
                         <label>作品描述</label>
-                        <textarea id="workDesc" rows="3" placeholder="一句话介绍项目亮点与数据成果"></textarea>
+                        <textarea id="workDesc" rows="3" placeholder="详细介绍项目背景、职责与成果"></textarea>
                     </div>
                     <div class="a-field">
                         <label>封面图 / 视频（图片自动压缩；视频限 1.5MB 内）</label>
@@ -1117,7 +1164,7 @@
                         <textarea id="lifeDesc" rows="3" placeholder="记录这段经历的感受"></textarea>
                     </div>
                     <div class="a-field">
-                        <label>图片（可多选，自动压缩）</label>
+                        <label>图片（可多选，自动压缩，存本地数据库）</label>
                         <div class="img-upload-box" id="lifeImgBox">
                             <div>🖼️</div><div class="up-label">点击上传一张或多张</div>
                         </div>
@@ -1162,30 +1209,59 @@
                     <button class="a-btn" id="addLinkBtn">＋ 添加链接</button>
                 </div>
 
+                <div class="admin-pane" id="pane-exp">
+                    <div class="a-group-title">数据亮点（首页 4 宫格）</div>
+                    <div id="highlightEditor"></div>
+                    <div class="a-group-title">工作经历时间线</div>
+                    <div class="admin-list" id="tlList"></div>
+                    <div class="a-group-title" id="tlFormTitle">添加工作经历</div>
+                    <input type="hidden" id="editingTlId">
+                    <div class="a-row">
+                        <div class="a-field"><label>时间</label><input type="text" id="tlDate" placeholder="如：2023.06 - 2024.10"></div>
+                        <div class="a-field"><label>职位</label><input type="text" id="tlTitle" placeholder="如：新媒体运营"></div>
+                    </div>
+                    <div class="a-field"><label>公司</label><input type="text" id="tlCompany" placeholder="如：杭州玖逸行特斯拉授权钣喷中心"></div>
+                    <div class="a-field"><label>描述</label><textarea id="tlDesc" rows="3" placeholder="职责与成果简介"></textarea></div>
+                    <div style="display:flex;gap:0.7rem">
+                        <button class="a-btn primary" id="saveTlBtn">保存经历</button>
+                        <button class="a-btn" id="resetTlBtn">取消编辑</button>
+                    </div>
+                </div>
+
                 <div class="admin-pane" id="pane-backup">
-                    <div class="a-group-title">发布到线上（全站可见）</div>
+                    <div class="a-group-title">🚀 一键发布到线上（全站可见）</div>
                     <div class="help-box">
-                        <strong>发布流程（约 2 分钟）：</strong>
-                        <ol>
-                            <li>在其他标签页完成内容修改（已自动保存在本机）</li>
-                            <li>点击下方 <strong>「导出 site-data.js」</strong>，得到数据文件</li>
-                            <li>打开 <strong>github.com/g19930311-lang/allen-gao-portfolio</strong></li>
-                            <li>点 <strong>Add file → Upload files</strong>，上传该文件（覆盖同名文件），点 <strong>Commit changes</strong></li>
-                            <li>等待约 1 分钟，刷新网站即可全站生效 🎉</li>
-                        </ol>
-                        也可以把导出的文件发给 AI 助手，让助手帮你推送。
+                        在下方填入 GitHub Token（需 <strong>repo</strong> 权限，创建地址：<strong>github.com/settings/tokens</strong>），点发布即可把 site-data.js 直接推送到仓库，<strong>无需手动上传文件</strong>。Token 仅保存在本机浏览器。
+                    </div>
+                    <div class="a-field" style="margin-top:1rem">
+                        <label>GitHub Token（repo 权限）</label>
+                        <input type="password" id="ghToken" placeholder="ghp_... 或 github_pat_...">
+                    </div>
+                    <div class="a-field">
+                        <label>仓库（默认已填好）</label>
+                        <input type="text" id="ghRepo" value="g19930311-lang/allen-gao-portfolio">
+                    </div>
+                    <div style="display:flex;gap:0.7rem;flex-wrap:wrap">
+                        <button class="a-btn primary" id="publishBtn">⬆️ 一键发布</button>
+                        <span id="publishStatus" style="align-self:center;font-size:0.8rem;color:var(--text-muted)"></span>
+                    </div>
+
+                    <div class="a-group-title">手动导出（备用）</div>
+                    <div class="help-box">
+                        <strong>备用流程：</strong>点「导出 site-data.js」→ 到 <strong>github.com/g19930311-lang/allen-gao-portfolio</strong> → Add file → Upload files 上传（覆盖同名文件）→ Commit。约 1 分钟后生效。
                     </div>
                     <div style="display:flex;gap:0.7rem;margin-top:1rem;flex-wrap:wrap">
-                        <button class="a-btn primary" id="exportDataBtn">⬇️ 导出 site-data.js</button>
+                        <button class="a-btn" id="exportDataBtn">⬇️ 导出 site-data.js</button>
                         <button class="a-btn" id="exportJsonBtn">导出 JSON 备份</button>
                         <button class="a-btn" id="importJsonBtn">导入 JSON 备份</button>
                         <input type="file" id="importJsonFile" accept="application/json,.json" style="display:none">
                     </div>
                     <div class="storage-note">
                         <div style="display:flex;justify-content:space-between;margin-bottom:0.2rem">
-                            <span>本机存储占用</span><span id="adminStorageText">0 KB / 5 MB</span>
+                            <span>本地数据库占用</span><span id="adminStorageText">0</span>
                         </div>
                         <div class="admin-storage-track"><div class="admin-storage-fill" id="adminStorageFill"></div></div>
+                        <div style="margin-top:0.4rem">图片已升级存储到浏览器 IndexedDB 数据库，容量约数百 MB，不再受 5MB 限制</div>
                     </div>
 
                     <div class="a-group-title">安全</div>
@@ -1193,10 +1269,10 @@
                         <div class="a-field"><label>新密码</label><input type="password" id="inNewPass" placeholder="至少 6 位"></div>
                         <div class="a-field"><label>&nbsp;</label><button class="a-btn" id="changePassBtn" style="width:100%">修改后台密码</button></div>
                     </div>
-                    <div class="warn-box">⚠️ 后台密码仅保护本机编辑入口；网站数据本身是公开的静态文件。请勿在公共设备上使用后台。</div>
+                    <div class="warn-box">⚠️ 后台密码仅保护本机编辑入口；GitHub Token 仅保存在本机浏览器，请勿在公共设备上使用后台。</div>
 
                     <div class="a-group-title">危险操作</div>
-                    <button class="a-btn danger" id="resetAllBtn">恢复默认内容（清除本机全部修改）</button>
+                    <button class="a-btn danger" id="resetAllBtn">恢复默认内容（清除本机全部修改与上传图片）</button>
                 </div>
 
             </div>
@@ -1206,14 +1282,15 @@
     <div class="admin-login" id="adminLogin">
         <div class="login-card">
             <div class="lock">🔐</div>
-            <h3>管理后台</h3>
-            <p>请输入后台密码（默认 allen2024）</p>
+            <h3 data-i18n="admin">管理后台</h3>
+            <p data-i18n="login_hint">请输入后台密码（默认 allen2024）</p>
             <input type="password" id="loginPass" placeholder="后台密码">
-            <div class="err" id="loginErr">密码错误，请重试</div>
-            <button class="btn btn-primary" id="loginBtn">进入后台</button>
+            <div class="err" id="loginErr" data-i18n="login_err">密码错误，请重试</div>
+            <button class="btn btn-primary" id="loginBtn" data-i18n="login_enter">进入后台</button>
         </div>
     </div>
 
+    <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
     <script>
     (function () {
         'use strict';
@@ -1294,9 +1371,210 @@
         }
         function dataUrlSizeKB(dataUrl) { return Math.round((dataUrl || '').length * 0.75 / 1024); }
 
-        /* ================= 默认数据 ================= */
+        /* ================= IndexedDB 资产存储（大图/视频/PDF） ================= */
+        const AssetStore = {
+            db: null,
+            map: new Map(),
+            key: 'gj_assets_db',
+            open() {
+                if (this.db) return Promise.resolve(this.db);
+                return new Promise(function (resolve, reject) {
+                    const req = indexedDB.open('gj_portfolio_assets', 1);
+                    req.onupgradeneeded = function () {
+                        const db = req.result;
+                        if (!db.objectStoreNames.contains('assets')) db.createObjectStore('assets');
+                    };
+                    req.onsuccess = function () { resolve(req.result); };
+                    req.onerror = function () { reject(req.error); };
+                });
+            },
+            async init() {
+                try {
+                    const db = await this.open();
+                    this.db = db;
+                    await new Promise(function (resolve, reject) {
+                        const tx = db.transaction('assets', 'readonly');
+                        const store = tx.objectStore('assets');
+                        const req = store.openCursor();
+                        const map = new Map();
+                        req.onsuccess = function () {
+                            const cur = req.result;
+                            if (cur) { map.set(cur.key, cur.value); cur.continue(); }
+                            else resolve(map);
+                        };
+                        req.onerror = function () { reject(req.error); };
+                    }).then(function (m) { AssetStore.map = m; });
+                } catch (e) { /* 不支持 IndexedDB 时降级：仅内存 */ }
+            },
+            async put(dataUrl, type) {
+                const id = (type === 'video' ? 'v_' : 'i_') + uid();
+                if (this.db) {
+                    await new Promise(function (resolve, reject) {
+                        const tx = AssetStore.db.transaction('assets', 'readwrite');
+                        tx.objectStore('assets').put(dataUrl, id);
+                        tx.oncomplete = resolve;
+                        tx.onerror = function () { reject(tx.error); };
+                    });
+                }
+                this.map.set(id, dataUrl);
+                return id;
+            },
+            async del(id) {
+                if (!id) return;
+                this.map.delete(id);
+                if (this.db) {
+                    try {
+                        await new Promise(function (resolve, reject) {
+                            const tx = AssetStore.db.transaction('assets', 'readwrite');
+                            tx.objectStore('assets').delete(id);
+                            tx.oncomplete = resolve;
+                            tx.onerror = function () { reject(tx.error); };
+                        });
+                    } catch (e) { /* ignore */ }
+                }
+            },
+            resolve(ref) {
+                if (typeof ref === 'string' && ref.indexOf('__asset__:') === 0) {
+                    return this.map.get(ref.slice(10)) || '';
+                }
+                return ref || '';
+            }
+        };
+        function isAssetRef(v) { return typeof v === 'string' && v.indexOf('__asset__:') === 0; }
+        function removeAssetRef(ref) { if (isAssetRef(ref)) AssetStore.del(ref.slice(10)); }
+        function assetKind(ref) {
+            if (typeof ref === 'string' && ref.indexOf('__asset__:') === 0) {
+                const id = ref.slice(10);
+                if (id.indexOf('v_') === 0) return 'video';
+            }
+            return 'image';
+        }
+
+        /* 把对象中的 dataURL 全部转为 asset 引用（用于导入/保存） */
+        async function assetify(obj) {
+            const out = JSON.parse(JSON.stringify(obj));
+            const tasks = [];
+            function walk(node, path) {
+                if (!node || typeof node !== 'object') return;
+                if (typeof node === 'string') return;
+                if (Array.isArray(node)) { node.forEach(function (v, i) { if (typeof v === 'string' && v.indexOf('data:') === 0) { tasks.push(function () { return AssetStore.put(v, v.indexOf('data:video') === 0 ? 'video' : 'image').then(function (id) { node[i] = '__asset__:' + id; }); }); } else walk(v, path); }); return; }
+                Object.keys(node).forEach(function (k) {
+                    const v = node[k];
+                    if (typeof v === 'string' && v.indexOf('data:') === 0) {
+                        tasks.push(function () { return AssetStore.put(v, v.indexOf('data:video') === 0 ? 'video' : 'image').then(function (id) { node[k] = '__asset__:' + id; }); });
+                    } else walk(v, path + '.' + k);
+                });
+            }
+            walk(out, '');
+            for (const t of tasks) await t();
+            return out;
+        }
+
+        /* 把对象中的 asset 引用全部解析为 dataURL（用于导出 site-data.js / JSON） */
+        function materialize(obj) {
+            const out = JSON.parse(JSON.stringify(obj));
+            function walk(node) {
+                if (!node || typeof node !== 'object') return;
+                if (Array.isArray(node)) { node.forEach(walk); return; }
+                Object.keys(node).forEach(function (k) {
+                    const v = node[k];
+                    if (typeof v === 'string' && v.indexOf('__asset__:') === 0) {
+                        node[k] = AssetStore.resolve(v);
+                    } else walk(v);
+                });
+            }
+            walk(out);
+            return out;
+        }
+
+        /* ================= 多语言 ================= */
+        const I18N = {
+            zh: {
+                nav_about: '关于我', nav_skills: '能力', nav_exp: '经历',
+                nav_works: '作品集', nav_life: '我的生活', nav_social: '社交媒体', nav_contact: '联系我',
+                hero_view: '查看作品', hero_contact: '联系我', hero_resume: '下载简历',
+                sec_about: '关于我', sec_about_sub: '致力于品牌 / 营销 / 内容 / 产品 / 服务一体化',
+                sec_skills: '专业能力', sec_skills_sub: '9年积累的核心技能分布',
+                sec_exp: '工作经历', sec_exp_sub: '从基层到管理，每一步都扎实有力',
+                sec_works: '作品集', sec_works_sub: '精选项目案例，展示专业能力',
+                sec_life: '我的生活', sec_life_sub: '工作之外，认真生活 —— 兴趣、爱好与热爱的一切',
+                sec_social: '社交媒体', sec_social_sub: '关注我，一起记录品牌与生活',
+                sec_contact: '联系我', sec_contact_sub: '期待与您合作，共创品牌价值',
+                ct_phone: '电话', ct_email: '邮箱', ct_loc: '所在地', ct_intent: '求职意向', ct_resume: '简历',
+                ct_copy: '复制', ct_dl: '下载简历',
+                f_all: '全部', f_video: '短视频', f_brand: '品牌策划', f_live: '直播运营', f_private: '私域运营', f_content: '内容运营',
+                ws_empty: '暂无作品，请在管理后台「作品」标签中添加',
+                ws_ph: '案例图片', ws_open: '点击查看详情', ws_noimg: '该作品还没有配图，可在后台上传',
+                life_empty: '暂无内容，请在管理后台「生活」标签中添加',
+                life_noimg: '这条记录还没有图片，可在后台上传',
+                social_follow: '微信扫码 · 识别关注「{name}」', social_qr_hint: '后台可上传二维码',
+                form_title: '给我留言', form_name: '您的称呼 *', form_contact: '联系方式 *', form_msg: '留言内容 *',
+                form_name_ph: '请输入您的姓名或公司名称', form_contact_ph: '手机号或邮箱', form_msg_ph: '简单描述您的需求或合作意向',
+                form_err_name: '请填写您的称呼', form_err_contact: '请填写有效的手机号或邮箱', form_err_msg: '请填写留言内容（至少 5 个字）',
+                form_send: '发送留言', form_note: '提交后将调用本机邮件客户端，直接发送至我的邮箱',
+                form_toast: '请检查表单中标红的内容', form_mailtoast: '已调用邮件客户端，请确认发送',
+                footer_line: '高洁 Allen Gao · 新媒体运营与品牌策划 · 用内容创造价值',
+                footer_visits: '本站访问', footer_visitors: '访客',
+                admin: '管理后台', admin_title: '管理后台', admin_sub: '改动自动保存在本机浏览器 · 发布后全站可见',
+                login_hint: '请输入后台密码（默认 allen2024）', login_err: '密码错误，请重试', login_enter: '进入后台',
+                resume_no: '请先在后台「内容」标签上传简历 PDF', dl_resume: '下载简历'
+            },
+            en: {
+                nav_about: 'About', nav_skills: 'Skills', nav_exp: 'Experience',
+                nav_works: 'Portfolio', nav_life: 'Life', nav_social: 'Social', nav_contact: 'Contact',
+                hero_view: 'View Works', hero_contact: 'Contact Me', hero_resume: 'Resume',
+                sec_about: 'About Me', sec_about_sub: 'Brand / Marketing / Content / Product / Service, integrated',
+                sec_skills: 'Core Skills', sec_skills_sub: '9 years of expertise, at a glance',
+                sec_exp: 'Experience', sec_exp_sub: 'From the ground up, every step counts',
+                sec_works: 'Portfolio', sec_works_sub: 'Selected projects that show what I can do',
+                sec_life: 'My Life', sec_life_sub: 'Beyond work — hobbies, passions & everyday moments',
+                sec_social: 'Social Media', sec_social_sub: 'Follow me on WeChat',
+                sec_contact: 'Contact', sec_contact_sub: 'Let’s create brand value together',
+                ct_phone: 'Phone', ct_email: 'Email', ct_loc: 'Location', ct_intent: 'Job Intent', ct_resume: 'Resume',
+                ct_copy: 'Copy', ct_dl: 'Download',
+                f_all: 'All', f_video: 'Video', f_brand: 'Branding', f_live: 'Live Commerce', f_private: 'Private Domain', f_content: 'Content',
+                ws_empty: 'No works yet — add one in the admin panel',
+                ws_ph: 'Case image', ws_open: 'Click for details', ws_noimg: 'No cover yet — upload it in the admin panel',
+                life_empty: 'Nothing here yet — add a post in the admin panel',
+                life_noimg: 'No photos yet — upload them in the admin panel',
+                social_follow: 'Scan the QR code to follow「{name}」', social_qr_hint: 'QR code available soon',
+                form_title: 'Leave a Message', form_name: 'Your Name *', form_contact: 'Contact *', form_msg: 'Message *',
+                form_name_ph: 'Your name or company', form_contact_ph: 'Phone or email', form_msg_ph: 'Briefly describe your needs',
+                form_err_name: 'Please enter your name', form_err_contact: 'Enter a valid phone or email', form_err_msg: 'Message needs at least 5 characters',
+                form_send: 'Send Message', form_note: 'Opens your local mail client to send directly to my inbox',
+                form_toast: 'Please check the highlighted fields', form_mailtoast: 'Mail client opened — please confirm sending',
+                footer_line: 'Allen Gao · Digital Marketing & Brand Strategy · Create value through content',
+                footer_visits: 'Visits', footer_visitors: 'Visitors',
+                admin: 'Admin', admin_title: 'Admin Panel', admin_sub: 'Changes are saved locally · Publish to go live',
+                login_hint: 'Enter admin password (default allen2024)', login_err: 'Wrong password', login_enter: 'Enter',
+                resume_no: 'Upload your resume PDF in the admin panel first', dl_resume: 'Resume'
+            }
+        };
+        let currentLang = 'zh';
+        try { currentLang = localStorage.getItem('gj_lang') || 'zh'; } catch (e) { /* ignore */ }
+        function T(key) {
+            const d = I18N[currentLang] || I18N.zh;
+            return d[key] || I18N.zh[key] || key;
+        }
+        function applyLang() {
+            document.querySelectorAll('[data-i18n]').forEach(function (el) {
+                const k = el.dataset.i18n;
+                const t = I18N[currentLang][k];
+                if (t !== undefined) el.textContent = t;
+            });
+            document.querySelectorAll('[data-i18n-ph]').forEach(function (el) {
+                const k = el.dataset.i18nPh;
+                const t = I18N[currentLang][k];
+                if (t !== undefined) el.placeholder = t;
+            });
+            const lt = document.getElementById('langToggle');
+            if (lt) lt.textContent = currentLang === 'zh' ? 'EN' : '中';
+            document.documentElement.lang = currentLang === 'zh' ? 'zh-CN' : 'en';
+        }
+
+        /* ================= 默认数据 v3 ================= */
         const DEFAULT_DATA = {
-            version: 2,
+            version: 3,
             hero: {
                 badge: '新媒体运营 & 品牌策划',
                 line1: '用内容创造价值',
@@ -1325,13 +1603,27 @@
                 { label: '直播电商运营', level: 85 },
                 { label: '数据分析与投放', level: 82 }
             ],
+            timeline: [
+                { id: 't1', date: '2023.06 - 2024.10', title: '新媒体运营', company: '杭州玖逸行特斯拉授权钣喷中心', desc: '对接特斯拉厂家品牌活动，执行C类活动；构建公司新媒体矩阵，对接媒介机构，储备达人资源；品牌内容的制作输出及调性把控；组织交流会、商务拜访，维护合作关系。' },
+                { id: 't2', date: '2022.05 - 2023.06', title: '高级新媒体运营', company: '杭州锐鲨科技有限公司（蘑菇街子公司）', desc: '蘑菇街子公司S级项目PM，负责安踏会员项目；短视频内容创意策划，月度视频传播量30W+；月度直播GMV 20W+；月度私域沉淀企微好友2W+。' },
+                { id: 't3', date: '2021.09 - 2022.05', title: '品牌策划及新媒体运营', company: '杭州橙色星球科技有限公司', desc: '搭建品牌形象及维护策略，撰写PR公关稿件；组建新媒体内容传播矩阵；建立健全公司VI视觉体系；协助电商端内容输出详情页产品文案、海报等。' },
+                { id: 't4', date: '2020.03 - 2021.09', title: '新媒体运营总监', company: '中鑫之宝汽车服务有限公司', desc: '搭建私域运营体系；单独运营"发动机精修"项目品牌策划；打造"汽车维修技术研究院"公众号及视频号；对团队人员进行管理、培训。' },
+                { id: 't5', date: '2019.02 - 2020.03', title: '新媒体运营总监', company: '河南深蓝电子商务有限公司', desc: '组建短视频运营、直播运营团队；定位打造"蓝兮儿"价值品牌及抖音账号矩阵；蓝兮儿微商城筹建与完善；直播运营数据增长及方案策划。' },
+                { id: 't6', date: '2017.01 - 2019.02', title: '新媒体运营主管', company: '河南纳食信息科技有限公司', desc: '负责新媒体运营策划，文案选编；微信公众平台运营管理，55万粉丝订阅号；社群建设与维护；线下糖酒会、商会论坛活动策划与执行。' }
+            ],
+            highlights: [
+                { num: '55W+', txt: '公众号粉丝矩阵' },
+                { num: '100+', txt: '服务门店覆盖' },
+                { num: '30W+', txt: '月度视频传播量' },
+                { num: '9年', txt: '行业深耕经验' }
+            ],
             works: [
-                { id: 'w1', category: 'brand', title: '中鑫之宝品牌升级', desc: 'VI、logo、slogan等品牌升级策划，微信服务号改版升级，"发动机精修"独立品牌项目策划及传播平台搭建。', image: '' },
-                { id: 'w2', category: 'video', title: '安踏会员项目短视频运营', desc: '短视频内容创意策划，把控拍摄及后期制作质量，月度视频传播量30W+，提供粉丝数据增长有效解决方案。', image: '' },
-                { id: 'w3', category: 'live', title: '直播运营数据增长项目', desc: '直播方案策划及供应商洽谈，月度直播GMV 20W+，对直播营销团队进行考核管理。', image: '' },
-                { id: 'w4', category: 'private', title: '橙色星球私域矩阵搭建', desc: '搭建私域运营体系，以企业微信、个人微信客户关系组建社群体系，实现流量沉淀与转化。', image: '' },
-                { id: 'w5', category: 'brand', title: '橙色星球品牌价值构建', desc: '创造橙色星球牧场、果园、咖啡庄园"第三世界"故事内容，私域运营体系搭建。', image: '' },
-                { id: 'w6', category: 'content', title: '纳食公众号矩阵（55万粉丝）', desc: '55万粉丝快消品行业订阅号运营；15个服务号媒体矩阵运营管理；线下糖酒会、商会论坛活动策划。', image: '' }
+                { id: 'w1', category: 'brand', title: '中鑫之宝品牌升级', desc: '主导中鑫之宝VI、logo、slogan等品牌升级策划，策划微商城搭建；微信服务号改版升级，倾向以用户运营为基础的文案撰写与排版；"发动机精修"独立品牌项目策划及传播平台搭建，覆盖服务号、视频号等渠道。', metrics: '品牌VI升级 1 套;传播平台 3 个', image: '' },
+                { id: 'w2', category: 'video', title: '安踏会员项目短视频运营', desc: '蘑菇街S级项目PM，对接品牌方推进短视频板块数据增长；短视频内容创意策划，把控拍摄与后期质量；制定投放策略优化转化比，协调直播、社群团队推进整体数据。', metrics: '30W+ 月视频传播;20W+ 月直播GMV;2W+ 私域沉淀', image: '' },
+                { id: 'w3', category: 'live', title: '直播运营数据增长项目', desc: '负责直播方案策划、供应商洽谈与直播团队考核管理；从选品、排期到复盘全流程推进直播数据增长。', metrics: '20W+ 月直播GMV', image: '' },
+                { id: 'w4', category: 'private', title: '橙色星球私域矩阵搭建', desc: '搭建私域运营体系，以企业微信、个人微信客户关系组建社群体系；结合牧场、果园、咖啡庄园"第三世界"品牌故事内容，实现流量沉淀与转化。', metrics: '企微沉淀 2W+;社群体系 1 套', image: '' },
+                { id: 'w5', category: 'brand', title: '橙色星球品牌价值构建', desc: '从0到1构建"橙色星球"品牌价值，创作牧场、果园、咖啡庄园"第三世界"故事内容；完善VI视觉体系，协助电商端详情页、海报等视觉输出。', metrics: 'IP故事线 3 条;私域体系 1 套', image: '' },
+                { id: 'w6', category: 'content', title: '纳食公众号矩阵（55万粉丝）', desc: '运营快消品垂直领域最大订阅号"纳食"（55万粉丝）及15个服务号媒体矩阵；负责文案选编、营销软文选题与爆点策划；组织线下糖酒会、商会论坛活动。', metrics: '55W+ 粉丝;15 个矩阵号', image: '' }
             ],
             life: [
                 { id: 'l1', title: '摄影 · 用镜头记录城市', date: '2024-08', emoji: '📷', desc: '喜欢在周末扫街，捕捉城市的光影与烟火气。摄影教会我用镜头讲品牌故事，也讲生活故事。', images: [] },
@@ -1347,7 +1639,8 @@
                 phone: '18100338800',
                 email: 'AllenGaoChina@outlook.com',
                 location: '浙江杭州',
-                intent: '新媒体运营 / 品牌策划'
+                intent: '新媒体运营 / 品牌策划',
+                resume: ''
             }
         };
 
@@ -1363,10 +1656,6 @@
             const raw = localStorage.getItem(LOCAL_KEY);
             if (raw) DATA = deepMerge(DATA, JSON.parse(raw));
         } catch (e) { /* 损坏数据忽略 */ }
-        try {
-            const oldAvatar = localStorage.getItem('portfolioAvatar');
-            if (oldAvatar && !DATA.about.avatar) DATA.about.avatar = oldAvatar;
-        } catch (e) { /* ignore */ }
 
         function saveData(silent) {
             try {
@@ -1374,12 +1663,22 @@
                 updateAdminStorageBar();
                 if (!silent) toast('已保存（本机）', 'success');
             } catch (err) {
-                toast('本机存储已满，请压缩或删除部分图片', 'error');
+                toast('本机存储异常，请导出备份后清理', 'error');
             }
         }
         const saveDataDebounced = debounce(function () { saveData(true); }, 600);
 
-        /* ================= 站点渲染 ================= */
+        /* 后台资产字段清单（用于导入时 assetify） */
+        function assetPaths() {
+            return [
+                ['about', 'avatar'],
+                ['contact', 'resume'],
+                ['social', 'wechat', 'qr'],
+                ['social', 'channels', 'qr']
+            ];
+        }
+
+        /* ================= 渲染 ================= */
         const typedPhrases = (DATA.hero.phrases && DATA.hero.phrases.length)
             ? DATA.hero.phrases.slice() : ['让品牌被看见'];
 
@@ -1417,8 +1716,9 @@
                 tags.appendChild(s);
             });
             const frame = document.getElementById('avatarFrame');
-            if (DATA.about.avatar) {
-                frame.innerHTML = '<img src="' + DATA.about.avatar + '" alt="个人照片">';
+            const avatar = AssetStore.resolve(DATA.about.avatar);
+            if (avatar) {
+                frame.innerHTML = '<img loading="lazy" src="' + avatar + '" alt="个人照片">';
             } else {
                 frame.innerHTML = '<div class="placeholder"><span class="up-icon">🖼️</span><span>个人照片<br><small>（在后台设置）</small></span></div>';
             }
@@ -1438,24 +1738,58 @@
             bindSkillBars(wrap);
         }
 
+        function renderTimeline() {
+            const wrap = document.getElementById('timelineWrap');
+            wrap.innerHTML = '';
+            if (!DATA.timeline || !DATA.timeline.length) {
+                wrap.innerHTML = '<div class="portfolio-empty">' + T('life_empty') + '</div>';
+                return;
+            }
+            DATA.timeline.forEach(function (item) {
+                const d = document.createElement('div');
+                d.className = 'timeline-item';
+                d.innerHTML =
+                    '<div class="timeline-content">' +
+                        '<div class="timeline-date">' + escapeHtml(item.date) + '</div>' +
+                        '<div class="timeline-title">' + escapeHtml(item.title) + '</div>' +
+                        '<div class="timeline-company">' + escapeHtml(item.company) + '</div>' +
+                        '<div class="timeline-desc">' + escapeHtml(item.desc) + '</div>' +
+                    '</div>' +
+                    '<div class="timeline-dot"></div>';
+                wrap.appendChild(d);
+            });
+        }
+
+        function renderHighlights() {
+            const wrap = document.getElementById('highlightGrid');
+            wrap.innerHTML = '';
+            (DATA.highlights || []).forEach(function (h) {
+                const d = document.createElement('div');
+                d.className = 'highlight-card';
+                d.innerHTML = '<div class="num">' + escapeHtml(h.num) + '</div><div class="txt">' + escapeHtml(h.txt) + '</div>';
+                wrap.appendChild(d);
+            });
+        }
+
         function renderWorks() {
             const grid = document.getElementById('portfolioGrid');
             grid.innerHTML = '';
             if (!DATA.works.length) {
-                grid.innerHTML = '<div class="portfolio-empty">暂无作品，请在管理后台「作品」标签中添加</div>';
+                grid.innerHTML = '<div class="portfolio-empty">' + T('ws_empty') + '</div>';
                 return;
             }
             DATA.works.forEach(function (w) {
                 const card = document.createElement('div');
                 card.className = 'portfolio-card';
                 card.setAttribute('data-category', w.category);
+                const img = AssetStore.resolve(w.image);
                 let mediaHtml;
-                if (w.image && w.image.indexOf('data:video') === 0) {
-                    mediaHtml = '<video src="' + w.image + '" muted preload="metadata"></video><span class="zoom-badge">▶</span>';
-                } else if (w.image) {
-                    mediaHtml = '<img src="' + w.image + '" alt="' + escapeHtml(w.title) + '"><span class="zoom-badge">🔍</span>';
+                if (img && assetKind(w.image) === 'video') {
+                    mediaHtml = '<video src="' + img + '" muted preload="metadata"></video><span class="zoom-badge">▶</span>';
+                } else if (img) {
+                    mediaHtml = '<img loading="lazy" src="' + img + '" alt="' + escapeHtml(w.title) + '"><span class="zoom-badge">🔍</span>';
                 } else {
-                    mediaHtml = '<span>' + escapeHtml(CAT_MAP[w.category] || '作品') + '案例图片</span>';
+                    mediaHtml = '<span>' + escapeHtml(CAT_MAP[w.category] || '') + ' ' + T('ws_ph') + '</span>';
                 }
                 card.innerHTML =
                     '<div class="portfolio-image">' + mediaHtml + '</div>' +
@@ -1472,7 +1806,7 @@
             const grid = document.getElementById('lifeGrid');
             grid.innerHTML = '';
             if (!DATA.life.length) {
-                grid.innerHTML = '<div class="portfolio-empty">暂无内容，请在管理后台「生活」标签中添加</div>';
+                grid.innerHTML = '<div class="portfolio-empty">' + T('life_empty') + '</div>';
                 return;
             }
             DATA.life.forEach(function (item) {
@@ -1480,7 +1814,8 @@
                 card.className = 'life-card';
                 let coverHtml;
                 if (item.images && item.images.length) {
-                    coverHtml = '<img src="' + item.images[0] + '" alt="' + escapeHtml(item.title) + '">' +
+                    const cover = AssetStore.resolve(item.images[0]);
+                    coverHtml = '<img loading="lazy" src="' + cover + '" alt="' + escapeHtml(item.title) + '">' +
                                 (item.images.length > 1 ? '<span class="life-count-badge">📷 ' + item.images.length + '</span>' : '');
                 } else {
                     coverHtml = '<span class="life-emoji">' + escapeHtml(item.emoji || '📷') + '</span>';
@@ -1494,11 +1829,11 @@
                     '</div>';
                 card.addEventListener('click', function () {
                     if (item.images && item.images.length) {
-                        openLightbox(item.images.map(function (src) {
-                            return { src: src, type: 'image', caption: item.title };
+                        openLightbox(item.images.map(function (ref) {
+                            return { src: AssetStore.resolve(ref), type: 'image', caption: item.title };
                         }), 0);
                     } else {
-                        toast('这条记录还没有图片，可在后台上传', 'info');
+                        toast(T('life_noimg'), 'info');
                     }
                 });
                 grid.appendChild(card);
@@ -1517,21 +1852,22 @@
                 if (!s) return;
                 const card = document.createElement('div');
                 card.className = 'social-card';
+                const qr = AssetStore.resolve(s.qr);
                 let qrHtml;
-                if (s.qr) {
-                    qrHtml = '<img src="' + s.qr + '" alt="' + escapeHtml(s.name) + ' 二维码">';
+                if (qr) {
+                    qrHtml = '<img loading="lazy" src="' + qr + '" alt="' + escapeHtml(s.name) + ' 二维码">';
                 } else {
-                    qrHtml = '<div class="qr-hint">' + g.icon + '<br>后台可上传二维码<br>访客将看到占位样式</div>';
+                    qrHtml = '<div class="qr-hint">' + g.icon + '<br>' + T('social_qr_hint') + '</div>';
                 }
                 card.innerHTML =
                     '<div class="social-type">' + g.type + '</div>' +
                     '<div class="social-name">' + escapeHtml(s.name) + '</div>' +
                     '<div class="social-desc">' + escapeHtml(s.desc) + '</div>' +
                     '<div class="social-qr">' + qrHtml + '</div>' +
-                    '<div class="social-follow"><span class="dot"></span>微信扫码 · 识别关注「' + escapeHtml(s.name) + '」</div>';
+                    '<div class="social-follow"><span class="dot"></span>' + T('social_follow').replace('{name}', escapeHtml(s.name)) + '</div>';
                 const qrEl = card.querySelector('.social-qr');
                 qrEl.addEventListener('click', function () {
-                    if (s.qr) openLightbox([{ src: s.qr, type: 'image', caption: g.type + ' · ' + s.name }], 0);
+                    if (qr) openLightbox([{ src: qr, type: 'image', caption: g.type + ' · ' + s.name }], 0);
                     else requestAdmin();
                 });
                 grid.appendChild(card);
@@ -1564,18 +1900,68 @@
             renderHero();
             renderAbout();
             renderSkills();
+            renderTimeline();
+            renderHighlights();
             renderWorks();
             renderLife();
             renderSocial();
             renderContact();
         }
 
+        /* ================= 数字滚动 & 能力条（供渲染调用） ================= */
+        const statObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+                if (e.isIntersecting) { animateNumber(e.target); statObserver.unobserve(e.target); }
+            });
+        }, { threshold: 0.6 });
+        function bindCounters(scope) {
+            (scope || document).querySelectorAll('.stat-number').forEach(function (el) {
+                statObserver.observe(el);
+            });
+        }
+        function animateNumber(el) {
+            const target = parseInt(el.dataset.count, 10) || 0;
+            const suffix = el.dataset.suffix || '';
+            const duration = 1400;
+            const start = performance.now();
+            function step(now) {
+                const p = Math.min((now - start) / duration, 1);
+                const eased = 1 - Math.pow(1 - p, 3);
+                el.textContent = Math.floor(eased * target) + suffix;
+                if (p < 1) requestAnimationFrame(step); else el.textContent = target + suffix;
+            }
+            requestAnimationFrame(step);
+        }
+        const barObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+                if (e.isIntersecting) {
+                    const level = e.target.dataset.level;
+                    const fill = e.target.querySelector('.skill-bar-fill');
+                    setTimeout(function () { fill.style.width = level + '%'; }, 150);
+                    barObserver.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.4 });
+        function bindSkillBars(scope) {
+            (scope || document).querySelectorAll('.skill-bar-item').forEach(function (el) {
+                barObserver.observe(el);
+            });
+        }
+
         /* ================= 基础交互 ================= */
         window.addEventListener('load', function () {
-            setTimeout(function () {
-                document.getElementById('preloader').classList.add('hidden');
+            setTimeout(function () { document.getElementById('preloader').classList.add('hidden'); }, 400);
+            AssetStore.init().then(function () {
+                return assetify(DATA);
+            }).then(function (converted) {
+                DATA = converted;
+                saveData(true);
+                applyAll();
                 startTyping();
-            }, 400);
+            }).catch(function () {
+                applyAll();
+                startTyping();
+            });
         });
 
         const themeToggle = document.getElementById('themeToggle');
@@ -1588,6 +1974,14 @@
             const isLight = document.body.classList.contains('light');
             themeToggle.textContent = isLight ? '☀️' : '🌙';
             localStorage.setItem('portfolioTheme', isLight ? 'light' : 'dark');
+        });
+
+        const langToggle = document.getElementById('langToggle');
+        langToggle.addEventListener('click', function () {
+            currentLang = currentLang === 'zh' ? 'en' : 'zh';
+            try { localStorage.setItem('gj_lang', currentLang); } catch (e) { /* ignore */ }
+            applyLang();
+            applyAll();
         });
 
         const menuToggle = document.getElementById('menuToggle');
@@ -1705,46 +2099,6 @@
         }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
         document.querySelectorAll('.fade-in').forEach(function (el) { fadeObserver.observe(el); });
 
-        const statObserver = new IntersectionObserver(function (entries) {
-            entries.forEach(function (e) {
-                if (e.isIntersecting) { animateNumber(e.target); statObserver.unobserve(e.target); }
-            });
-        }, { threshold: 0.6 });
-        function bindCounters(scope) {
-            (scope || document).querySelectorAll('.stat-number').forEach(function (el) {
-                statObserver.observe(el);
-            });
-        }
-        function animateNumber(el) {
-            const target = parseInt(el.dataset.count, 10) || 0;
-            const suffix = el.dataset.suffix || '';
-            const duration = 1400;
-            const start = performance.now();
-            function step(now) {
-                const p = Math.min((now - start) / duration, 1);
-                const eased = 1 - Math.pow(1 - p, 3);
-                el.textContent = Math.floor(eased * target) + suffix;
-                if (p < 1) requestAnimationFrame(step); else el.textContent = target + suffix;
-            }
-            requestAnimationFrame(step);
-        }
-
-        const barObserver = new IntersectionObserver(function (entries) {
-            entries.forEach(function (e) {
-                if (e.isIntersecting) {
-                    const level = e.target.dataset.level;
-                    const fill = e.target.querySelector('.skill-bar-fill');
-                    setTimeout(function () { fill.style.width = level + '%'; }, 150);
-                    barObserver.unobserve(e.target);
-                }
-            });
-        }, { threshold: 0.4 });
-        function bindSkillBars(scope) {
-            (scope || document).querySelectorAll('.skill-bar-item').forEach(function (el) {
-                barObserver.observe(el);
-            });
-        }
-
         const typedEl = document.getElementById('typedText');
         let pi = 0, ci = 0, deleting = false, typingStarted = false;
         function startTyping() {
@@ -1779,6 +2133,7 @@
             });
         });
 
+        /* 灯箱 */
         const lightbox = document.getElementById('lightbox');
         const lbStage = document.getElementById('lightboxStage');
         const lbCaption = document.getElementById('lightboxCaption');
@@ -1829,6 +2184,7 @@
             if (e.key === 'ArrowRight') lbStep(1);
         });
 
+        /* 作品筛选 */
         document.getElementById('portfolioFilter').addEventListener('click', function (e) {
             const btn = e.target.closest('.filter-btn');
             if (!btn) return;
@@ -1840,21 +2196,11 @@
                 card.style.display = match ? '' : 'none';
             });
         });
-        document.getElementById('portfolioGrid').addEventListener('click', function (e) {
-            const card = e.target.closest('.portfolio-card');
-            if (!card) return;
-            const idx = Array.prototype.indexOf.call(document.querySelectorAll('#portfolioGrid .portfolio-card'), card);
-            const w = DATA.works[idx];
-            if (!w) return;
-            if (!w.image) { toast('该作品还没有配图，可在后台上传', 'info'); return; }
-            const type = w.image.indexOf('data:video') === 0 ? 'video' : 'image';
-            openLightbox([{ src: w.image, type: type, caption: w.title }], 0);
-        });
 
         function copyText(text, btn) {
             const done = function () {
                 const old = btn.textContent;
-                btn.textContent = '已复制';
+                btn.textContent = T('ct_copy');
                 setTimeout(function () { btn.textContent = old; }, 1500);
             };
             if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -1873,6 +2219,7 @@
         document.getElementById('copyPhone').addEventListener('click', function () { copyText(DATA.contact.phone, this); });
         document.getElementById('copyEmail').addEventListener('click', function () { copyText(DATA.contact.email, this); });
 
+        /* 联系表单 */
         const contactForm = document.getElementById('contactForm');
         const cName = document.getElementById('cName');
         const cContact = document.getElementById('cContact');
@@ -1893,11 +2240,11 @@
             setErr(cContact, 'errContact', !contactOk); if (!contactOk) ok = false;
             const msgBad = msgVal.length < 5;
             setErr(cMsg, 'errMsg', msgBad); if (msgBad) ok = false;
-            if (!ok) { toast('请检查表单中标红的内容', 'error'); return; }
+            if (!ok) { toast(T('form_toast'), 'error'); return; }
             const subject = encodeURIComponent('【网站留言】来自 ' + nameVal + ' 的合作咨询');
             const body = encodeURIComponent('称呼：' + nameVal + '\n联系方式：' + contactVal + '\n\n留言内容：\n' + msgVal + '\n\n—— 来自个人作品集网站');
             window.location.href = 'mailto:' + DATA.contact.email + '?subject=' + subject + '&body=' + body;
-            toast('已调用邮件客户端，请确认发送', 'success');
+            toast(T('form_mailtoast'), 'success');
         });
         [[cName, 'errName'], [cContact, 'errContact'], [cMsg, 'errMsg']].forEach(function (pair) {
             pair[0].addEventListener('input', function () { setErr(pair[0], pair[1], false); });
@@ -1989,6 +2336,9 @@
             renderLifeList();
             resetLifeForm();
             buildSocialBindings();
+            renderTlList();
+            resetTlForm();
+            buildHighlightEditor();
             updateAdminStorageBar();
         }
 
@@ -2040,6 +2390,7 @@
             bindField('inLocation', function () { return DATA.contact.location; }, function (v) { DATA.contact.location = v; });
             bindField('inIntent', function () { return DATA.contact.intent; }, function (v) { DATA.contact.intent = v; });
 
+            /* 头像 */
             const avatarBox = document.getElementById('avatarBox');
             const inAvatar = document.getElementById('inAvatar');
             avatarBox.addEventListener('click', function () { inAvatar.click(); });
@@ -2048,22 +2399,64 @@
                 this.value = '';
                 if (!file) return;
                 compressImage(file, 900, 0.85).then(function (dataUrl) {
-                    DATA.about.avatar = dataUrl;
-                    saveData(true); applyAll(); refreshAvatarPrev();
-                    toast('头像已更新（' + dataUrlSizeKB(dataUrl) + ' KB）', 'success');
+                    removeAssetRef(DATA.about.avatar);
+                    return AssetStore.put(dataUrl).then(function (id) {
+                        DATA.about.avatar = '__asset__:' + id;
+                        saveData(true); applyAll(); refreshAvatarPrev();
+                        toast('头像已更新（' + dataUrlSizeKB(dataUrl) + ' KB）', 'success');
+                    });
                 }).catch(function () { toast('图片处理失败', 'error'); });
             });
             refreshAvatarPrev();
+
+            /* 简历 PDF */
+            const resumeBox = document.getElementById('resumeBox');
+            const inResume = document.getElementById('inResume');
+            resumeBox.addEventListener('click', function () { inResume.click(); });
+            inResume.addEventListener('change', function () {
+                const file = this.files && this.files[0];
+                this.value = '';
+                if (!file) return;
+                if (file.size > 2 * 1024 * 1024) { toast('简历请控制在 2MB 内', 'error'); return; }
+                const r = new FileReader();
+                r.onload = function (e) {
+                    const dataUrl = e.target.result;
+                    removeAssetRef(DATA.contact.resume);
+                    AssetStore.put(dataUrl).then(function (id) {
+                        DATA.contact.resume = '__asset__:' + id;
+                        saveData(true);
+                        refreshResumePrev();
+                        toast('简历已上传（' + dataUrlSizeKB(dataUrl) + ' KB）', 'success');
+                    });
+                };
+                r.readAsDataURL(file);
+            });
+            document.getElementById('resumeClear').addEventListener('click', function () {
+                removeAssetRef(DATA.contact.resume);
+                DATA.contact.resume = '';
+                saveData(true);
+                refreshResumePrev();
+                toast('简历已清除', 'success');
+            });
+            refreshResumePrev();
         }
         function refreshAvatarPrev() {
             const wrap = document.getElementById('avatarPrevWrap');
-            if (DATA.about.avatar) {
-                wrap.innerHTML = '<img src="' + DATA.about.avatar + '" alt="头像预览"><div class="up-label">点击更换</div>';
+            const avatar = AssetStore.resolve(DATA.about.avatar);
+            if (avatar) {
+                wrap.innerHTML = '<img src="' + avatar + '" alt="头像预览"><div class="up-label">点击更换</div>';
             } else {
                 wrap.innerHTML = '<div>🖼️</div><div class="up-label">点击上传照片</div>';
             }
         }
+        function refreshResumePrev() {
+            const wrap = document.getElementById('resumePrev');
+            const has = AssetStore.resolve(DATA.contact.resume);
+            if (has) wrap.innerHTML = '<div>📄 已上传简历</div><div class="up-label">点击更换</div>';
+            else wrap.innerHTML = '<div>📄</div><div class="up-label">点击上传简历 PDF</div>';
+        }
 
+        /* 能力编辑器 */
         function buildSkillEditor() {
             const wrap = document.getElementById('skillEditor');
             wrap.innerHTML = '';
@@ -2072,7 +2465,7 @@
                 row.className = 'a-row';
                 row.style.marginBottom = '0.7rem';
                 row.innerHTML =
-                    '<div class="a-field" style="margin:0"><input type="text" value="' + escapeHtml(s.label) + '" data-si="' + i + '" data-f="label"></div>' +
+                    '<div class="a-field" style="margin:0"><input type="text" value="' + escapeHtml(s.label) + '" data-si="' + i + '"></div>' +
                     '<div class="a-field" style="margin:0;display:flex;align-items:center;gap:0.5rem">' +
                         '<input type="range" min="0" max="100" value="' + (+s.level) + '" data-si="' + i + '" style="flex:1">' +
                         '<span style="font-size:0.78rem;min-width:2.4em;text-align:right">' + (+s.level) + '%</span>' +
@@ -2114,9 +2507,10 @@
             DATA.works.forEach(function (w) {
                 const item = document.createElement('div');
                 item.className = 'admin-list-item';
+                const img = AssetStore.resolve(w.image);
                 let thumb = '<span>无图</span>';
-                if (w.image && w.image.indexOf('data:video') === 0) thumb = '<span>🎬</span>';
-                else if (w.image) thumb = '<img src="' + w.image + '" alt="">';
+                if (img && assetKind(w.image) === 'video') thumb = '<span>🎬</span>';
+                else if (img) thumb = '<img src="' + img + '" alt="">';
                 item.innerHTML =
                     '<div class="thumb">' + thumb + '</div>' +
                     '<div class="meta"><div class="t">' + escapeHtml(w.title) + '</div>' +
@@ -2134,6 +2528,7 @@
                 btn.addEventListener('click', function () {
                     const w = DATA.works.find(function (x) { return x.id === btn.dataset.del; });
                     if (w && confirm('确定删除作品「' + w.title + '」吗？')) {
+                        removeAssetRef(w.image);
                         DATA.works = DATA.works.filter(function (x) { return x.id !== w.id; });
                         saveData(true); applyAll(); renderWorkList();
                         toast('作品已删除', 'success');
@@ -2148,6 +2543,7 @@
             document.getElementById('workFormTitle').textContent = '编辑作品';
             document.getElementById('workTitle').value = w.title;
             document.getElementById('workCat').value = w.category;
+            document.getElementById('workMetrics').value = (w.metrics || '').split(';').join(';');
             document.getElementById('workDesc').value = w.desc;
             editingWorkMedia = w.image || '';
             refreshWorkMediaPrev();
@@ -2156,16 +2552,18 @@
             document.getElementById('editingWorkId').value = '';
             document.getElementById('workFormTitle').textContent = '添加新作品';
             document.getElementById('workTitle').value = '';
+            document.getElementById('workMetrics').value = '';
             document.getElementById('workDesc').value = '';
             editingWorkMedia = '';
             refreshWorkMediaPrev();
         }
         function refreshWorkMediaPrev() {
             const prev = document.getElementById('workMediaPrev');
-            if (editingWorkMedia && editingWorkMedia.indexOf('data:video') === 0) {
-                prev.innerHTML = '<video src="' + editingWorkMedia + '" muted preload="metadata" style="max-height:160px;border-radius:8px"></video><div class="up-label">点击更换视频</div>';
-            } else if (editingWorkMedia) {
-                prev.innerHTML = '<img src="' + editingWorkMedia + '" alt="封面预览"><div class="up-label">点击更换图片</div>';
+            const media = AssetStore.resolve(editingWorkMedia);
+            if (media && assetKind(editingWorkMedia) === 'video') {
+                prev.innerHTML = '<video src="' + media + '" muted preload="metadata" style="max-height:160px;border-radius:8px"></video><div class="up-label">点击更换视频</div>';
+            } else if (media) {
+                prev.innerHTML = '<img src="' + media + '" alt="封面预览"><div class="up-label">点击更换图片</div>';
             } else {
                 prev.innerHTML = '<div>🖼️ / 🎬</div><div class="up-label">点击上传图片或视频</div>';
             }
@@ -2182,19 +2580,26 @@
                 }
                 const r = new FileReader();
                 r.onload = function (e) {
-                    editingWorkMedia = e.target.result;
-                    refreshWorkMediaPrev();
+                    removeAssetRef(editingWorkMedia);
+                    AssetStore.put(e.target.result, 'video').then(function (id) {
+                        editingWorkMedia = '__asset__:' + id;
+                        refreshWorkMediaPrev();
+                    });
                 };
                 r.readAsDataURL(file);
             } else {
                 compressImage(file, 1400, 0.82).then(function (dataUrl) {
-                    editingWorkMedia = dataUrl;
-                    refreshWorkMediaPrev();
-                    toast('图片已压缩至 ' + dataUrlSizeKB(dataUrl) + ' KB', 'success');
+                    removeAssetRef(editingWorkMedia);
+                    return AssetStore.put(dataUrl).then(function (id) {
+                        editingWorkMedia = '__asset__:' + id;
+                        refreshWorkMediaPrev();
+                        toast('图片已压缩至 ' + dataUrlSizeKB(dataUrl) + ' KB', 'success');
+                    });
                 }).catch(function () { toast('图片处理失败', 'error'); });
             }
         });
         document.getElementById('workMediaClear').addEventListener('click', function () {
+            removeAssetRef(editingWorkMedia);
             editingWorkMedia = '';
             refreshWorkMediaPrev();
         });
@@ -2205,6 +2610,7 @@
             const payload = {
                 category: document.getElementById('workCat').value,
                 title: title,
+                metrics: document.getElementById('workMetrics').value.trim(),
                 desc: document.getElementById('workDesc').value.trim(),
                 image: editingWorkMedia
             };
@@ -2230,7 +2636,10 @@
                 const el = document.createElement('div');
                 el.className = 'admin-list-item';
                 let thumb = '<span>' + escapeHtml(item.emoji || '📷') + '</span>';
-                if (item.images && item.images.length) thumb = '<img src="' + item.images[0] + '" alt="">';
+                if (item.images && item.images.length) {
+                    const cover = AssetStore.resolve(item.images[0]);
+                    if (cover) thumb = '<img src="' + cover + '" alt="">';
+                }
                 el.innerHTML =
                     '<div class="thumb">' + thumb + '</div>' +
                     '<div class="meta"><div class="t">' + escapeHtml(item.title) + '</div>' +
@@ -2248,6 +2657,7 @@
                 btn.addEventListener('click', function () {
                     const it = DATA.life.find(function (x) { return x.id === btn.dataset.del; });
                     if (it && confirm('确定删除「' + it.title + '」吗？')) {
+                        (it.images || []).forEach(removeAssetRef);
                         DATA.life = DATA.life.filter(function (x) { return x.id !== it.id; });
                         saveData(true); applyAll(); renderLifeList();
                         toast('已删除', 'success');
@@ -2258,13 +2668,16 @@
         function refreshLifeImgsPrev() {
             const wrap = document.getElementById('lifeImgsPrev');
             wrap.innerHTML = '';
-            editingLifeImages.forEach(function (src, i) {
+            editingLifeImages.forEach(function (ref, i) {
+                const src = AssetStore.resolve(ref);
                 const d = document.createElement('div');
                 d.style.cssText = 'position:relative;width:72px;height:72px;border-radius:8px;overflow:hidden;border:1px solid var(--border)';
                 d.innerHTML = '<img src="' + src + '" style="width:100%;height:100%;object-fit:cover">' +
                               '<button data-i="' + i + '" type="button" style="position:absolute;top:2px;right:2px;width:18px;height:18px;border:none;border-radius:50%;background:rgba(0,0,0,0.65);color:#fff;font-size:0.65rem;cursor:pointer">✕</button>';
                 d.querySelector('button').addEventListener('click', function () {
-                    editingLifeImages.splice(+this.dataset.i, 1);
+                    const idx = +this.dataset.i;
+                    removeAssetRef(editingLifeImages[idx]);
+                    editingLifeImages.splice(idx, 1);
                     refreshLifeImgsPrev();
                 });
                 wrap.appendChild(d);
@@ -2300,12 +2713,14 @@
             let processed = 0;
             files.forEach(function (file) {
                 compressImage(file, 1280, 0.8).then(function (dataUrl) {
-                    editingLifeImages.push(dataUrl);
-                    processed++;
-                    if (processed === files.length) {
-                        refreshLifeImgsPrev();
-                        toast('已添加 ' + files.length + ' 张图片', 'success');
-                    }
+                    return AssetStore.put(dataUrl).then(function (id) {
+                        editingLifeImages.push('__asset__:' + id);
+                        processed++;
+                        if (processed === files.length) {
+                            refreshLifeImgsPrev();
+                            toast('已添加 ' + files.length + ' 张图片', 'success');
+                        }
+                    });
                 }).catch(function () { toast('一张图片处理失败，已跳过', 'warn'); });
             });
         });
@@ -2322,7 +2737,10 @@
             };
             if (editingId) {
                 const it = DATA.life.find(function (x) { return x.id === editingId; });
-                if (it) Object.assign(it, payload);
+                if (it) {
+                    (it.images || []).forEach(removeAssetRef);
+                    Object.assign(it, payload);
+                }
                 toast('已更新', 'success');
             } else {
                 payload.id = uid();
@@ -2337,7 +2755,8 @@
         function refreshQrPrev(key) {
             const prev = document.getElementById(key === 'wechat' ? 'wxQrPrev' : 'vidQrPrev');
             const s = DATA.social[key];
-            if (s.qr) prev.innerHTML = '<img src="' + s.qr + '" alt="二维码预览"><div class="up-label">点击更换</div>';
+            const qr = AssetStore.resolve(s.qr);
+            if (qr) prev.innerHTML = '<img src="' + qr + '" alt="二维码预览"><div class="up-label">点击更换</div>';
             else prev.innerHTML = key === 'wechat' ? '<div>📱</div><div class="up-label">上传公众号二维码</div>' : '<div>🎬</div><div class="up-label">上传视频号二维码</div>';
         }
         function bindSocialField(id, key, field) {
@@ -2363,9 +2782,12 @@
                 this.value = '';
                 if (!file) return;
                 compressImage(file, 600, 0.9).then(function (dataUrl) {
-                    DATA.social[key].qr = dataUrl;
-                    saveData(true); applyAll(); refreshQrPrev(key);
-                    toast('二维码已更新（' + dataUrlSizeKB(dataUrl) + ' KB）', 'success');
+                    removeAssetRef(DATA.social[key].qr);
+                    return AssetStore.put(dataUrl).then(function (id) {
+                        DATA.social[key].qr = '__asset__:' + id;
+                        saveData(true); applyAll(); refreshQrPrev(key);
+                        toast('二维码已更新（' + dataUrlSizeKB(dataUrl) + ' KB）', 'success');
+                    });
                 }).catch(function () { toast('图片处理失败', 'error'); });
             });
         }
@@ -2406,20 +2828,202 @@
             toast('链接已添加', 'success');
         });
 
-        /* ---- 发布/备份 ---- */
+        /* ---- 经历管理（时间线 + 数据亮点） ---- */
+        function renderTlList() {
+            const list = document.getElementById('tlList');
+            list.innerHTML = '';
+            (DATA.timeline || []).forEach(function (item) {
+                const el = document.createElement('div');
+                el.className = 'admin-list-item';
+                el.innerHTML =
+                    '<div class="meta"><div class="t">' + escapeHtml(item.title) + '</div>' +
+                    '<div class="s">' + escapeHtml(item.date) + ' · ' + escapeHtml(item.company) + '</div></div>' +
+                    '<div class="ops">' +
+                        '<button class="a-btn mini" data-edit="' + item.id + '" type="button">编辑</button>' +
+                        '<button class="a-btn mini danger" data-del="' + item.id + '" type="button">删除</button>' +
+                    '</div>';
+                list.appendChild(el);
+            });
+            list.querySelectorAll('button[data-edit]').forEach(function (btn) {
+                btn.addEventListener('click', function () { startEditTl(btn.dataset.edit); });
+            });
+            list.querySelectorAll('button[data-del]').forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    const it = DATA.timeline.find(function (x) { return x.id === btn.dataset.del; });
+                    if (it && confirm('确定删除这段经历「' + it.title + '」吗？')) {
+                        DATA.timeline = DATA.timeline.filter(function (x) { return x.id !== it.id; });
+                        saveData(true); applyAll(); renderTlList();
+                        toast('已删除', 'success');
+                    }
+                });
+            });
+        }
+        function startEditTl(id) {
+            const it = DATA.timeline.find(function (x) { return x.id === id; });
+            if (!it) return;
+            document.getElementById('editingTlId').value = it.id;
+            document.getElementById('tlFormTitle').textContent = '编辑经历';
+            document.getElementById('tlDate').value = it.date || '';
+            document.getElementById('tlTitle').value = it.title || '';
+            document.getElementById('tlCompany').value = it.company || '';
+            document.getElementById('tlDesc').value = it.desc || '';
+        }
+        function resetTlForm() {
+            document.getElementById('editingTlId').value = '';
+            document.getElementById('tlFormTitle').textContent = '添加工作经历';
+            document.getElementById('tlDate').value = '';
+            document.getElementById('tlTitle').value = '';
+            document.getElementById('tlCompany').value = '';
+            document.getElementById('tlDesc').value = '';
+        }
+        document.getElementById('saveTlBtn').addEventListener('click', function () {
+            const title = document.getElementById('tlTitle').value.trim();
+            const date = document.getElementById('tlDate').value.trim();
+            if (!title || !date) { toast('请填写时间和职位', 'error'); return; }
+            const editingId = document.getElementById('editingTlId').value;
+            const payload = {
+                date: date,
+                title: title,
+                company: document.getElementById('tlCompany').value.trim(),
+                desc: document.getElementById('tlDesc').value.trim()
+            };
+            if (editingId) {
+                const it = DATA.timeline.find(function (x) { return x.id === editingId; });
+                if (it) Object.assign(it, payload);
+                toast('已更新', 'success');
+            } else {
+                payload.id = uid();
+                DATA.timeline.push(payload);
+                toast('已添加', 'success');
+            }
+            saveData(true); applyAll(); renderTlList(); resetTlForm();
+        });
+        document.getElementById('resetTlBtn').addEventListener('click', resetTlForm);
+
+        function buildHighlightEditor() {
+            const wrap = document.getElementById('highlightEditor');
+            wrap.innerHTML = '';
+            if (!DATA.highlights) DATA.highlights = [];
+            DATA.highlights.forEach(function (h, i) {
+                const row = document.createElement('div');
+                row.className = 'a-row';
+                row.style.marginBottom = '0.7rem';
+                row.innerHTML =
+                    '<div class="a-field" style="margin:0"><input type="text" value="' + escapeHtml(h.num) + '" data-i="' + i + '" data-f="num" placeholder="数字，如 55W+"></div>' +
+                    '<div class="a-field" style="margin:0;display:flex;gap:0.5rem;align-items:center">' +
+                        '<input type="text" value="' + escapeHtml(h.txt) + '" data-i="' + i + '" data-f="txt" placeholder="标签文字" style="flex:1">' +
+                        '<button class="a-btn mini danger" data-del="' + i + '" type="button">✕</button>' +
+                    '</div>';
+                wrap.appendChild(row);
+            });
+            wrap.querySelectorAll('input').forEach(function (inp) {
+                inp.addEventListener('input', function () {
+                    DATA.highlights[+inp.dataset.i][inp.dataset.f] = inp.value;
+                    saveDataDebounced(); applyAll();
+                });
+            });
+            wrap.querySelectorAll('button[data-del]').forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    DATA.highlights.splice(+btn.dataset.del, 1);
+                    saveData(true); applyAll(); buildHighlightEditor();
+                });
+            });
+            const add = document.createElement('button');
+            add.className = 'a-btn';
+            add.type = 'button';
+            add.textContent = '＋ 添加数据亮点';
+            add.addEventListener('click', function () {
+                if (DATA.highlights.length >= 8) { toast('最多 8 个', 'warn'); return; }
+                DATA.highlights.push({ num: '10W+', txt: '新亮点' });
+                saveData(true); applyAll(); buildHighlightEditor();
+            });
+            wrap.appendChild(add);
+        }
+
+        /* ================= 作品详情弹窗 ================= */
+        const detailModal = document.getElementById('detailModal');
+        function openWorkDetail(w) {
+            const media = AssetStore.resolve(w.image);
+            const mediaBox = document.getElementById('detailMedia');
+            if (media && assetKind(w.image) === 'video') {
+                mediaBox.innerHTML = '<video src="' + media + '" controls preload="metadata"></video>';
+            } else if (media) {
+                mediaBox.innerHTML = '<img src="' + media + '" alt="' + escapeHtml(w.title) + '">';
+            } else {
+                mediaBox.innerHTML = '<div class="ph">' + escapeHtml(CAT_MAP[w.category] || '') + '</div>';
+            }
+            document.getElementById('detailCat').textContent = CAT_MAP[w.category] || w.category;
+            document.getElementById('detailTitle').textContent = w.title;
+            document.getElementById('detailDesc').textContent = w.desc || '';
+            const mWrap = document.getElementById('detailMetrics');
+            mWrap.innerHTML = '';
+            const metrics = (w.metrics || '').split(';').map(function (s) { return s.trim(); }).filter(Boolean);
+            metrics.forEach(function (m) {
+                const sp = m.indexOf(' ');
+                const num = sp > 0 ? m.slice(0, sp) : m;
+                const label = sp > 0 ? m.slice(sp + 1) : '';
+                const d = document.createElement('div');
+                d.className = 'detail-metric';
+                d.innerHTML = '<div class="n">' + escapeHtml(num) + '</div><div class="l">' + escapeHtml(label) + '</div>';
+                mWrap.appendChild(d);
+            });
+            detailModal.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeDetail() {
+            detailModal.classList.remove('open');
+            document.getElementById('detailMedia').innerHTML = '';
+            document.body.style.overflow = '';
+        }
+        document.getElementById('detailClose').addEventListener('click', closeDetail);
+        detailModal.addEventListener('click', function (e) { if (e.target === detailModal) closeDetail(); });
+        document.addEventListener('keydown', function (e) {
+            if (detailModal.classList.contains('open') && e.key === 'Escape') closeDetail();
+        });
+        document.getElementById('portfolioGrid').addEventListener('click', function (e) {
+            const card = e.target.closest('.portfolio-card');
+            if (!card) return;
+            const idx = Array.prototype.indexOf.call(card.parentNode.children, card);
+            const w = DATA.works[idx];
+            if (w) openWorkDetail(w);
+        });
+
+        /* ================= 简历下载 ================= */
+        function downloadResume() {
+            const src = AssetStore.resolve(DATA.contact.resume);
+            if (!src) { toast(T('resume_no'), 'warn'); return; }
+            const a = document.createElement('a');
+            a.href = src;
+            a.download = '高洁-Allen-Gao-简历.pdf';
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+            toast(T('dl_resume') + ' ✓', 'success');
+        }
+        document.getElementById('heroResumeBtn').addEventListener('click', downloadResume);
+        document.getElementById('contactResumeBtn').addEventListener('click', downloadResume);
+
+        /* ================= 存储统计 ================= */
         function updateAdminStorageBar() {
-            let used = 0;
-            try { used = (localStorage.getItem(LOCAL_KEY) || '').length; } catch (e) { /* ignore */ }
-            const pct = Math.min((used / (5 * 1024 * 1024)) * 100, 100);
+            let textBytes = 0;
+            try { textBytes = (localStorage.getItem(LOCAL_KEY) || '').length; } catch (e) { /* ignore */ }
+            let assetBytes = 0;
+            AssetStore.map.forEach(function (v) { assetBytes += (v || '').length; });
+            const totalKB = Math.round((textBytes + assetBytes) / 1024);
             const fill = document.getElementById('adminStorageFill');
             const txt = document.getElementById('adminStorageText');
             if (fill) {
+                const pct = Math.min((totalKB / (512 * 1024)) * 100, 100);
                 fill.style.width = pct + '%';
                 fill.style.background = pct > 85 ? 'var(--danger)' : pct > 65 ? 'var(--warning)' : 'var(--success)';
             }
-            if (txt) txt.textContent = (used / 1024).toFixed(0) + ' KB / 5 MB';
+            if (txt) txt.textContent = totalKB + ' KB · 图片资源 ' + AssetStore.map.size + ' 个';
         }
 
+        /* ================= 发布 ================= */
+        function buildSiteDataFile() {
+            return '// 由个人作品集管理后台导出 · 上传到 GitHub 仓库根目录即可全站生效\nwindow.SITE_DATA = ' + JSON.stringify(materialize(DATA), null, 2) + ';\n';
+        }
         function downloadFile(name, content, mime) {
             const blob = new Blob([content], { type: mime || 'text/plain;charset=utf-8' });
             const a = document.createElement('a');
@@ -2429,14 +3033,19 @@
             a.click();
             setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 500);
         }
+        function utf8ToBase64(str) {
+            const bytes = new TextEncoder().encode(str);
+            let bin = '';
+            bytes.forEach(function (b) { bin += String.fromCharCode(b); });
+            return btoa(bin);
+        }
 
         document.getElementById('exportDataBtn').addEventListener('click', function () {
-            const content = '// 由个人作品集管理后台导出 · 上传到 GitHub 仓库根目录即可全站生效\nwindow.SITE_DATA = ' + JSON.stringify(DATA, null, 2) + ';\n';
-            downloadFile('site-data.js', content, 'application/javascript;charset=utf-8');
-            toast('已导出 site-data.js，按后台说明上传即可发布', 'success');
+            downloadFile('site-data.js', buildSiteDataFile(), 'application/javascript;charset=utf-8');
+            toast('已导出 site-data.js，可上传发布或交给 AI 助手推送', 'success');
         });
         document.getElementById('exportJsonBtn').addEventListener('click', function () {
-            downloadFile('site-backup-' + new Date().toISOString().slice(0, 10) + '.json', JSON.stringify(DATA, null, 2), 'application/json;charset=utf-8');
+            downloadFile('site-backup-' + new Date().toISOString().slice(0, 10) + '.json', JSON.stringify(materialize(DATA), null, 2), 'application/json;charset=utf-8');
             toast('已导出 JSON 备份', 'success');
         });
         document.getElementById('importJsonBtn').addEventListener('click', function () {
@@ -2450,21 +3059,78 @@
             r.onload = function (e) {
                 try {
                     const imported = JSON.parse(e.target.result);
-                    if (!imported || typeof imported !== 'object' || !imported.hero) {
-                        throw new Error('bad format');
-                    }
-                    DATA = deepMerge(DEFAULT_DATA, imported);
-                    saveData(true);
-                    applyAll();
-                    adminUIBuilt = false;
-                    buildAdminUI();
-                    toast('数据已导入', 'success');
+                    if (!imported || typeof imported !== 'object' || !imported.hero) throw new Error('bad');
+                    AssetStore.init().then(function () {
+                        return assetify(imported);
+                    }).then(function (converted) {
+                        DATA = deepMerge(DEFAULT_DATA, converted);
+                        saveData(true);
+                        applyAll();
+                        adminUIBuilt = false;
+                        buildAdminUI();
+                        toast('数据已导入', 'success');
+                    });
                 } catch (err) {
                     toast('导入失败：文件格式不正确', 'error');
                 }
             };
             r.readAsText(file);
         });
+
+        const publishBtn = document.getElementById('publishBtn');
+        const publishStatus = document.getElementById('publishStatus');
+        const GH_TOKEN_KEY = 'gj_gh_token';
+        publishBtn.addEventListener('click', async function () {
+            let token = document.getElementById('ghToken').value.trim();
+            if (!token) token = localStorage.getItem(GH_TOKEN_KEY) || '';
+            if (!token) {
+                toast('请先填入 GitHub Token', 'error');
+                document.getElementById('ghToken').focus();
+                return;
+            }
+            localStorage.setItem(GH_TOKEN_KEY, token);
+            document.getElementById('ghToken').value = '';
+            const repo = document.getElementById('ghRepo').value.trim() || 'g19930311-lang/allen-gao-portfolio';
+            publishBtn.disabled = true;
+            publishStatus.textContent = '发布中…';
+            try {
+                const content = buildSiteDataFile();
+                const base64 = utf8ToBase64(content);
+                const api = 'https://api.github.com/repos/' + repo + '/contents/site-data.js';
+                const headers = { Authorization: 'token ' + token, Accept: 'application/vnd.github.v3+json' };
+                let sha = '';
+                const getRes = await fetch(api, { headers: headers });
+                if (getRes.status === 200) {
+                    const j = await getRes.json();
+                    sha = j.sha || '';
+                } else if (getRes.status !== 404) {
+                    throw new Error('读取远程文件失败（' + getRes.status + '），请检查 Token 权限与仓库名');
+                }
+                const putRes = await fetch(api, {
+                    method: 'PUT',
+                    headers: Object.assign({ 'Content-Type': 'application/json' }, headers),
+                    body: JSON.stringify({
+                        message: 'chore: update site data',
+                        content: base64,
+                        sha: sha || undefined
+                    })
+                });
+                if (!putRes.ok) {
+                    const errBody = await putRes.json().catch(function () { return {}; });
+                    throw new Error('发布失败（' + putRes.status + '）' + (errBody.message ? '：' + errBody.message : ''));
+                }
+                publishStatus.textContent = '✅ 发布成功，约 1 分钟后全站生效';
+                toast('🎉 发布成功！刷新网站即可看到最新内容', 'success');
+            } catch (err) {
+                publishStatus.textContent = '❌ 失败';
+                toast(err.message, 'error');
+            } finally {
+                publishBtn.disabled = false;
+                setTimeout(function () { if (publishStatus.textContent.indexOf('✅') < 0) publishStatus.textContent = ''; }, 6000);
+            }
+        });
+
+        /* ================= 安全 ================= */
         document.getElementById('changePassBtn').addEventListener('click', function () {
             const np = document.getElementById('inNewPass').value;
             if (np.length < 6) { toast('新密码至少 6 位', 'error'); return; }
@@ -2475,6 +3141,11 @@
         document.getElementById('resetAllBtn').addEventListener('click', function () {
             if (!confirm('确定恢复默认内容吗？本机全部修改（含上传的图片）将被清除，且不可恢复。\n建议先导出 JSON 备份。')) return;
             try { localStorage.removeItem(LOCAL_KEY); } catch (e) { /* ignore */ }
+            AssetStore.map.clear();
+            AssetStore.open().then(function (db) {
+                const tx = db.transaction('assets', 'readwrite');
+                tx.objectStore('assets').clear();
+            }).catch(function () { /* ignore */ });
             DATA = deepMerge(DEFAULT_DATA, window.SITE_DATA || {});
             applyAll();
             adminUIBuilt = false;
@@ -2483,9 +3154,27 @@
         });
 
         /* ================= 启动 ================= */
+        applyLang();
         applyAll();
         onScroll();
-        console.log('%c高洁 Allen Gao | 个人作品集 · 管理后台：连点三次 Logo 或访问 #admin', 'color:#e85d3f;font-size:14px;font-weight:bold;');
+
+        /* 不蒜子统计：加载后显示 */
+        (function () {
+            let attempts = 0;
+            const timer = setInterval(function () {
+                attempts++;
+                const pv = document.getElementById('busuanzi_value_site_pv');
+                const wrap = document.getElementById('busuanzi');
+                if (pv && pv.textContent && pv.textContent !== '0') {
+                    if (wrap) wrap.style.display = 'block';
+                    clearInterval(timer);
+                } else if (attempts > 20) {
+                    clearInterval(timer);
+                }
+            }, 1000);
+        })();
+
+        console.log('%c高洁 Allen Gao | 个人作品集 v3 · 后台：连点三次 Logo 或访问 #admin', 'color:#e85d3f;font-size:14px;font-weight:bold;');
     })();
     </script>
 </body>
