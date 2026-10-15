@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高洁 Allen Gao | 新媒体运营与品牌策划</title>
+    <meta name="description" content="高洁(Allen Gao)的个人作品集网站 - 9年新媒体运营与品牌策划经验">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0a0a0f;
+            --bg-card: #12121a;
+            --bg-elevated: #1a1a24;
+            --text-primary: #f0f0f5;
+            --text-secondary: #8a8a9a;
+            --text-muted: #5a5a6a;
+            --accent: #e85d3f;
+            --accent-light: #ff7a5c;
+            --accent-glow: rgba(232, 93, 63, 0.15);
+            --border: rgba(255, 255, 255, 0.06);
+            --border-hover: rgba(255, 255, 255, 0.12);
+            --success: #4ade80;
+            --warning: #fbbf24;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* ===== 背景粒子效果 ===== */
+        #particles-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.4;
+        }
+
+        /* ===== 导航 ===== */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1.2rem 4%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to bottom, rgba(10,10,15,0.9), transparent);
+            backdrop-filter: blur(10px);
+            transition: background 0.3s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(10,10,15,0.95);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+        }
+
+        .logo {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 400;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* ===== 英雄区 ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 0 4%;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            border: 1px solid var(--accent);
+            border-radius: 50px;
+            color: var(--accent);
+            font-size: 0.85rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero h1 {
+            font-family: 'Noto Serif SC', serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .hero h1 .highlight {
+            color: var(--accent);
+            position: relative;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 3rem;
+            animation: fadeInUp 0.8s ease 0.6s both;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            animation: fadeInUp 0.8s ease 0.8s both;
+        }
+
+        .btn {
+            padding: 0.9rem 2.5rem;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+            box-shadow: 0 4px 20px rgba(232, 93, 63, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-light);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(232, 93, 63, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border-hover);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        /* ===== 关于我 ===== */
+        .section {
+            padding: 6rem 4%;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 4rem;
+            font-size: 1rem;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image-frame {
+            width: 100%;
+            aspect-ratio: 3/4;
+            background: var(--bg-elevated);
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid var(--border);
+        }
+
+        .about-image-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about-image-frame .placeholder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .about-text h3 {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.4;
+        }
+
+        .about-text p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        .about-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 2rem;
+        }
+
+        .skill-tag {
+            padding: 0.5rem 1.2rem;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        /* ===== 工作经历时间线 ===== */
+        .timeline {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: var(--border);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            width: 45%;
+            padding: 2rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 2rem;
+            transform: translateX(-50%);
+            width: 14px;
+            height: 14px;
+            background: var(--accent);
+            border-radius: 50%;
+            border: 3px solid var(--bg-dark);
+            box-shadow: 0 0 0 3px var(--accent-glow);
+        }
+
+        .timeline-date {
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+
+        .timeline-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .timeline-company {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-desc {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+
+        /* ===== 作品集 ===== */
+        .portfolio-filter {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.6rem 1.8rem;
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: var(--accent-glow);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .portfolio-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--border-hover);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+        }
+
+        .portfolio-image {
+            width: 100%;
+            aspect-ratio: 16/10;
+            background: var(--bg-elevated);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .portfolio-card:hover .portfolio-image img {
+            transform: scale(1.05);
+        }
+
+        .portfolio-info {
+            padding: 1.5rem;
+        }
+
+        .portfolio-category {
+            color: var(--accent);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .portfolio-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .portfolio-desc {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* ===== 作品上传区 ===== */
+        .upload-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .upload-zone {
+            border: 2px dashed var(--border-hover);
+            border-radius: 16px;
+            padding: 3rem 2rem;
+            margin: 2rem 0;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .upload-zone:hover,
+        .upload-zone.dragover {
+            border-color: var(--accent);
+            background: var(--accent-glow);
+        }
+
+        .upload-zone input {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .upload-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .upload-text {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        .upload-text strong {
+            color: var(--accent);
+        }
+
+        .upload-preview {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .preview-item {
+            aspect-ratio: 1;
+            background: var(--bg-elevated);
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .preview-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .preview-item .remove {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            width: 24px;
+            height: 24px;
+            background: rgba(0,0,0,0.6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: white;
+            font-size: 0.8rem;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        .preview-item:hover .remove {
+            opacity: 1;
+        }
+
+        /* ===== 联系方式 ===== */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .contact-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--accent-glow);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+        }
+
+        .contact-label {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-value {
+            font-size: 1rem;
+            color: var(--text-primary);
+            word-break: break-all;
+        }
+
+        .contact-value a {
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-value a:hover {
+            color: var(--accent);
+        }
+
+        /* ===== 页脚 ===== */
+        footer {
+            text-align: center;
+            padding: 3rem 4%;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* ===== 动画 ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== 响应式 ===== */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-stats {
+                gap: 1.5rem;
+            }
+
+            .stat-number {
+                font-size: 1.8rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item,
+            .timeline-item:nth-child(odd) {
+                flex-direction: column;
+            }
+
+            .timeline-content {
+                width: calc(100% - 50px);
+                margin-left: 50px;
+            }
+
+            .timeline-dot {
+                left: 20px;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== 滚动条 ===== */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-dark);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--bg-elevated);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- 导航 -->
+    <nav id="navbar">
+        <a href="#" class="logo">ALLEN<span>.</span>GAO</a>
+        <ul class="nav-links">
+            <li><a href="#about">关于我</a></li>
+            <li><a href="#experience">经历</a></li>
+            <li><a href="#portfolio">作品集</a></li>
+            <li><a href="#upload">上传作品</a></li>
+            <li><a href="#contact">联系我</a></li>
+        </ul>
+    </nav>
+
+    <!-- 英雄区 -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">新媒体运营 & 品牌策划</div>
+            <h1>
+                用内容创造价值<br>
+                <span class="highlight">让品牌被看见</span>
+            </h1>
+            <p class="hero-subtitle">
+                9年新媒体行业深耕，从0到1搭建品牌矩阵，<br>
+                擅长短视频运营、直播电商、私域流量池构建
+            </p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number">9+</div>
+                    <div class="stat-label">年行业经验</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">30W+</div>
+                    <div class="stat-label">月度视频传播</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">2W+</div>
+                    <div class="stat-label">月度私域沉淀</div>
+                </div>
+            </div>
+            <div class="hero-cta">
+                <a href="#portfolio" class="btn btn-primary">查看作品</a>
+                <a href="#contact" class="btn btn-secondary">联系我</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 关于我 -->
+    <section class="section" id="about">
+        <h2 class="section-title fade-in">关于我</h2>
+        <p class="section-subtitle fade-in">致力于品牌/营销/内容/产品/服务一体化</p>
+        <div class="about-grid">
+            <div class="about-image fade-in">
+                <div class="about-image-frame">
+                    <div class="placeholder">
+                        <span>请上传您的个人照片</span>
+                    </div>
+                </div>
+            </div>
+            <div class="about-text fade-in">
+                <h3>从内容到品牌，<br>构建完整的营销生态</h3>
+                <p>
+                    我是高洁（Allen Gao），拥有9年新媒体行业从业经验。熟悉自媒体、直播电商、短视频、私域平台运营流程，
+                    对新媒体行业纵深化模式和未来发展趋势有深入了解。
+                </p>
+                <p>
+                    基于"双微一抖""短视频+直播""新电商"等模式，打造"有水可引、有池可蓄、有鱼可养、有草可种"的
+                    生态化流量池。通过孵化IP、KOL产出活体，生产内容创造营销环境持续投放饵料，进行私域运营圈住鱼苗，
+                    达到品牌"上拉下托"效应。
+                </p>
+                <div class="about-skills">
+                    <span class="skill-tag">短视频运营</span>
+                    <span class="skill-tag">直播电商</span>
+                    <span class="skill-tag">私域运营</span>
+                    <span class="skill-tag">品牌策划</span>
+                    <span class="skill-tag">内容创作</span>
+                    <span class="skill-tag">社群营销</span>
+                    <span class="skill-tag">PR公关</span>
+                    <span class="skill-tag">SEO优化</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 工作经历 -->
+    <section class="section" id="experience">
+        <h2 class="section-title fade-in">工作经历</h2>
+        <p class="section-subtitle fade-in">从基层到管理，每一步都扎实有力</p>
+        <div class="timeline">
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <div class="timeline-date">2023.06 - 2024.10</div>
+                    <div class="timeline-title">新媒体运营</div>
+                    <div class="timeline-company">杭州玖逸行特斯拉授权钣喷中心</div>
+                    <div class="timeline-desc">
+                        对接特斯拉厂家品牌活动，执行C类活动；构建公司新媒体矩阵，对接媒介机构，储备达人资源；
+                        品牌内容的制作输出及调性把控；组织交流会、商务拜访，维护合作关系。
+                    </div>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <div class="timeline-date">2022.05 - 2023.06</div>
+                    <div class="timeline-title">高级新媒体运营</div>
+                    <div class="timeline-company">杭州锐鲨科技有限公司（蘑菇街子公司）</div>
+                    <div class="timeline-desc">
+                        蘑菇街子公司S级项目PM，负责安踏会员项目；短视频内容创意策划，月度视频传播量30W+；
+                        月度直播GMV 20W+；月度私域沉淀企微好友2W+。
+                    </div>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <div class="timeline-date">2021.09 - 2022.05</div>
+                    <div class="timeline-title">品牌策划及新媒体运营</div>
+                    <div class="timeline-company">杭州橙色星球科技有限公司</div>
+                    <div class="timeline-desc">
+                        搭建品牌形象及维护策略，撰写PR公关稿件；组建新媒体内容传播矩阵；
+                        建立健全公司VI视觉体系；协助电商端内容输出详情页产品文案、海报等。
+                    </div>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <div class="timeline-date">2020.03 - 2021.09</div>
+                    <div class="timeline-title">新媒体运营总监</div>
+                    <div class="timeline-company">中鑫之宝汽车服务有限公司</div>
+                    <div class="timeline-desc">
+                        搭建私域运营体系；单独运营"发动机精修"项目品牌策划；
+                        打造"汽车维修技术研究院"公众号及视频号；对团队人员进行管理、培训。
+                    </div>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <div class="timeline-date">2019.02 - 2020.03</div>
+                    <div class="timeline-title">新媒体运营总监</div>
+                    <div class="timeline-company">河南深蓝电子商务有限公司</div>
+                    <div class="timeline-desc">
+                        组建短视频运营、直播运营团队；定位打造"蓝兮儿"价值品牌及抖音账号矩阵；
+                        蓝兮儿微商城筹建与完善；直播运营数据增长及方案策划。
+                    </div>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <div class="timeline-date">2017.01 - 2019.02</div>
+                    <div class="timeline-title">新媒体运营主管</div>
+                    <div class="timeline-company">河南纳食信息科技有限公司</div>
+                    <div class="timeline-desc">
+                        负责新媒体运营策划，文案选编；微信公众平台运营管理，55万粉丝订阅号；
+                        社群建设与维护；线下糖酒会、商会论坛活动策划与执行。
+                    </div>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 作品集 -->
+    <section class="section" id="portfolio">
+        <h2 class="section-title fade-in">作品集</h2>
+        <p class="section-subtitle fade-in">精选项目案例，展示专业能力</p>
+        <div class="portfolio-filter fade-in">
+            <button class="filter-btn active" data-filter="all">全部</button>
+            <button class="filter-btn" data-filter="video">短视频</button>
+            <button class="filter-btn" data-filter="brand">品牌策划</button>
+            <button class="filter-btn" data-filter="live">直播运营</button>
+            <button class="filter-btn" data-filter="private">私域运营</button>
+        </div>
+        <div class="portfolio-grid" id="portfolioGrid">
+            <div class="portfolio-card fade-in" data-category="brand">
+                <div class="portfolio-image">
+                    <span>品牌策划案例图片</span>
+                </div>
+                <div class="portfolio-info">
+                    <div class="portfolio-category">品牌策划</div>
+                    <div class="portfolio-title">中鑫之宝品牌升级</div>
+                    <div class="portfolio-desc">VI、logo、slogan等品牌升级策划，微信服务号改版升级，"发动机精修"独立品牌项目策划及传播平台搭建。</div>
+                </div>
+            </div>
+            <div class="portfolio-card fade-in" data-category="video">
+                <div class="portfolio-image">
+                    <span>短视频案例图片</span>
+                </div>
+                <div class="portfolio-info">
+                    <div class="portfolio-category">短视频</div>
+                    <div class="portfolio-title">安踏会员项目短视频运营</div>
+                    <div class="portfolio-desc">短视频内容创意策划，把控拍摄及后期制作质量，月度视频传播量30W+，提供粉丝数据增长有效解决方案。</div>
+                </div>
+            </div>
+            <div class="portfolio-card fade-in" data-category="live">
+                <div class="portfolio-image">
+                    <span>直播运营案例图片</span>
+                </div>
+                <div class="portfolio-info">
+                    <div class="portfolio-category">直播运营</div>
+                    <div class="portfolio-title">直播运营数据增长项目</div>
+                    <div class="portfolio-desc">直播方案策划及供应商洽谈，月度直播GMV 20W+，对直播营销团队进行考核管理。</div>
+                </div>
+            </div>
+            <div class="portfolio-card fade-in" data-category="private">
+                <div class="portfolio-image">
+                    <span>私域运营案例图片</span>
+                </div>
+                <div class="portfolio-info">
+                    <div class="portfolio-category">私域运营</div>
+                    <div class="portfolio-title">橙色星球私域矩阵搭建</div>
+                    <div class="portfolio-desc">搭建私域运营体系，以"中鑫之宝"服务号为基础，通过企业微信、个人微信客户关系组建社群体系。</div>
+                </div>
+            </div>
+            <div class="portfolio-card fade-in" data-category="brand">
+                <div class="portfolio-image">
+                    <span>品牌策划案例图片</span>
+                </div>
+                <div class="portfolio-info">
+                    <div class="portfolio-category">品牌策划</div>
+                    <div class="portfolio-title">橙色星球品牌价值构建</div>
+                    <div class="portfolio-desc">创造橙色星球牧场、果园、咖啡庄园"第三世界"故事内容，私域运营体系搭建。</div>
+                </div>
+            </div>
+            <div class="portfolio-card fade-in" data-category="video">
+                <div class="portfolio-image">
+                    <span>短视频案例图片</span>
+                </div>
+                <div class="portfolio-info">
+                    <div class="portfolio-category">短视频</div>
+                    <div class="portfolio-title">蓝兮儿抖音账号矩阵</div>
+                    <div class="portfolio-desc">定位打造"蓝兮儿"价值品牌及抖音账号矩阵，短视频拍摄、剪辑与制作。</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 上传作品 -->
+    <section class="section" id="upload">
+        <h2 class="section-title fade-in">上传作品</h2>
+        <p class="section-subtitle fade-in">展示你的最新创作，让作品说话</p>
+        <div class="upload-section fade-in">
+            <h3 style="font-family: 'Noto Serif SC', serif; margin-bottom: 1rem;">拖拽或点击上传作品</h3>
+            <p style="color: var(--text-secondary); margin-bottom: 2rem;">支持图片、视频、PDF等多种格式，作品将保存在本地浏览器中</p>
+            <div class="upload-zone" id="uploadZone">
+                <input type="file" id="fileInput" multiple accept="image/*,video/*,.pdf">
+                <div class="upload-icon">📤</div>
+                <div class="upload-text">
+                    <strong>点击上传</strong> 或拖拽文件到此处<br>
+                    支持 JPG、PNG、GIF、MP4、PDF 格式
+                </div>
+            </div>
+            <div class="upload-preview" id="uploadPreview"></div>
+        </div>
+    </section>
+
+    <!-- 联系方式 -->
+    <section class="section" id="contact">
+        <h2 class="section-title fade-in">联系我</h2>
+        <p class="section-subtitle fade-in">期待与您合作，共创品牌价值</p>
+        <div class="contact-grid fade-in">
+            <div class="contact-card">
+                <div class="contact-icon">📱</div>
+                <div class="contact-label">电话</div>
+                <div class="contact-value">
+                    <a href="tel:18100338800">18100338800</a>
+                </div>
+            </div>
+            <div class="contact-card">
+                <div class="contact-icon">✉️</div>
+                <div class="contact-label">邮箱</div>
+                <div class="contact-value">
+                    <a href="mailto:AllenGaoChina@outlook.com">AllenGaoChina@outlook.com</a>
+                </div>
+            </div>
+            <div class="contact-card">
+                <div class="contact-icon">📍</div>
+                <div class="contact-label">所在地</div>
+                <div class="contact-value">浙江杭州</div>
+            </div>
+            <div class="contact-card">
+                <div class="contact-icon">💼</div>
+                <div class="contact-label">求职意向</div>
+                <div class="contact-value">新媒体运营 / 品牌策划</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <p> 高洁 Allen Gao | 新媒体运营与品牌策划 | 用内容创造价值</p>
+    </footer>
+
+    <script>
+        // ===== 粒子背景 =====
+        const canvas = document.getElementById('particles-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        let animationId;
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 0.5;
+                this.speedX = (Math.random() - 0.5) * 0.3;
+                this.speedY = (Math.random() - 0.5) * 0.3;
+                this.opacity = Math.random() * 0.5 + 0.1;
+            }
+
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+
+                if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(232, 93, 63, ${this.opacity})`;
+                ctx.fill();
+            }
+        }
+
+        function initParticles() {
+            particles = [];
+            const particleCount = Math.min(50, Math.floor((canvas.width * canvas.height) / 20000));
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function connectParticles() {
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < 150) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(232, 93, 63, ${0.1 * (1 - distance / 150)})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+
+            connectParticles();
+            animationId = requestAnimationFrame(animateParticles);
+        }
+
+        initParticles();
+        animateParticles();
+
+        // ===== 导航滚动效果 =====
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // ===== 滚动动画 =====
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // ===== 作品集筛选 =====
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const portfolioCards = document.querySelectorAll('.portfolio-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.dataset.filter;
+                portfolioCards.forEach(card => {
+                    if (filter === 'all' || card.dataset.category === filter) {
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, 50);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+
+        // ===== 作品上传功能 =====
+        const uploadZone = document.getElementById('uploadZone');
+        const fileInput = document.getElementById('fileInput');
+        const uploadPreview = document.getElementById('uploadPreview');
+        let uploadedFiles = JSON.parse(localStorage.getItem('portfolioFiles') || '[]');
+
+        // 加载已保存的作品
+        function loadSavedFiles() {
+            uploadPreview.innerHTML = '';
+            uploadedFiles.forEach((file, index) => {
+                createPreviewItem(file, index);
+            });
+        }
+
+        function createPreviewItem(fileData, index) {
+            const item = document.createElement('div');
+            item.className = 'preview-item';
+
+            if (fileData.type.startsWith('image/')) {
+                item.innerHTML = `
+                    <img src="${fileData.data}" alt="作品">
+                    <div class="remove" onclick="removeFile(${index})">×</div>
+                `;
+            } else if (fileData.type.startsWith('video/')) {
+                item.innerHTML = `
+                    <video src="${fileData.data}" style="width:100%;height:100%;object-fit:cover;"></video>
+                    <div class="remove" onclick="removeFile(${index})">×</div>
+                `;
+            } else {
+                item.innerHTML = `
+                    <div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--text-muted);font-size:0.8rem;">
+                        📄 ${fileData.name}
+                    </div>
+                    <div class="remove" onclick="removeFile(${index})">×</div>
+                `;
+            }
+
+            uploadPreview.appendChild(item);
+        }
+
+        window.removeFile = function(index) {
+            uploadedFiles.splice(index, 1);
+            localStorage.setItem('portfolioFiles', JSON.stringify(uploadedFiles));
+            loadSavedFiles();
+        };
+
+        uploadZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadZone.classList.add('dragover');
+        });
+
+        uploadZone.addEventListener('dragleave', () => {
+            uploadZone.classList.remove('dragover');
+        });
+
+        uploadZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadZone.classList.remove('dragover');
+            handleFiles(e.dataTransfer.files);
+        });
+
+        fileInput.addEventListener('change', (e) => {
+            handleFiles(e.target.files);
+        });
+
+        function handleFiles(files) {
+            Array.from(files).forEach(file => {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const fileData = {
+                        name: file.name,
+                        type: file.type,
+                        data: e.target.result
+                    };
+                    uploadedFiles.push(fileData);
+                    localStorage.setItem('portfolioFiles', JSON.stringify(uploadedFiles));
+                    loadSavedFiles();
+                };
+                reader.readAsDataURL(file);
+            });
+        }
+
+        loadSavedFiles();
+
+        // ===== 平滑滚动 =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
