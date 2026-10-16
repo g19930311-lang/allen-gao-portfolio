@@ -31,9 +31,6 @@
     }
     </script>
     <script src="site-data.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-dark: #0a0a0f; --bg-card: #12121a; --bg-elevated: #1a1a24;
@@ -53,8 +50,11 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body {
-            font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg-dark); color: var(--text-primary);
+            background: #0a0a0f;
+            background: var(--bg-dark);
+            color: #f0f0f5;
+            color: var(--text-primary);
+            font-family: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             line-height: 1.7; overflow-x: hidden;
             transition: background 0.4s ease, color 0.4s ease;
         }
@@ -65,7 +65,7 @@
         }
         #preloader.hidden { opacity: 0; visibility: hidden; }
         .loader-mark {
-            font-family: 'Noto Serif SC', serif; font-size: 2rem; letter-spacing: 6px;
+            font-family: 'Songti SC', 'STSong', 'SimSun', 'Noto Serif SC', Georgia, serif; font-size: 2rem; letter-spacing: 6px;
             color: var(--text-secondary); animation: pulse 1.4s ease-in-out infinite;
         }
         @keyframes pulse { 0%,100%{opacity:.3} 50%{opacity:1} }
@@ -90,7 +90,7 @@
         nav.scrolled { background: rgba(10,10,15,0.95); box-shadow: 0 2px 20px rgba(0,0,0,0.3); }
         body.light nav.scrolled { background: rgba(247,247,250,0.95); }
         .logo {
-            font-family: 'Noto Serif SC', serif; font-size: 1.4rem; font-weight: 700;
+            font-family: 'Songti SC', 'STSong', 'SimSun', 'Noto Serif SC', Georgia, serif; font-size: 1.4rem; font-weight: 700;
             color: var(--text-primary); text-decoration: none; letter-spacing: 2px; cursor: pointer;
         }
         .logo span { color: var(--accent); }
@@ -144,7 +144,7 @@
         }
         .mobile-menu.open { opacity: 1; visibility: visible; }
         .mobile-menu a {
-            font-family: 'Noto Serif SC', serif; font-size: 1.3rem;
+            font-family: 'Songti SC', 'STSong', 'SimSun', 'Noto Serif SC', Georgia, serif; font-size: 1.3rem;
             color: var(--text-primary); text-decoration: none; transition: color 0.3s ease;
         }
         .mobile-menu a:hover { color: var(--accent); }
@@ -160,7 +160,8 @@
             margin-bottom: 2rem; animation: fadeInUp 0.8s ease;
         }
         .hero h1 {
-            font-family: 'Noto Serif SC', serif;
+            font-family: 'Songti SC', 'STSong', 'SimSun', 'Noto Serif SC', Georgia, serif;
+            font-size: 3rem;
             font-size: clamp(2.2rem, 6vw, 4.2rem);
             font-weight: 700; line-height: 1.25; margin-bottom: 1.5rem;
             animation: fadeInUp 0.8s ease 0.2s both;
@@ -172,6 +173,7 @@
         }
         @keyframes blink { 50% { border-color: transparent; } }
         .hero-subtitle {
+            font-size: 1.05rem;
             font-size: clamp(0.95rem, 2.5vw, 1.2rem);
             color: var(--text-secondary); margin-bottom: 2.5rem; font-weight: 300;
             animation: fadeInUp 0.8s ease 0.4s both;
@@ -182,7 +184,7 @@
         }
         .stat-item { text-align: center; cursor: default; }
         .stat-number {
-            font-family: 'Noto Serif SC', serif;
+            font-family: 'Songti SC', 'STSong', 'SimSun', 'Noto Serif SC', Georgia, serif;
             font-size: 2.5rem; font-weight: 700; color: var(--accent); line-height: 1;
         }
         .stat-label { font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.5rem; }
@@ -215,7 +217,8 @@
         @keyframes scrollDot { 0%{opacity:0;transform:translate(-50%,0)} 40%{opacity:1} 100%{opacity:0;transform:translate(-50%,12px)} }
         .section { padding: 6rem 4%; position: relative; z-index: 2; }
         .section-title {
-            font-family: 'Noto Serif SC', serif;
+            font-family: 'Songti SC', 'STSong', 'SimSun', 'Noto Serif SC', Georgia, serif;
+            font-size: 2.2rem;
             font-size: clamp(2rem, 4vw, 2.8rem);
             margin-bottom: 1rem; text-align: center;
         }
@@ -238,7 +241,7 @@
             font-size: 0.9rem; text-align: center; padding: 1rem;
         }
         .about-image-frame .placeholder .up-icon { font-size: 2.2rem; opacity: 0.6; }
-        .about-text h3 { font-family: 'Noto Serif SC', serif; font-size: 1.8rem; margin-bottom: 1.5rem; line-height: 1.4; }
+        .about-text h3 { font-family: 'Songti SC', 'STSong', 'SimSun', 'Noto Serif SC', Georgia, serif; font-size: 1.8rem; margin-bottom: 1.5rem; line-height: 1.4; }
         .about-text p { color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 1rem; }
         .about-skills { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 2rem; }
         .skill-tag {
@@ -279,7 +282,7 @@
             border: 3px solid var(--bg-dark); box-shadow: 0 0 0 3px var(--accent-glow); z-index: 1;
         }
         .timeline-date { color: var(--accent); font-size: 0.85rem; font-weight: 500; margin-bottom: 0.5rem; letter-spacing: 1px; }
-        .timeline-title { font-family: 'Noto Serif SC', serif; font-size: 1.2rem; margin-bottom: 0.3rem; }
+        .timeline-title { font-family: 'Songti SC', 'STSong', 'SimSun', 'Noto Serif SC', Georgia, serif; font-size: 1.2rem; margin-bottom: 0.3rem; }
         .timeline-company { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem; }
         .timeline-desc { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.8; }
         .portfolio-filter { display: flex; justify-content: center; gap: 1rem; margin-bottom: 3rem; flex-wrap: wrap; }
@@ -318,7 +321,7 @@
         .portfolio-card:hover .zoom-badge { opacity: 1; transform: scale(1); }
         .portfolio-info { padding: 1.5rem; }
         .portfolio-category { color: var(--accent); font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 0.5rem; }
-        .portfolio-title { font-family: 'Noto Serif SC', serif; font-size: 1.1rem; margin-bottom: 0.5rem; }
+        .portfolio-title { font-family: 'Songti SC', 'STSong', 'SimSun', 'Noto Serif SC', Georgia, serif; font-size: 1.1rem; margin-bottom: 0.5rem; }
         .portfolio-desc { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6; }
         .portfolio-empty { grid-column: 1/-1; text-align: center; padding: 3rem; color: var(--text-muted); font-size: 0.9rem; }
         .highlight-grid {
@@ -332,7 +335,7 @@
         }
         .highlight-card:hover { border-color: var(--accent); transform: translateY(-4px); }
         .highlight-card .num {
-            font-family: 'Noto Serif SC', serif; font-size: 2rem; font-weight: 700;
+            font-family: 'Songti SC', 'STSong', 'SimSun', 'Noto Serif SC', Georgia, serif; font-size: 2rem; font-weight: 700;
             color: var(--accent); line-height: 1; margin-bottom: 0.6rem;
         }
         .highlight-card .txt { font-size: 0.85rem; color: var(--text-secondary); }
@@ -363,7 +366,7 @@
         }
         .life-info { padding: 1.4rem 1.5rem 1.6rem; }
         .life-date { color: var(--accent); font-size: 0.78rem; letter-spacing: 1px; margin-bottom: 0.4rem; }
-        .life-title { font-family: 'Noto Serif SC', serif; font-size: 1.05rem; margin-bottom: 0.4rem; }
+        .life-title { font-family: 'Songti SC', 'STSong', 'SimSun', 'Noto Serif SC', Georgia, serif; font-size: 1.05rem; margin-bottom: 0.4rem; }
         .life-desc {
             color: var(--text-secondary); font-size: 0.88rem; line-height: 1.65;
             display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
@@ -384,7 +387,7 @@
             color: var(--accent); font-size: 0.75rem; letter-spacing: 2px;
             margin-bottom: 1.4rem;
         }
-        .social-name { font-family: 'Noto Serif SC', serif; font-size: 1.4rem; margin-bottom: 0.4rem; }
+        .social-name { font-family: 'Songti SC', 'STSong', 'SimSun', 'Noto Serif SC', Georgia, serif; font-size: 1.4rem; margin-bottom: 0.4rem; }
         .social-desc { color: var(--text-secondary); font-size: 0.88rem; margin-bottom: 1.6rem; }
         .social-qr {
             width: 170px; height: 170px; margin: 0 auto 1.4rem;
@@ -442,7 +445,7 @@
             background: var(--bg-card); border: 1px solid var(--border);
             border-radius: 20px; padding: 2.2rem;
         }
-        .contact-form h3 { font-family: 'Noto Serif SC', serif; font-size: 1.2rem; margin-bottom: 1.5rem; }
+        .contact-form h3 { font-family: 'Songti SC', 'STSong', 'SimSun', 'Noto Serif SC', Georgia, serif; font-size: 1.2rem; margin-bottom: 1.5rem; }
         .form-row { margin-bottom: 1.1rem; }
         .form-row label { display: block; font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.45rem; }
         .form-row input, .form-row textarea {
@@ -556,7 +559,7 @@
         .detail-close:hover { background: var(--accent); border-color: var(--accent); }
         .detail-body { padding: 2rem 2.2rem 2.4rem; }
         .detail-cat { color: var(--accent); font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 0.6rem; }
-        .detail-title { font-family: 'Noto Serif SC', serif; font-size: 1.6rem; margin-bottom: 1rem; line-height: 1.35; }
+        .detail-title { font-family: 'Songti SC', 'STSong', 'SimSun', 'Noto Serif SC', Georgia, serif; font-size: 1.6rem; margin-bottom: 1rem; line-height: 1.35; }
         .detail-metrics {
             display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.4rem;
         }
@@ -565,7 +568,7 @@
             border: 1px solid rgba(232,93,63,0.3); border-radius: 12px;
         }
         .detail-metric .n {
-            font-family: 'Noto Serif SC', serif; font-size: 1.3rem; font-weight: 700;
+            font-family: 'Songti SC', 'STSong', 'SimSun', 'Noto Serif SC', Georgia, serif; font-size: 1.3rem; font-weight: 700;
             color: var(--accent); line-height: 1;
         }
         .detail-metric .l { font-size: 0.72rem; color: var(--text-secondary); margin-top: 0.3rem; }
@@ -597,6 +600,7 @@
         .admin-overlay.open { opacity: 1; visibility: visible; }
         .admin-panel {
             position: absolute; top: 0; right: 0; bottom: 0;
+            width: 100%;
             width: min(700px, 100%);
             background: var(--bg-dark);
             border-left: 1px solid var(--border-hover);
@@ -610,7 +614,7 @@
             border-bottom: 1px solid var(--border);
             display: flex; align-items: center; justify-content: space-between;
         }
-        .admin-head h2 { font-family: 'Noto Serif SC', serif; font-size: 1.1rem; }
+        .admin-head h2 { font-family: 'Songti SC', 'STSong', 'SimSun', 'Noto Serif SC', Georgia, serif; font-size: 1.1rem; }
         .admin-head .sub { font-size: 0.72rem; color: var(--text-muted); margin-top: 0.1rem; }
         .admin-close {
             width: 34px; height: 34px; border-radius: 50%;
@@ -650,7 +654,7 @@
         .a-row3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.9rem; }
         .a-hint { font-size: 0.72rem; color: var(--text-muted); margin-top: 0.3rem; }
         .a-group-title {
-            font-family: 'Noto Serif SC', serif; font-size: 0.95rem;
+            font-family: 'Songti SC', 'STSong', 'SimSun', 'Noto Serif SC', Georgia, serif; font-size: 0.95rem;
             margin: 1.6rem 0 1rem; padding-bottom: 0.5rem;
             border-bottom: 1px solid var(--border); color: var(--text-primary);
         }
@@ -728,7 +732,7 @@
             text-align: center;
         }
         .login-card .lock { font-size: 2rem; margin-bottom: 0.8rem; }
-        .login-card h3 { font-family: 'Noto Serif SC', serif; margin-bottom: 0.4rem; }
+        .login-card h3 { font-family: 'Songti SC', 'STSong', 'SimSun', 'Noto Serif SC', Georgia, serif; margin-bottom: 0.4rem; }
         .login-card p { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1.4rem; }
         .login-card input {
             width: 100%; padding: 0.7rem 1rem;
@@ -1327,6 +1331,18 @@
             }
             return out;
         }
+        function extend(target, source) {
+            for (const k in source) {
+                if (Object.prototype.hasOwnProperty.call(source, k)) target[k] = source[k];
+            }
+            return target;
+        }
+        function findById(arr, id) {
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] && arr[i].id === id) return arr[i];
+            }
+            return null;
+        }
 
         const toastArea = document.getElementById('toastArea');
         function toast(msg, type) {
@@ -1375,8 +1391,7 @@
         const AssetStore = {
             db: null,
             map: new Map(),
-            key: 'gj_assets_db',
-            open() {
+            open: function () {
                 if (this.db) return Promise.resolve(this.db);
                 return new Promise(function (resolve, reject) {
                     const req = indexedDB.open('gj_portfolio_assets', 1);
@@ -1388,11 +1403,11 @@
                     req.onerror = function () { reject(req.error); };
                 });
             },
-            async init() {
-                try {
-                    const db = await this.open();
-                    this.db = db;
-                    await new Promise(function (resolve, reject) {
+            init: function () {
+                const self = this;
+                return this.open().then(function (db) {
+                    self.db = db;
+                    return new Promise(function (resolve, reject) {
                         const tx = db.transaction('assets', 'readonly');
                         const store = tx.objectStore('assets');
                         const req = store.openCursor();
@@ -1403,37 +1418,43 @@
                             else resolve(map);
                         };
                         req.onerror = function () { reject(req.error); };
-                    }).then(function (m) { AssetStore.map = m; });
-                } catch (e) { /* 不支持 IndexedDB 时降级：仅内存 */ }
-            },
-            async put(dataUrl, type) {
-                const id = (type === 'video' ? 'v_' : 'i_') + uid();
-                if (this.db) {
-                    await new Promise(function (resolve, reject) {
-                        const tx = AssetStore.db.transaction('assets', 'readwrite');
-                        tx.objectStore('assets').put(dataUrl, id);
-                        tx.oncomplete = resolve;
-                        tx.onerror = function () { reject(tx.error); };
                     });
-                }
-                this.map.set(id, dataUrl);
-                return id;
+                }).then(function (m) {
+                    self.map = m;
+                }).catch(function () { /* 不支持 IndexedDB 时降级：仅内存 */ });
             },
-            async del(id) {
-                if (!id) return;
+            put: function (dataUrl, type) {
+                const id = (type === 'video' ? 'v_' : 'i_') + uid();
+                const self = this;
+                if (!this.db) {
+                    this.map.set(id, dataUrl);
+                    return Promise.resolve(id);
+                }
+                return new Promise(function (resolve, reject) {
+                    const tx = self.db.transaction('assets', 'readwrite');
+                    tx.objectStore('assets').put(dataUrl, id);
+                    tx.oncomplete = function () {
+                        self.map.set(id, dataUrl);
+                        resolve(id);
+                    };
+                    tx.onerror = function () { reject(tx.error); };
+                });
+            },
+            del: function (id) {
+                if (!id) return Promise.resolve();
                 this.map.delete(id);
-                if (this.db) {
+                if (!this.db) return Promise.resolve();
+                const self = this;
+                return new Promise(function (resolve) {
                     try {
-                        await new Promise(function (resolve, reject) {
-                            const tx = AssetStore.db.transaction('assets', 'readwrite');
-                            tx.objectStore('assets').delete(id);
-                            tx.oncomplete = resolve;
-                            tx.onerror = function () { reject(tx.error); };
-                        });
-                    } catch (e) { /* ignore */ }
-                }
+                        const tx = self.db.transaction('assets', 'readwrite');
+                        tx.objectStore('assets').delete(id);
+                        tx.oncomplete = resolve;
+                        tx.onerror = resolve;
+                    } catch (e) { resolve(); }
+                });
             },
-            resolve(ref) {
+            resolve: function (ref) {
                 if (typeof ref === 'string' && ref.indexOf('__asset__:') === 0) {
                     return this.map.get(ref.slice(10)) || '';
                 }
@@ -1451,12 +1472,11 @@
         }
 
         /* 把对象中的 dataURL 全部转为 asset 引用（用于导入/保存） */
-        async function assetify(obj) {
+        function assetify(obj) {
             const out = JSON.parse(JSON.stringify(obj));
             const tasks = [];
             function walk(node, path) {
                 if (!node || typeof node !== 'object') return;
-                if (typeof node === 'string') return;
                 if (Array.isArray(node)) { node.forEach(function (v, i) { if (typeof v === 'string' && v.indexOf('data:') === 0) { tasks.push(function () { return AssetStore.put(v, v.indexOf('data:video') === 0 ? 'video' : 'image').then(function (id) { node[i] = '__asset__:' + id; }); }); } else walk(v, path); }); return; }
                 Object.keys(node).forEach(function (k) {
                     const v = node[k];
@@ -1466,8 +1486,11 @@
                 });
             }
             walk(out, '');
-            for (const t of tasks) await t();
-            return out;
+            function run(i) {
+                if (i >= tasks.length) return Promise.resolve(out);
+                return tasks[i]().then(function () { return run(i + 1); });
+            }
+            return run(0);
         }
 
         /* 把对象中的 asset 引用全部解析为 dataURL（用于导出 site-data.js / JSON） */
@@ -1909,14 +1932,19 @@
         }
 
         /* ================= 数字滚动 & 能力条（供渲染调用） ================= */
-        const statObserver = new IntersectionObserver(function (entries) {
-            entries.forEach(function (e) {
-                if (e.isIntersecting) { animateNumber(e.target); statObserver.unobserve(e.target); }
-            });
-        }, { threshold: 0.6 });
+        const hasIO = 'IntersectionObserver' in window;
+        let statObserver = null;
+        if (hasIO) {
+            statObserver = new IntersectionObserver(function (entries) {
+                entries.forEach(function (e) {
+                    if (e.isIntersecting) { animateNumber(e.target); statObserver.unobserve(e.target); }
+                });
+            }, { threshold: 0.6 });
+        }
         function bindCounters(scope) {
             (scope || document).querySelectorAll('.stat-number').forEach(function (el) {
-                statObserver.observe(el);
+                if (hasIO) statObserver.observe(el);
+                else animateNumber(el);
             });
         }
         function animateNumber(el) {
@@ -1932,23 +1960,33 @@
             }
             requestAnimationFrame(step);
         }
-        const barObserver = new IntersectionObserver(function (entries) {
-            entries.forEach(function (e) {
-                if (e.isIntersecting) {
-                    const level = e.target.dataset.level;
-                    const fill = e.target.querySelector('.skill-bar-fill');
-                    setTimeout(function () { fill.style.width = level + '%'; }, 150);
-                    barObserver.unobserve(e.target);
-                }
-            });
-        }, { threshold: 0.4 });
+        let barObserver = null;
+        if (hasIO) {
+            barObserver = new IntersectionObserver(function (entries) {
+                entries.forEach(function (e) {
+                    if (e.isIntersecting) {
+                        const level = e.target.dataset.level;
+                        const fill = e.target.querySelector('.skill-bar-fill');
+                        setTimeout(function () { fill.style.width = level + '%'; }, 150);
+                        barObserver.unobserve(e.target);
+                    }
+                });
+            }, { threshold: 0.4 });
+        }
         function bindSkillBars(scope) {
             (scope || document).querySelectorAll('.skill-bar-item').forEach(function (el) {
-                barObserver.observe(el);
+                if (hasIO) barObserver.observe(el);
+                else el.querySelector('.skill-bar-fill').style.width = el.dataset.level + '%';
             });
         }
 
         /* ================= 基础交互 ================= */
+        /* 兜底：若 load 事件被资源拖延，最多 3 秒后隐藏加载动画 */
+        setTimeout(function () {
+            const p = document.getElementById('preloader');
+            if (p && !p.classList.contains('hidden')) p.classList.add('hidden');
+        }, 3000);
+
         window.addEventListener('load', function () {
             setTimeout(function () { document.getElementById('preloader').classList.add('hidden'); }, 400);
             AssetStore.init().then(function () {
@@ -2092,12 +2130,18 @@
             });
         }
 
-        const fadeObserver = new IntersectionObserver(function (entries) {
-            entries.forEach(function (e) {
-                if (e.isIntersecting) { e.target.classList.add('visible'); fadeObserver.unobserve(e.target); }
-            });
-        }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
-        document.querySelectorAll('.fade-in').forEach(function (el) { fadeObserver.observe(el); });
+        let fadeObserver = null;
+        if (hasIO) {
+            fadeObserver = new IntersectionObserver(function (entries) {
+                entries.forEach(function (e) {
+                    if (e.isIntersecting) { e.target.classList.add('visible'); fadeObserver.unobserve(e.target); }
+                });
+            }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
+        }
+        document.querySelectorAll('.fade-in').forEach(function (el) {
+            if (hasIO) fadeObserver.observe(el);
+            else el.classList.add('visible');
+        });
 
         const typedEl = document.getElementById('typedText');
         let pi = 0, ci = 0, deleting = false, typingStarted = false;
@@ -2526,7 +2570,7 @@
             });
             list.querySelectorAll('button[data-del]').forEach(function (btn) {
                 btn.addEventListener('click', function () {
-                    const w = DATA.works.find(function (x) { return x.id === btn.dataset.del; });
+                    const w = findById(DATA.works, btn.dataset.del);
                     if (w && confirm('确定删除作品「' + w.title + '」吗？')) {
                         removeAssetRef(w.image);
                         DATA.works = DATA.works.filter(function (x) { return x.id !== w.id; });
@@ -2537,7 +2581,7 @@
             });
         }
         function startEditWork(id) {
-            const w = DATA.works.find(function (x) { return x.id === id; });
+            const w = findById(DATA.works, id);
             if (!w) return;
             document.getElementById('editingWorkId').value = w.id;
             document.getElementById('workFormTitle').textContent = '编辑作品';
@@ -2615,8 +2659,8 @@
                 image: editingWorkMedia
             };
             if (editingId) {
-                const w = DATA.works.find(function (x) { return x.id === editingId; });
-                if (w) Object.assign(w, payload);
+                const w = findById(DATA.works, editingId);
+                if (w) extend(w, payload);
                 toast('作品已更新', 'success');
             } else {
                 payload.id = uid();
@@ -2655,7 +2699,7 @@
             });
             list.querySelectorAll('button[data-del]').forEach(function (btn) {
                 btn.addEventListener('click', function () {
-                    const it = DATA.life.find(function (x) { return x.id === btn.dataset.del; });
+                    const it = findById(DATA.life, btn.dataset.del);
                     if (it && confirm('确定删除「' + it.title + '」吗？')) {
                         (it.images || []).forEach(removeAssetRef);
                         DATA.life = DATA.life.filter(function (x) { return x.id !== it.id; });
@@ -2684,7 +2728,7 @@
             });
         }
         function startEditLife(id) {
-            const it = DATA.life.find(function (x) { return x.id === id; });
+            const it = findById(DATA.life, id);
             if (!it) return;
             document.getElementById('editingLifeId').value = it.id;
             document.getElementById('lifeFormTitle').textContent = '编辑生活记录';
@@ -2736,10 +2780,10 @@
                 images: editingLifeImages.slice()
             };
             if (editingId) {
-                const it = DATA.life.find(function (x) { return x.id === editingId; });
+                const it = findById(DATA.life, editingId);
                 if (it) {
                     (it.images || []).forEach(removeAssetRef);
-                    Object.assign(it, payload);
+                    extend(it, payload);
                 }
                 toast('已更新', 'success');
             } else {
@@ -2849,7 +2893,7 @@
             });
             list.querySelectorAll('button[data-del]').forEach(function (btn) {
                 btn.addEventListener('click', function () {
-                    const it = DATA.timeline.find(function (x) { return x.id === btn.dataset.del; });
+                    const it = findById(DATA.timeline, btn.dataset.del);
                     if (it && confirm('确定删除这段经历「' + it.title + '」吗？')) {
                         DATA.timeline = DATA.timeline.filter(function (x) { return x.id !== it.id; });
                         saveData(true); applyAll(); renderTlList();
@@ -2859,7 +2903,7 @@
             });
         }
         function startEditTl(id) {
-            const it = DATA.timeline.find(function (x) { return x.id === id; });
+            const it = findById(DATA.timeline, id);
             if (!it) return;
             document.getElementById('editingTlId').value = it.id;
             document.getElementById('tlFormTitle').textContent = '编辑经历';
@@ -2888,8 +2932,8 @@
                 desc: document.getElementById('tlDesc').value.trim()
             };
             if (editingId) {
-                const it = DATA.timeline.find(function (x) { return x.id === editingId; });
-                if (it) Object.assign(it, payload);
+                const it = findById(DATA.timeline, editingId);
+                if (it) extend(it, payload);
                 toast('已更新', 'success');
             } else {
                 payload.id = uid();
@@ -3080,7 +3124,7 @@
         const publishBtn = document.getElementById('publishBtn');
         const publishStatus = document.getElementById('publishStatus');
         const GH_TOKEN_KEY = 'gj_gh_token';
-        publishBtn.addEventListener('click', async function () {
+        publishBtn.addEventListener('click', function () {
             let token = document.getElementById('ghToken').value.trim();
             if (!token) token = localStorage.getItem(GH_TOKEN_KEY) || '';
             if (!token) {
@@ -3093,40 +3137,52 @@
             const repo = document.getElementById('ghRepo').value.trim() || 'g19930311-lang/allen-gao-portfolio';
             publishBtn.disabled = true;
             publishStatus.textContent = '发布中…';
+
+            function finish(msg, ok) {
+                publishBtn.disabled = false;
+                publishStatus.textContent = msg;
+                if (!ok) {
+                    toast(msg, 'error');
+                    setTimeout(function () { publishStatus.textContent = ''; }, 6000);
+                } else {
+                    toast('🎉 发布成功！刷新网站即可看到最新内容', 'success');
+                }
+            }
+
             try {
                 const content = buildSiteDataFile();
                 const base64 = utf8ToBase64(content);
                 const api = 'https://api.github.com/repos/' + repo + '/contents/site-data.js';
                 const headers = { Authorization: 'token ' + token, Accept: 'application/vnd.github.v3+json' };
-                let sha = '';
-                const getRes = await fetch(api, { headers: headers });
-                if (getRes.status === 200) {
-                    const j = await getRes.json();
-                    sha = j.sha || '';
-                } else if (getRes.status !== 404) {
-                    throw new Error('读取远程文件失败（' + getRes.status + '），请检查 Token 权限与仓库名');
-                }
-                const putRes = await fetch(api, {
-                    method: 'PUT',
-                    headers: Object.assign({ 'Content-Type': 'application/json' }, headers),
-                    body: JSON.stringify({
-                        message: 'chore: update site data',
-                        content: base64,
-                        sha: sha || undefined
-                    })
+
+                fetch(api, { headers: headers }).then(function (getRes) {
+                    let sha = '';
+                    if (getRes.status === 200) {
+                        return getRes.json().then(function (j) { sha = j.sha || ''; return sha; });
+                    } else if (getRes.status === 404) {
+                        return '';
+                    } else {
+                        throw new Error('读取远程文件失败（' + getRes.status + '），请检查 Token 权限与仓库名');
+                    }
+                }).then(function (sha) {
+                    const putHeaders = { 'Content-Type': 'application/json', Authorization: 'token ' + token, Accept: 'application/vnd.github.v3+json' };
+                    return fetch(api, {
+                        method: 'PUT',
+                        headers: putHeaders,
+                        body: JSON.stringify({ message: 'chore: update site data', content: base64, sha: sha || undefined })
+                    });
+                }).then(function (putRes) {
+                    if (!putRes.ok) {
+                        return putRes.json().catch(function () { return {}; }).then(function (errBody) {
+                            throw new Error('发布失败（' + putRes.status + '）' + (errBody.message ? '：' + errBody.message : ''));
+                        });
+                    }
+                    finish('✅ 发布成功，约 1 分钟后全站生效', true);
+                }).catch(function (err) {
+                    finish(err.message || '发布失败', false);
                 });
-                if (!putRes.ok) {
-                    const errBody = await putRes.json().catch(function () { return {}; });
-                    throw new Error('发布失败（' + putRes.status + '）' + (errBody.message ? '：' + errBody.message : ''));
-                }
-                publishStatus.textContent = '✅ 发布成功，约 1 分钟后全站生效';
-                toast('🎉 发布成功！刷新网站即可看到最新内容', 'success');
             } catch (err) {
-                publishStatus.textContent = '❌ 失败';
-                toast(err.message, 'error');
-            } finally {
-                publishBtn.disabled = false;
-                setTimeout(function () { if (publishStatus.textContent.indexOf('✅') < 0) publishStatus.textContent = ''; }, 6000);
+                finish(err.message || '发布失败', false);
             }
         });
 
