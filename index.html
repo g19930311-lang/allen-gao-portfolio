@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
@@ -9,13 +9,19 @@
     <meta name="author" content="高洁 Allen Gao">
     <meta name="theme-color" content="#0a0a0f">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="canonical" href="https://g19930311-lang.github.io/allen-gao-portfolio/">
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://g19930311-lang.github.io/allen-gao-portfolio/">
     <meta property="og:title" content="高洁 Allen Gao | 新媒体运营与品牌策划">
     <meta property="og:description" content="9年新媒体行业深耕，从0到1搭建品牌矩阵">
     <meta property="og:locale" content="zh_CN">
     <meta property="og:image" content="https://g19930311-lang.github.io/allen-gao-portfolio/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="高洁 Allen Gao | 新媒体运营与品牌策划">
+    <meta name="twitter:description" content="9年新媒体行业深耕，从0到1搭建品牌矩阵">
+    <meta name="twitter:image" content="https://g19930311-lang.github.io/allen-gao-portfolio/og-image.png">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -228,7 +234,7 @@
             max-width: 1200px; margin: 0 auto; align-items: center;
         }
         .about-image-frame {
-            width: 100%; aspect-ratio: 3/4;
+            width: 100%; max-width: 420px; aspect-ratio: 3/4; margin: 0 auto;
             background: var(--bg-elevated); border-radius: 20px;
             overflow: hidden; position: relative;
             border: 1px solid var(--border); transition: all 0.3s ease;
@@ -236,11 +242,22 @@
         .about-image-frame:hover { border-color: var(--accent); }
         .about-image-frame img { width: 100%; height: 100%; object-fit: cover; }
         .about-image-frame .placeholder {
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            display: flex; flex-direction: column; align-items: flex-start; justify-content: space-between;
             gap: 0.8rem; height: 100%; color: var(--text-muted);
-            font-size: 0.9rem; text-align: center; padding: 1rem;
+            text-align: left; padding: 2rem 1.6rem;
+            background:
+                radial-gradient(100% 80% at 50% 0%, rgba(232, 93, 63, 0.14), transparent 65%),
+                linear-gradient(180deg, var(--bg-elevated), var(--bg-card));
         }
-        .about-image-frame .placeholder .up-icon { font-size: 2.2rem; opacity: 0.6; }
+        .about-image-frame .placeholder .mark {
+            font-family: 'Songti SC', 'STSong', 'SimSun', 'Noto Serif SC', Georgia, serif;
+            font-size: 1.05rem; letter-spacing: 3px; color: var(--text-primary);
+        }
+        .about-image-frame .placeholder .mark small {
+            display: block; font-size: 0.66rem; letter-spacing: 2px;
+            color: var(--accent); margin-top: 0.35rem;
+        }
+        .about-image-frame .placeholder .hint { font-size: 0.72rem; line-height: 1.7; color: var(--text-muted); }
         .about-text h3 { font-family: 'Songti SC', 'STSong', 'SimSun', 'Noto Serif SC', Georgia, serif; font-size: 1.8rem; margin-bottom: 1.5rem; line-height: 1.4; }
         .about-text p { color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 1rem; }
         .about-skills { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 2rem; }
@@ -782,6 +799,207 @@
         ::-webkit-scrollbar-thumb { background: var(--bg-elevated); border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
         .admin-body::-webkit-scrollbar { width: 6px; }
+        /* ================= v2 结构升级 ================= */
+        section[id] { scroll-margin-top: 90px; }
+
+        /* 顶部状态徽章 */
+        .status-pill {
+            display: inline-flex; align-items: center; gap: 0.45rem;
+            padding: 0.4rem 0.85rem; border: 1px solid var(--border-hover);
+            border-radius: 50px; font-size: 0.74rem; letter-spacing: 0.5px;
+            color: var(--text-secondary); white-space: nowrap;
+        }
+        .status-pill .dot {
+            width: 7px; height: 7px; border-radius: 50%;
+            background: var(--success); animation: pulseDot 2.6s ease-in-out infinite;
+        }
+        .status-pill.is-off .dot { background: var(--text-muted); animation: none; }
+        @keyframes pulseDot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(0.82); }
+        }
+
+        /* 首屏：左文右像 */
+        .hero-inner {
+            display: grid; grid-template-columns: 1fr; gap: 3rem;
+            align-items: center; width: 100%; max-width: 1180px;
+        }
+        .hero-portrait {
+            justify-self: center; width: min(100%, 330px); aspect-ratio: 3 / 4;
+            border-radius: 18px; overflow: hidden; position: relative;
+            border: 1px solid var(--border); background: var(--bg-card);
+            box-shadow: var(--shadow); animation: fadeInUp 1s ease 0.5s both;
+        }
+        .hero-portrait img, .hero-portrait video {
+            width: 100%; height: 100%; object-fit: cover; display: block;
+        }
+        .hero-portrait .ph {
+            position: absolute; inset: 0; display: flex; flex-direction: column;
+            align-items: center; justify-content: center; gap: 0.7rem;
+            color: var(--text-muted); font-size: 0.78rem; text-align: center;
+            padding: 1.5rem; line-height: 1.7;
+        }
+        .hero-portrait .ph .big { font-size: 1.7rem; }
+        @media (min-width: 1024px) {
+            .hero-inner { grid-template-columns: 1.1fr 0.9fr; gap: 2.5rem; }
+            .hero .hero-content { text-align: left; max-width: none; }
+            .hero .hero-stats { justify-content: flex-start; gap: 2.4rem; }
+            .hero .hero-cta { justify-content: flex-start; }
+        }
+
+        /* 作品无封面时的数据占位 */
+        .ph-card {
+            position: absolute; inset: 0; display: flex; flex-direction: column;
+            align-items: center; justify-content: center; gap: 0.5rem; text-align: center;
+            background:
+                radial-gradient(120% 90% at 80% 0%, rgba(232, 93, 63, 0.16), transparent 60%),
+                linear-gradient(160deg, var(--bg-elevated), var(--bg-card));
+            padding: 1.5rem;
+        }
+        .ph-num {
+            font-family: 'Songti SC', 'STSong', 'SimSun', 'Noto Serif SC', Georgia, serif;
+            font-size: 2.4rem; line-height: 1; color: var(--accent); font-weight: 700;
+        }
+        .ph-lab { font-size: 0.82rem; color: var(--text-secondary); letter-spacing: 0.5px; }
+
+        /* 首屏形象照占位：做成设计感卡片，而不是空白框 */
+        .hero-portrait .ph {
+            background:
+                radial-gradient(100% 80% at 50% 0%, rgba(232, 93, 63, 0.14), transparent 65%),
+                linear-gradient(180deg, var(--bg-elevated), var(--bg-card));
+            justify-content: space-between; padding: 2rem 1.6rem;
+        }
+        .hero-portrait .ph .mark {
+            align-self: flex-start;
+            font-family: 'Songti SC', 'STSong', 'SimSun', 'Noto Serif SC', Georgia, serif;
+            font-size: 1.05rem; letter-spacing: 3px; color: var(--text-primary);
+        }
+        .hero-portrait .ph .mark small {
+            display: block; font-family: inherit; font-size: 0.68rem;
+            letter-spacing: 2px; color: var(--accent); margin-top: 0.4rem;
+        }
+        .hero-portrait .ph .hint {
+            align-self: flex-start; font-size: 0.72rem; line-height: 1.7;
+            color: var(--text-muted); text-align: left;
+        }
+        .skill-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.4rem; }
+        .skill-card {
+            border: 1px solid var(--border); border-radius: 16px;
+            background: var(--bg-card); padding: 1.9rem 1.7rem;
+            transition: all 0.35s ease; position: relative; overflow: hidden;
+        }
+        .skill-card:hover {
+            transform: translateY(-5px); border-color: var(--border-hover);
+            box-shadow: var(--shadow);
+        }
+        .skill-card .idx {
+            font-size: 0.72rem; letter-spacing: 2px; color: var(--accent);
+            margin-bottom: 1rem; font-variant-numeric: tabular-nums;
+        }
+        .skill-card h3 {
+            font-family: 'Songti SC', 'STSong', 'SimSun', 'Noto Serif SC', Georgia, serif;
+            font-size: 1.18rem; margin-bottom: 0.7rem; color: var(--text-primary);
+        }
+        .skill-card p { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.8; }
+        .skill-card .proof {
+            margin-top: 1.1rem; padding-top: 1.1rem; border-top: 1px solid var(--border);
+            font-size: 0.82rem; color: var(--accent); letter-spacing: 0.3px; line-height: 1.7;
+        }
+
+        /* 笔记 */
+        .notes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
+        .note-card {
+            display: flex; flex-direction: column; gap: 0.8rem;
+            border: 1px solid var(--border); border-radius: 16px;
+            background: var(--bg-card); padding: 1.6rem;
+            text-decoration: none; transition: all 0.35s ease;
+        }
+        .note-card:hover { transform: translateY(-5px); border-color: var(--accent); }
+        .note-meta {
+            display: flex; gap: 0.7rem; align-items: center; flex-wrap: wrap;
+            font-size: 0.74rem; color: var(--text-muted); letter-spacing: 1px;
+        }
+        .note-tag {
+            color: var(--accent); border: 1px solid rgba(232, 93, 63, 0.35);
+            padding: 0.12rem 0.55rem; border-radius: 50px;
+        }
+        .note-card h3 {
+            font-family: 'Songti SC', 'STSong', 'SimSun', 'Noto Serif SC', Georgia, serif;
+            font-size: 1.05rem; color: var(--text-primary); line-height: 1.55;
+        }
+        .note-card p { font-size: 0.86rem; color: var(--text-secondary); line-height: 1.75; }
+        .note-more { font-size: 0.8rem; color: var(--accent); margin-top: auto; }
+
+        /* 案例详情 */
+        .case-lead { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.9; margin-bottom: 1.4rem; }
+        .case-row {
+            display: flex; flex-wrap: wrap; gap: 0.5rem 1.6rem; margin-bottom: 1.6rem;
+            font-size: 0.8rem; color: var(--text-muted);
+        }
+        .case-row b { color: var(--text-primary); font-weight: 500; }
+        .case-section { margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+        .case-label {
+            font-size: 0.74rem; letter-spacing: 2px; color: var(--accent);
+            margin-bottom: 0.8rem;
+        }
+        .case-section p { color: var(--text-secondary); font-size: 0.92rem; line-height: 1.95; }
+        .case-section ul {
+            list-style: none; padding: 0; margin: 0;
+            display: flex; flex-direction: column; gap: 0.6rem;
+        }
+        .case-section li {
+            position: relative; padding-left: 1.15rem;
+            color: var(--text-secondary); font-size: 0.92rem; line-height: 1.8;
+        }
+        .case-section li::before { content: '—'; position: absolute; left: 0; color: var(--accent); }
+        .case-link {
+            display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 1.6rem;
+            font-size: 0.85rem; color: var(--accent); text-decoration: none;
+            border-bottom: 1px solid rgba(232, 93, 63, 0.4); padding-bottom: 2px;
+        }
+        .case-link:hover { color: var(--accent-light); }
+
+        /* 联系区 CTA */
+        .cta-block {
+            text-align: center; padding: 3rem 1.6rem;
+            border: 1px solid var(--border); border-radius: 20px; background: var(--bg-card);
+        }
+        .cta-title {
+            font-family: 'Songti SC', 'STSong', 'SimSun', 'Noto Serif SC', Georgia, serif;
+            font-size: clamp(1.6rem, 4vw, 2.6rem); line-height: 1.35; margin-bottom: 1rem;
+        }
+        .cta-sub { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 2.2rem; }
+        .cta-actions {
+            display: flex; justify-content: center; gap: 1rem;
+            flex-wrap: wrap; margin-bottom: 2.4rem;
+        }
+        .qr-row { display: flex; justify-content: center; gap: 2.2rem; flex-wrap: wrap; }
+        .qr-item { text-align: center; }
+        .qr-item img {
+            width: 132px; height: 132px; object-fit: cover; display: block;
+            border-radius: 12px; border: 1px solid var(--border);
+            background: #fff; padding: 6px;
+        }
+        .qr-item .qr-ph {
+            width: 132px; height: 132px; border-radius: 12px;
+            border: 1px dashed var(--border-hover); display: flex;
+            align-items: center; justify-content: center; text-align: center;
+            color: var(--text-muted); font-size: 0.72rem; padding: 0.7rem; line-height: 1.6;
+        }
+        .qr-item span { display: block; margin-top: 0.65rem; font-size: 0.78rem; color: var(--text-secondary); }
+
+        @media (max-width: 1023px) {
+            .hero { min-height: auto; align-items: flex-start; padding: 104px 5% 56px; }
+            .hero-inner { gap: 2.2rem; }
+            .hero-portrait { width: min(100%, 300px); }
+            .scroll-hint { display: none; }
+        }
+        @media (max-width: 900px) {
+            .skill-cards, .notes-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 420px) {
+            .status-pill { display: none; }
+        }
     </style>
 </head>
 <body>
@@ -794,13 +1012,12 @@
         <div class="nav-right">
             <ul class="nav-links">
                 <li><a href="#about" data-nav="about" data-i18n="nav_about">关于我</a></li>
-                <li><a href="#skills" data-nav="skills" data-i18n="nav_skills">能力</a></li>
-                <li><a href="#experience" data-nav="experience" data-i18n="nav_exp">经历</a></li>
                 <li><a href="#portfolio" data-nav="portfolio" data-i18n="nav_works">作品集</a></li>
-                <li><a href="#life" data-nav="life" data-i18n="nav_life">我的生活</a></li>
-                <li><a href="#social" data-nav="social" data-i18n="nav_social">社交媒体</a></li>
+                <li><a href="#skills" data-nav="skills" data-i18n="nav_skills">能力</a></li>
+                <li><a href="#notes" data-nav="notes" data-i18n="nav_notes">笔记</a></li>
                 <li><a href="#contact" data-nav="contact" data-i18n="nav_contact">联系我</a></li>
             </ul>
+            <span class="status-pill" id="statusPill"><span class="dot"></span><span id="statusText">可接品牌内容项目</span></span>
             <button class="lang-toggle" id="langToggle" aria-label="切换语言">EN</button>
             <button class="theme-toggle" id="themeToggle" aria-label="切换主题" title="切换明暗主题">🌙</button>
             <button class="menu-toggle" id="menuToggle" aria-label="打开菜单"><span></span><span></span><span></span></button>
@@ -809,15 +1026,17 @@
 
     <div class="mobile-menu" id="mobileMenu">
         <a href="#about" data-i18n="nav_about">关于我</a>
-        <a href="#skills" data-i18n="nav_skills">能力</a>
-        <a href="#experience" data-i18n="nav_exp">经历</a>
         <a href="#portfolio" data-i18n="nav_works">作品集</a>
+        <a href="#skills" data-i18n="nav_skills">能力</a>
+        <a href="#notes" data-i18n="nav_notes">笔记</a>
+        <a href="#experience" data-i18n="nav_exp">经历</a>
         <a href="#life" data-i18n="nav_life">我的生活</a>
         <a href="#social" data-i18n="nav_social">社交媒体</a>
         <a href="#contact" data-i18n="nav_contact">联系我</a>
     </div>
 
     <section class="hero" id="top">
+        <div class="hero-inner">
         <div class="hero-content">
             <div class="hero-badge" id="heroBadge">新媒体运营 &amp; 品牌策划</div>
             <h1>
@@ -835,6 +1054,13 @@
                 <button class="btn btn-secondary" id="heroResumeBtn" data-i18n="hero_resume">下载简历</button>
             </div>
         </div>
+        <div class="hero-portrait" id="heroPortrait">
+            <div class="ph">
+                <div class="mark">高洁<small>ALLEN GAO</small></div>
+                <div class="hint">形象照 / 15 秒短视频<br>在后台「关于我」上传后自动替换</div>
+            </div>
+        </div>
+        </div>
         <div class="scroll-hint">
             <div class="mouse"></div>
             <span>SCROLL</span>
@@ -848,8 +1074,8 @@
             <div class="about-image fade-in">
                 <div class="about-image-frame" id="avatarFrame" title="在后台『内容』标签中上传照片">
                     <div class="placeholder">
-                        <span class="up-icon">🖼️</span>
-                        <span>个人照片<br><small>（在后台设置）</small></span>
+                        <div class="mark">高洁<small>ALLEN GAO</small></div>
+                        <div class="hint">个人照片<br>在后台「内容」上传后自动替换</div>
                     </div>
                 </div>
             </div>
@@ -859,12 +1085,6 @@
                 <div class="about-skills" id="aboutTags"></div>
             </div>
         </div>
-    </section>
-
-    <section class="section" id="skills">
-        <h2 class="section-title fade-in" data-i18n="sec_skills">专业能力</h2>
-        <p class="section-subtitle fade-in" data-i18n="sec_skills_sub">9年积累的核心技能分布</p>
-        <div class="skill-bars fade-in" id="skillBars"></div>
     </section>
 
     <section class="section" id="experience">
@@ -886,6 +1106,18 @@
         </div>
         <div class="portfolio-grid" id="portfolioGrid"></div>
         <div class="highlight-grid fade-in" id="highlightGrid"></div>
+    </section>
+
+    <section class="section" id="skills">
+        <h2 class="section-title fade-in" data-i18n="sec_skills">能力</h2>
+        <p class="section-subtitle fade-in" data-i18n="sec_skills_sub">不是百分比，是做过什么、拿到什么结果</p>
+        <div class="skill-cards fade-in" id="skillCards"></div>
+    </section>
+
+    <section class="section" id="notes">
+        <h2 class="section-title fade-in" data-i18n="sec_notes">笔记</h2>
+        <p class="section-subtitle fade-in" data-i18n="sec_notes_sub">品牌、内容与流量的长期观察 —— 持续更新</p>
+        <div class="notes-grid" id="notesGrid"></div>
     </section>
 
     <section class="section" id="life">
@@ -944,26 +1176,16 @@
                     </div>
                 </div>
             </div>
-            <form class="contact-form" id="contactForm" novalidate>
-                <h3 data-i18n="form_title">给我留言</h3>
-                <div class="form-row">
-                    <label for="cName" data-i18n="form_name">您的称呼 *</label>
-                    <input type="text" id="cName" data-i18n-ph="form_name_ph" placeholder="请输入您的姓名或公司名称">
-                    <div class="form-error" id="errName" data-i18n="form_err_name">请填写您的称呼</div>
+            <div class="cta-block">
+                <div class="cta-title" data-i18n="cta_title">聊聊你的品牌</div>
+                <p class="cta-sub" data-i18n="cta_sub">招人、合作、想聊内容策略，都欢迎直接找我 —— 24 小时内回复</p>
+                <div class="cta-actions">
+                    <a class="btn btn-primary" id="ctaEmailBtn" href="mailto:AllenGaoChina@outlook.com" data-i18n="cta_mail">写邮件给我</a>
+                    <button class="btn btn-secondary" id="ctaCopyEmail" data-i18n="cta_copy">复制邮箱</button>
+                    <a class="btn btn-secondary" id="ctaCall" href="tel:18100338800" data-i18n="cta_call">直接打电话</a>
                 </div>
-                <div class="form-row">
-                    <label for="cContact" data-i18n="form_contact">联系方式 *</label>
-                    <input type="text" id="cContact" data-i18n-ph="form_contact_ph" placeholder="手机号或邮箱">
-                    <div class="form-error" id="errContact" data-i18n="form_err_contact">请填写有效的手机号或邮箱</div>
-                </div>
-                <div class="form-row">
-                    <label for="cMsg" data-i18n="form_msg">留言内容 *</label>
-                    <textarea id="cMsg" rows="4" data-i18n-ph="form_msg_ph" placeholder="简单描述您的需求或合作意向"></textarea>
-                    <div class="form-error" id="errMsg" data-i18n="form_err_msg">请填写留言内容（至少 5 个字）</div>
-                </div>
-                <button type="submit" class="btn btn-primary" data-i18n="form_send">发送留言</button>
-                <div class="form-note" data-i18n="form_note">提交后将调用本机邮件客户端，直接发送至我的邮箱</div>
-            </form>
+                <div class="qr-row" id="ctaQrRow"></div>
+            </div>
         </div>
     </section>
 
@@ -971,6 +1193,8 @@
         <div class="footer-links">
             <a href="#about" data-i18n="nav_about">关于我</a>
             <a href="#portfolio" data-i18n="nav_works">作品集</a>
+            <a href="#experience" data-i18n="nav_exp">经历</a>
+            <a href="#life" data-i18n="nav_life">我的生活</a>
             <a href="#social" data-i18n="nav_social">社交媒体</a>
             <a href="#contact" data-i18n="nav_contact">联系我</a>
             <a href="#" id="adminEntry" data-i18n="admin">管理后台</a>
@@ -999,8 +1223,10 @@
             <div class="detail-body">
                 <div class="detail-cat" id="detailCat"></div>
                 <h3 class="detail-title" id="detailTitle"></h3>
+                <div class="case-row" id="detailMeta"></div>
+                <p class="case-lead" id="detailDesc"></p>
                 <div class="detail-metrics" id="detailMetrics"></div>
-                <p class="detail-desc" id="detailDesc"></p>
+                <div id="detailSections"></div>
             </div>
         </div>
     </div>
@@ -1515,14 +1741,25 @@
             zh: {
                 nav_about: '关于我', nav_skills: '能力', nav_exp: '经历',
                 nav_works: '作品集', nav_life: '我的生活', nav_social: '社交媒体', nav_contact: '联系我',
+                nav_notes: '笔记',
                 hero_view: '查看作品', hero_contact: '联系我', hero_resume: '下载简历',
                 sec_about: '关于我', sec_about_sub: '致力于品牌 / 营销 / 内容 / 产品 / 服务一体化',
-                sec_skills: '专业能力', sec_skills_sub: '9年积累的核心技能分布',
+                sec_skills: '能力', sec_skills_sub: '不是百分比，是做过什么、拿到什么结果',
                 sec_exp: '工作经历', sec_exp_sub: '从基层到管理，每一步都扎实有力',
                 sec_works: '作品集', sec_works_sub: '精选项目案例，展示专业能力',
                 sec_life: '我的生活', sec_life_sub: '工作之外，认真生活 —— 兴趣、爱好与热爱的一切',
                 sec_social: '社交媒体', sec_social_sub: '关注我，一起记录品牌与生活',
                 sec_contact: '联系我', sec_contact_sub: '期待与您合作，共创品牌价值',
+                sec_notes: '笔记', sec_notes_sub: '品牌、内容与流量的长期观察 —— 持续更新',
+                notes_empty: '还没有笔记。在 site-data.js 的 notes 里加一条就能显示。',
+                note_read: '阅读全文 →', note_soon: '即将发布',
+                cta_title: '聊聊你的品牌',
+                cta_sub: '招人、合作、想聊内容策略，都欢迎直接找我 —— 24 小时内回复',
+                cta_mail: '写邮件给我', cta_copy: '复制邮箱', cta_call: '直接打电话',
+                cta_qr_hint: '在后台「社交」上传二维码',
+                case_challenge: '当时的处境', case_actions: '我做了什么', case_results: '结果',
+                case_role: '角色', case_period: '周期', case_link: '查看项目 / 原文 →',
+                skill_proof: '结果',
                 ct_phone: '电话', ct_email: '邮箱', ct_loc: '所在地', ct_intent: '求职意向', ct_resume: '简历',
                 ct_copy: '复制', ct_dl: '下载简历',
                 f_all: '全部', f_video: '短视频', f_brand: '品牌策划', f_live: '直播运营', f_private: '私域运营', f_content: '内容运营',
@@ -1545,14 +1782,25 @@
             en: {
                 nav_about: 'About', nav_skills: 'Skills', nav_exp: 'Experience',
                 nav_works: 'Portfolio', nav_life: 'Life', nav_social: 'Social', nav_contact: 'Contact',
+                nav_notes: 'Notes',
                 hero_view: 'View Works', hero_contact: 'Contact Me', hero_resume: 'Resume',
                 sec_about: 'About Me', sec_about_sub: 'Brand / Marketing / Content / Product / Service, integrated',
-                sec_skills: 'Core Skills', sec_skills_sub: '9 years of expertise, at a glance',
+                sec_skills: 'Skills', sec_skills_sub: 'Not percentages — what I did and what it delivered',
                 sec_exp: 'Experience', sec_exp_sub: 'From the ground up, every step counts',
                 sec_works: 'Portfolio', sec_works_sub: 'Selected projects that show what I can do',
                 sec_life: 'My Life', sec_life_sub: 'Beyond work — hobbies, passions & everyday moments',
                 sec_social: 'Social Media', sec_social_sub: 'Follow me on WeChat',
                 sec_contact: 'Contact', sec_contact_sub: 'Let’s create brand value together',
+                sec_notes: 'Notes', sec_notes_sub: 'Long-form thinking on brands, content and traffic — updated regularly',
+                notes_empty: 'No notes yet. Add one to `notes` in site-data.js.',
+                note_read: 'Read →', note_soon: 'Coming soon',
+                cta_title: 'Let’s talk about your brand',
+                cta_sub: 'Hiring, collaboration, or a chat about content strategy — I reply within 24 hours',
+                cta_mail: 'Email me', cta_copy: 'Copy email', cta_call: 'Call me',
+                cta_qr_hint: 'Upload QR in Admin → Social',
+                case_challenge: 'The situation', case_actions: 'What I did', case_results: 'Results',
+                case_role: 'Role', case_period: 'Period', case_link: 'View project / article →',
+                skill_proof: 'Result',
                 ct_phone: 'Phone', ct_email: 'Email', ct_loc: 'Location', ct_intent: 'Job Intent', ct_resume: 'Resume',
                 ct_copy: 'Copy', ct_dl: 'Download',
                 f_all: 'All', f_video: 'Video', f_brand: 'Branding', f_live: 'Live Commerce', f_private: 'Private Domain', f_content: 'Content',
@@ -1603,12 +1851,14 @@
                 line1: '用内容创造价值',
                 phrases: ['让品牌被看见', '让内容有回响', '让流量能沉淀'],
                 subtitle: '9年新媒体行业深耕，从0到1搭建品牌矩阵，<br>擅长短视频运营、直播电商、私域流量池构建',
+                media: '',
                 stats: [
                     { num: 9, suffix: '+', label: '年行业经验' },
                     { num: 30, suffix: 'W+', label: '月度视频传播' },
                     { num: 2, suffix: 'W+', label: '月度私域沉淀' }
                 ]
             },
+            status: { available: true, text: '可接品牌内容项目' },
             about: {
                 avatar: '',
                 heading: '从内容到品牌，<br>构建完整的营销生态',
@@ -1619,12 +1869,10 @@
                 tags: ['短视频运营', '直播电商', '私域运营', '品牌策划', '内容创作', '社群营销', 'PR公关', 'SEO优化']
             },
             skills: [
-                { label: '新媒体矩阵运营', level: 95 },
-                { label: '短视频内容策划', level: 92 },
-                { label: '私域流量运营', level: 90 },
-                { label: '品牌策划与VI', level: 88 },
-                { label: '直播电商运营', level: 85 },
-                { label: '数据分析与投放', level: 82 }
+                { label: '新媒体矩阵运营', desc: '双微一抖 + 视频号 + 小红书的全域矩阵搭建与日常运营，从账号定位、栏目规划到内容排期。', proof: '55W+ 粉丝订阅号矩阵 · 15 个服务号' },
+                { label: '短视频 & 直播操盘', desc: '短视频选题、脚本、拍摄、投放全流程；直播间选品、排期、复盘，把内容流量变成成交。', proof: '月度视频传播 30W+ · 月度直播 GMV 20W+' },
+                { label: '私域流量池', desc: '企微 + 社群 + 朋友圈的内容节奏与转化路径设计，把公域流量沉淀成可复用资产。', proof: '月度企微沉淀 2W+ · 社群体系 0→1' },
+                { label: '品牌策划与内容', desc: '品牌定位、slogan、VI 体系，以及品牌故事的长期内容表达。', proof: '品牌 VI 升级 1 套 · IP 故事线 3 条' }
             ],
             timeline: [
                 { id: 't1', date: '2023.06 - 2024.10', title: '新媒体运营', company: '杭州玖逸行特斯拉授权钣喷中心', desc: '对接特斯拉厂家品牌活动，执行C类活动；构建公司新媒体矩阵，对接媒介机构，储备达人资源；品牌内容的制作输出及调性把控；组织交流会、商务拜访，维护合作关系。' },
@@ -1641,12 +1889,65 @@
                 { num: '9年', txt: '行业深耕经验' }
             ],
             works: [
-                { id: 'w1', category: 'brand', title: '中鑫之宝品牌升级', desc: '主导中鑫之宝VI、logo、slogan等品牌升级策划，策划微商城搭建；微信服务号改版升级，倾向以用户运营为基础的文案撰写与排版；"发动机精修"独立品牌项目策划及传播平台搭建，覆盖服务号、视频号等渠道。', metrics: '品牌VI升级 1 套;传播平台 3 个', image: '' },
-                { id: 'w2', category: 'video', title: '安踏会员项目短视频运营', desc: '蘑菇街S级项目PM，对接品牌方推进短视频板块数据增长；短视频内容创意策划，把控拍摄与后期质量；制定投放策略优化转化比，协调直播、社群团队推进整体数据。', metrics: '30W+ 月视频传播;20W+ 月直播GMV;2W+ 私域沉淀', image: '' },
-                { id: 'w3', category: 'live', title: '直播运营数据增长项目', desc: '负责直播方案策划、供应商洽谈与直播团队考核管理；从选品、排期到复盘全流程推进直播数据增长。', metrics: '20W+ 月直播GMV', image: '' },
-                { id: 'w4', category: 'private', title: '橙色星球私域矩阵搭建', desc: '搭建私域运营体系，以企业微信、个人微信客户关系组建社群体系；结合牧场、果园、咖啡庄园"第三世界"品牌故事内容，实现流量沉淀与转化。', metrics: '企微沉淀 2W+;社群体系 1 套', image: '' },
-                { id: 'w5', category: 'brand', title: '橙色星球品牌价值构建', desc: '从0到1构建"橙色星球"品牌价值，创作牧场、果园、咖啡庄园"第三世界"故事内容；完善VI视觉体系，协助电商端详情页、海报等视觉输出。', metrics: 'IP故事线 3 条;私域体系 1 套', image: '' },
-                { id: 'w6', category: 'content', title: '纳食公众号矩阵（55万粉丝）', desc: '运营快消品垂直领域最大订阅号"纳食"（55万粉丝）及15个服务号媒体矩阵；负责文案选编、营销软文选题与爆点策划；组织线下糖酒会、商会论坛活动。', metrics: '55W+ 粉丝;15 个矩阵号', image: '' }
+                {
+                    id: 'w1', category: 'brand', title: '中鑫之宝品牌升级',
+                    role: '品牌策划 / 新媒体负责人', period: '2020.03 – 2021.09',
+                    desc: '为一个区域性汽车服务连锁重建品牌形象，并为「发动机精修」这个高客单项目搭出独立的线上阵地。',
+                    challenge: '中鑫之宝是区域性汽车服务连锁，品牌形象陈旧，线上没有一个能承接「发动机精修」这类高客单咨询的内容阵地。',
+                    actions: ['主导 VI、logo、slogan 升级，统一对外视觉', '重建微信服务号内容结构，改为以用户运营为导向的选题与排版', '为「发动机精修」搭建独立品牌，覆盖服务号 + 视频号双渠道', '策划微商城，打通从内容到成交的链路'],
+                    results: ['品牌 VI 完整升级 1 套', '「发动机精修」独立传播平台 3 个', '服务门店覆盖 100+'],
+                    hl: ['1 套', '品牌VI升级'], metrics: '1 套 品牌VI升级;3 个 传播平台', image: ''
+                },
+                {
+                    id: 'w2', category: 'video', title: '安踏会员项目短视频运营',
+                    role: '项目经理（S 级项目）', period: '2022.05 – 2023.06',
+                    desc: '蘑菇街 S 级项目，作为 PM 把品牌方、平台、达人三方拉到一个节奏上，跑出可复用的短视频增长样板。',
+                    challenge: '蘑菇街作为平台方要把安踏会员项目做成可复用的短视频增长样板，但品牌方、平台、达人三方节奏不一致。',
+                    actions: ['作为 PM 对接品牌方，拆解月度数据目标', '负责短视频创意策划，把控拍摄与后期质量', '制定投放策略，持续优化转化比', '协调直播、社群团队同步推进'],
+                    results: ['月度视频传播 30W+', '月度直播 GMV 20W+', '月度私域沉淀企微好友 2W+'],
+                    hl: ['30W+', '月度视频传播'], metrics: '30W+ 月视频传播;20W+ 月直播GMV;2W+ 私域沉淀', image: ''
+                },
+                {
+                    id: 'w3', category: 'live', title: '直播运营数据增长项目',
+                    role: '直播运营负责人', period: '2022.05 – 2023.06',
+                    desc: '从零建立直播的选品、排期、复盘标准，让 GMV 从波动变成可预期。',
+                    challenge: '直播团队刚组建，选品、排期、复盘都没有标准，GMV 波动大。',
+                    actions: ['制定直播方案与排期', '洽谈供应商，管理直播团队并建立考核', '从选品到复盘跑通标准流程'],
+                    results: ['月度直播 GMV 20W+'],
+                    hl: ['20W+', '月度直播 GMV'], metrics: '20W+ 月直播GMV', image: ''
+                },
+                {
+                    id: 'w4', category: 'private', title: '橙色星球私域矩阵搭建',
+                    role: '私域运营', period: '2021.09 – 2022.05',
+                    desc: '把「第三世界」的品牌故事变成社群里的日常内容，让公域流量有地方沉淀。',
+                    challenge: '品牌有内容却留不住人，公域流量进来就走，没有沉淀池。',
+                    actions: ['以企微 + 个人微信搭建社群体系', '围绕牧场、果园、咖啡庄园「第三世界」故事设计社群内容', '设计从内容到社群的转化路径'],
+                    results: ['企微沉淀 2W+', '社群体系 1 套'],
+                    hl: ['2W+', '月度企微沉淀'], metrics: '2W+ 企微沉淀;1 套 社群体系', image: ''
+                },
+                {
+                    id: 'w5', category: 'brand', title: '橙色星球品牌价值构建',
+                    role: '品牌策划', period: '2021.09 – 2022.05',
+                    desc: '一个新品牌从 0 到 1：定义它是什么、说什么话、长什么样。',
+                    challenge: '新品牌从 0 开始，没有品牌资产，也说不清自己是谁。',
+                    actions: ['从 0 到 1 定义「橙色星球」品牌价值', '创作牧场、果园、咖啡庄园「第三世界」品牌故事线', '建立 VI 视觉体系', '输出电商详情页、海报等物料'],
+                    results: ['IP 故事线 3 条', '私域体系 1 套'],
+                    hl: ['3 条', 'IP 故事线'], metrics: '3 条 IP故事线;1 套 私域体系', image: ''
+                },
+                {
+                    id: 'w6', category: 'content', title: '纳食公众号矩阵（55万粉丝）',
+                    role: '新媒体运营主管', period: '2017.01 – 2019.02',
+                    desc: '运营快消品垂直领域最大的订阅号之一，并管着 15 个服务号的媒体矩阵。',
+                    challenge: '55 万粉的订阅号 + 15 个服务号，需要持续高频产出，同时不能稀释调性。',
+                    actions: ['负责文案选编与选题策划', '策划营销软文与爆点内容', '组织线下糖酒会、商会论坛活动'],
+                    results: ['55W+ 粉丝', '15 个矩阵号'],
+                    hl: ['55W+', '公众号粉丝'], metrics: '55W+ 粉丝;15 个 矩阵号', image: ''
+                }
+            ],
+            notes: [
+                { id: 'n1', date: '2026.10', tag: '内容方法', title: '为什么你的品牌号发了很多，却没人记得住', excerpt: '内容不是发得多，而是有没有一个能被复述的主张。这篇写我怎么给一个账号定「一句话」。', url: '' },
+                { id: 'n2', date: '2026.09', tag: '私域', title: '私域不是加好友，是设计一条回访路径', excerpt: '加了 2 万个企微好友，不等于有 2 万个用户。沉淀的关键在第二次、第三次触达的设计。', url: '' },
+                { id: 'n3', date: '2026.09', tag: '职业观察', title: '新媒体运营的简历，为什么总在「负责」两个字上失分', excerpt: '「负责短视频运营」不是成果。把职责改写成「处境—动作—数字」，面试邀约率会变。', url: '' }
             ],
             life: [
                 { id: 'l1', title: '摄影 · 用镜头记录城市', date: '2024-08', emoji: '📷', desc: '喜欢在周末扫街，捕捉城市的光影与烟火气。摄影教会我用镜头讲品牌故事，也讲生活故事。', images: [] },
@@ -1719,6 +2020,34 @@
                 wrap.appendChild(d);
             });
             bindCounters(wrap);
+            renderHeroPortrait();
+        }
+
+        function renderHeroPortrait() {
+            const box = document.getElementById('heroPortrait');
+            if (!box) return;
+            const ref = (DATA.hero && DATA.hero.media) || (DATA.about && DATA.about.avatar) || '';
+            const src = ref ? AssetStore.resolve(ref) : '';
+            if (src && assetKind(ref) === 'video') {
+                box.innerHTML = '<video src="' + src + '" muted loop playsinline autoplay preload="metadata"></video>';
+            } else if (src) {
+                box.innerHTML = '<img loading="lazy" src="' + src + '" alt="高洁 Allen Gao">';
+            } else if (!box.querySelector('.ph')) {
+                box.innerHTML = '<div class="ph">' +
+                    '<div class="mark">高洁<small>ALLEN GAO</small></div>' +
+                    '<div class="hint">形象照 / 15 秒短视频<br>在后台「关于我」上传后自动替换</div>' +
+                    '</div>';
+            }
+        }
+
+        function renderStatus() {
+            const pill = document.getElementById('statusPill');
+            const txt = document.getElementById('statusText');
+            if (!pill || !txt) return;
+            const st = DATA.status || {};
+            txt.textContent = st.text || '可接品牌内容项目';
+            pill.classList.toggle('is-off', st.available === false);
+            pill.style.display = '';
         }
 
         function renderAbout() {
@@ -1743,22 +2072,57 @@
             if (avatar) {
                 frame.innerHTML = '<img loading="lazy" src="' + avatar + '" alt="个人照片">';
             } else {
-                frame.innerHTML = '<div class="placeholder"><span class="up-icon">🖼️</span><span>个人照片<br><small>（在后台设置）</small></span></div>';
+                frame.innerHTML = '<div class="placeholder">' +
+                    '<div class="mark">高洁<small>ALLEN GAO</small></div>' +
+                    '<div class="hint">个人照片<br>在后台「内容」上传后自动替换</div>' +
+                    '</div>';
             }
         }
 
         function renderSkills() {
-            const wrap = document.getElementById('skillBars');
+            const wrap = document.getElementById('skillCards');
+            if (!wrap) return;
             wrap.innerHTML = '';
-            DATA.skills.forEach(function (s) {
+            (DATA.skills || []).forEach(function (s, i) {
                 const d = document.createElement('div');
-                d.className = 'skill-bar-item';
-                d.setAttribute('data-level', s.level);
-                d.innerHTML = '<div class="skill-bar-head"><strong>' + escapeHtml(s.label) + '</strong><span>' + (+s.level) + '%</span></div>' +
-                              '<div class="skill-bar-track"><div class="skill-bar-fill"></div></div>';
+                d.className = 'skill-card';
+                const idx = ('0' + (i + 1)).slice(-2);
+                d.innerHTML =
+                    '<div class="idx">' + idx + '</div>' +
+                    '<h3>' + escapeHtml(s.label) + '</h3>' +
+                    '<p>' + escapeHtml(s.desc || '') + '</p>' +
+                    (s.proof ? '<div class="proof">' + escapeHtml(s.proof) + '</div>' : '');
                 wrap.appendChild(d);
             });
-            bindSkillBars(wrap);
+        }
+
+        function renderNotes() {
+            const grid = document.getElementById('notesGrid');
+            if (!grid) return;
+            grid.innerHTML = '';
+            const notes = DATA.notes || [];
+            if (!notes.length) {
+                grid.innerHTML = '<div class="portfolio-empty">' + T('notes_empty') + '</div>';
+                return;
+            }
+            notes.forEach(function (n) {
+                const el = document.createElement(n.url ? 'a' : 'div');
+                el.className = 'note-card';
+                if (n.url) {
+                    el.href = n.url;
+                    el.target = '_blank';
+                    el.rel = 'noopener';
+                }
+                el.innerHTML =
+                    '<div class="note-meta">' +
+                        (n.tag ? '<span class="note-tag">' + escapeHtml(n.tag) + '</span>' : '') +
+                        '<span>' + escapeHtml(n.date || '') + '</span>' +
+                    '</div>' +
+                    '<h3>' + escapeHtml(n.title) + '</h3>' +
+                    (n.excerpt ? '<p>' + escapeHtml(n.excerpt) + '</p>' : '') +
+                    '<div class="note-more">' + (n.url ? T('note_read') : T('note_soon')) + '</div>';
+                grid.appendChild(el);
+            });
         }
 
         function renderTimeline() {
@@ -1812,7 +2176,11 @@
                 } else if (img) {
                     mediaHtml = '<img loading="lazy" src="' + img + '" alt="' + escapeHtml(w.title) + '"><span class="zoom-badge">🔍</span>';
                 } else {
-                    mediaHtml = '<span>' + escapeHtml(CAT_MAP[w.category] || '') + ' ' + T('ws_ph') + '</span>';
+                    const hl = w.hl || splitMetric(((w.metrics || '').split(';')[0] || '').trim());
+                    mediaHtml = '<div class="ph-card">' +
+                        '<div class="ph-num">' + escapeHtml(hl[0]) + '</div>' +
+                        '<div class="ph-lab">' + escapeHtml(hl[1]) + '</div>' +
+                        '</div>';
                 }
                 card.innerHTML =
                     '<div class="portfolio-image">' + mediaHtml + '</div>' +
@@ -1917,6 +2285,37 @@
             emailLink.href = 'mailto:' + DATA.contact.email;
             document.getElementById('contactLocation').textContent = DATA.contact.location;
             document.getElementById('contactIntent').textContent = DATA.contact.intent;
+
+            const mailBtn = document.getElementById('ctaEmailBtn');
+            if (mailBtn) mailBtn.href = 'mailto:' + DATA.contact.email;
+            const callBtn = document.getElementById('ctaCall');
+            if (callBtn) callBtn.href = 'tel:' + DATA.contact.phone;
+
+            const qrRow = document.getElementById('ctaQrRow');
+            if (qrRow) {
+                qrRow.innerHTML = '';
+                [
+                    { key: 'wechat', label: '微信公众号', icon: '📱' },
+                    { key: 'channels', label: '微信视频号', icon: '🎬' }
+                ].forEach(function (g) {
+                    const s = (DATA.social && DATA.social[g.key]) || null;
+                    if (!s) return;
+                    const qr = s.qr ? AssetStore.resolve(s.qr) : '';
+                    const item = document.createElement('div');
+                    item.className = 'qr-item';
+                    item.innerHTML = (qr
+                        ? '<img loading="lazy" src="' + qr + '" alt="' + escapeHtml(s.name) + '">'
+                        : '<div class="qr-ph">' + T('cta_qr_hint') + '</div>') +
+                        '<span>' + escapeHtml(s.name || g.label) + '</span>';
+                    if (qr) {
+                        item.style.cursor = 'zoom-in';
+                        item.addEventListener('click', function () {
+                            openLightbox([{ src: qr, type: 'image', caption: g.label + ' · ' + s.name }], 0);
+                        });
+                    }
+                    qrRow.appendChild(item);
+                });
+            }
         }
 
         function applyAll() {
@@ -1926,9 +2325,11 @@
             renderTimeline();
             renderHighlights();
             renderWorks();
+            renderNotes();
             renderLife();
             renderSocial();
             renderContact();
+            renderStatus();
         }
 
         /* ================= 数字滚动 & 能力条（供渲染调用） ================= */
@@ -2116,7 +2517,7 @@
         window.addEventListener('scroll', onScroll, { passive: true });
         backTop.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
 
-        const sectionIds = ['about', 'skills', 'experience', 'portfolio', 'life', 'social', 'contact'];
+        const sectionIds = ['about', 'portfolio', 'skills', 'notes', 'experience', 'life', 'social', 'contact'];
         const navAnchors = document.querySelectorAll('.nav-links a[data-nav]');
         function updateActiveNav() {
             let current = '';
@@ -2262,37 +2663,7 @@
         }
         document.getElementById('copyPhone').addEventListener('click', function () { copyText(DATA.contact.phone, this); });
         document.getElementById('copyEmail').addEventListener('click', function () { copyText(DATA.contact.email, this); });
-
-        /* 联系表单 */
-        const contactForm = document.getElementById('contactForm');
-        const cName = document.getElementById('cName');
-        const cContact = document.getElementById('cContact');
-        const cMsg = document.getElementById('cMsg');
-        function setErr(input, errId, show) {
-            input.classList.toggle('invalid', show);
-            document.getElementById(errId).classList.toggle('show', show);
-        }
-        contactForm.addEventListener('submit', function (e) {
-            e.preventDefault();
-            let ok = true;
-            const nameVal = cName.value.trim();
-            const contactVal = cContact.value.trim();
-            const msgVal = cMsg.value.trim();
-            const nameBad = nameVal.length < 2;
-            setErr(cName, 'errName', nameBad); if (nameBad) ok = false;
-            const contactOk = /^[\d+\-\s()]{7,20}$/.test(contactVal) || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contactVal);
-            setErr(cContact, 'errContact', !contactOk); if (!contactOk) ok = false;
-            const msgBad = msgVal.length < 5;
-            setErr(cMsg, 'errMsg', msgBad); if (msgBad) ok = false;
-            if (!ok) { toast(T('form_toast'), 'error'); return; }
-            const subject = encodeURIComponent('【网站留言】来自 ' + nameVal + ' 的合作咨询');
-            const body = encodeURIComponent('称呼：' + nameVal + '\n联系方式：' + contactVal + '\n\n留言内容：\n' + msgVal + '\n\n—— 来自个人作品集网站');
-            window.location.href = 'mailto:' + DATA.contact.email + '?subject=' + subject + '&body=' + body;
-            toast(T('form_mailtoast'), 'success');
-        });
-        [[cName, 'errName'], [cContact, 'errContact'], [cMsg, 'errMsg']].forEach(function (pair) {
-            pair[0].addEventListener('input', function () { setErr(pair[0], pair[1], false); });
-        });
+        document.getElementById('ctaCopyEmail').addEventListener('click', function () { copyText(DATA.contact.email, this); });
 
         document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -2504,29 +2875,22 @@
         function buildSkillEditor() {
             const wrap = document.getElementById('skillEditor');
             wrap.innerHTML = '';
-            DATA.skills.forEach(function (s, i) {
+            (DATA.skills || []).forEach(function (s, i) {
                 const row = document.createElement('div');
-                row.className = 'a-row';
-                row.style.marginBottom = '0.7rem';
+                row.className = 'a-field';
+                row.style.cssText = 'border:1px solid var(--border);border-radius:10px;padding:0.8rem;margin-bottom:0.8rem';
                 row.innerHTML =
-                    '<div class="a-field" style="margin:0"><input type="text" value="' + escapeHtml(s.label) + '" data-si="' + i + '"></div>' +
-                    '<div class="a-field" style="margin:0;display:flex;align-items:center;gap:0.5rem">' +
-                        '<input type="range" min="0" max="100" value="' + (+s.level) + '" data-si="' + i + '" style="flex:1">' +
-                        '<span style="font-size:0.78rem;min-width:2.4em;text-align:right">' + (+s.level) + '%</span>' +
+                    '<div style="display:flex;gap:0.6rem;align-items:center">' +
+                        '<input type="text" value="' + escapeHtml(s.label) + '" data-sk="label" data-si="' + i + '" placeholder="能力名称" style="flex:1">' +
                         '<button class="a-btn mini danger" data-del="' + i + '" type="button">✕</button>' +
-                    '</div>';
+                    '</div>' +
+                    '<textarea rows="2" data-sk="desc" data-si="' + i + '" placeholder="做过什么（一两句）" style="margin-top:0.5rem">' + escapeHtml(s.desc || '') + '</textarea>' +
+                    '<input type="text" data-sk="proof" data-si="' + i + '" placeholder="结果，如：月度视频传播 30W+" value="' + escapeHtml(s.proof || '') + '" style="margin-top:0.5rem">';
                 wrap.appendChild(row);
             });
-            wrap.querySelectorAll('input[type="text"]').forEach(function (inp) {
+            wrap.querySelectorAll('[data-sk]').forEach(function (inp) {
                 inp.addEventListener('input', function () {
-                    DATA.skills[+inp.dataset.si].label = inp.value;
-                    saveDataDebounced(); applyAll();
-                });
-            });
-            wrap.querySelectorAll('input[type="range"]').forEach(function (inp) {
-                inp.addEventListener('input', function () {
-                    DATA.skills[+inp.dataset.si].level = +inp.value;
-                    inp.parentElement.querySelector('span').textContent = inp.value + '%';
+                    DATA.skills[+inp.dataset.si][inp.dataset.sk] = inp.value;
                     saveDataDebounced(); applyAll();
                 });
             });
@@ -2539,7 +2903,7 @@
         }
         document.getElementById('addSkillBtn').addEventListener('click', function () {
             if (DATA.skills.length >= 10) { toast('最多 10 项能力', 'warn'); return; }
-            DATA.skills.push({ label: '新能力', level: 70 });
+            DATA.skills.push({ label: '新能力', desc: '', proof: '' });
             saveData(true); applyAll(); buildSkillEditor();
         });
 
@@ -2990,29 +3354,77 @@
             const media = AssetStore.resolve(w.image);
             const mediaBox = document.getElementById('detailMedia');
             if (media && assetKind(w.image) === 'video') {
+                mediaBox.style.display = '';
                 mediaBox.innerHTML = '<video src="' + media + '" controls preload="metadata"></video>';
             } else if (media) {
+                mediaBox.style.display = '';
                 mediaBox.innerHTML = '<img src="' + media + '" alt="' + escapeHtml(w.title) + '">';
             } else {
-                mediaBox.innerHTML = '<div class="ph">' + escapeHtml(CAT_MAP[w.category] || '') + '</div>';
+                mediaBox.style.display = 'none';
+                mediaBox.innerHTML = '';
             }
             document.getElementById('detailCat').textContent = CAT_MAP[w.category] || w.category;
             document.getElementById('detailTitle').textContent = w.title;
             document.getElementById('detailDesc').textContent = w.desc || '';
+
+            const meta = document.getElementById('detailMeta');
+            const bits = [];
+            if (w.role) bits.push('<span>' + T('case_role') + ' · <b>' + escapeHtml(w.role) + '</b></span>');
+            if (w.period) bits.push('<span>' + T('case_period') + ' · <b>' + escapeHtml(w.period) + '</b></span>');
+            meta.innerHTML = bits.join('');
+            meta.style.display = bits.length ? 'flex' : 'none';
+
             const mWrap = document.getElementById('detailMetrics');
             mWrap.innerHTML = '';
             const metrics = (w.metrics || '').split(';').map(function (s) { return s.trim(); }).filter(Boolean);
             metrics.forEach(function (m) {
-                const sp = m.indexOf(' ');
-                const num = sp > 0 ? m.slice(0, sp) : m;
-                const label = sp > 0 ? m.slice(sp + 1) : '';
+                const parts = splitMetric(m);
                 const d = document.createElement('div');
                 d.className = 'detail-metric';
-                d.innerHTML = '<div class="n">' + escapeHtml(num) + '</div><div class="l">' + escapeHtml(label) + '</div>';
+                d.innerHTML = '<div class="n">' + escapeHtml(parts[0]) + '</div><div class="l">' + escapeHtml(parts[1]) + '</div>';
                 mWrap.appendChild(d);
             });
+            mWrap.style.display = metrics.length ? 'flex' : 'none';
+
+            const secs = document.getElementById('detailSections');
+            secs.innerHTML = '';
+            if (w.challenge) {
+                secs.appendChild(detailSection(T('case_challenge'), '<p>' + escapeHtml(w.challenge) + '</p>'));
+            }
+            if (w.actions && w.actions.length) {
+                secs.appendChild(detailSection(T('case_actions'), listHtml(w.actions)));
+            }
+            if (w.results && w.results.length) {
+                secs.appendChild(detailSection(T('case_results'), listHtml(w.results)));
+            }
+            if (w.link) {
+                const a = document.createElement('a');
+                a.className = 'case-link';
+                a.href = w.link;
+                a.target = '_blank';
+                a.rel = 'noopener';
+                a.textContent = T('case_link');
+                secs.appendChild(a);
+            }
+
             detailModal.classList.add('open');
             document.body.style.overflow = 'hidden';
+        }
+        function splitMetric(m) {
+            const units = ['套', '条', '个', '年', '次', '家', '位', '份', '款', '场', '人'];
+            const t = String(m || '').trim().split(/\s+/).filter(Boolean);
+            if (t.length <= 1) return [t[0] || '', ''];
+            let i = 1;
+            if (t.length > 2 && units.indexOf(t[1]) >= 0) i = 2;
+            return [t.slice(0, i).join(' '), t.slice(i).join(' ')];
+        }
+        function listHtml(arr) {            return '<ul>' + arr.map(function (x) { return '<li>' + escapeHtml(x) + '</li>'; }).join('') + '</ul>';
+        }
+        function detailSection(label, html) {
+            const d = document.createElement('div');
+            d.className = 'case-section';
+            d.innerHTML = '<div class="case-label">' + escapeHtml(label) + '</div>' + html;
+            return d;
         }
         function closeDetail() {
             detailModal.classList.remove('open');
