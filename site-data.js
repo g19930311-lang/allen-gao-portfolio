@@ -34,7 +34,7 @@ window.SITE_DATA = {
     "text": "可接品牌内容项目"
   },
   "about": {
-    "avatar": "",
+    "avatar": "assets/avatar.jpg",
     "heading": "从内容到品牌，<br>构建完整的营销生态",
     "paragraphs": [
       "我是高洁（Allen Gao），拥有9年新媒体行业从业经验。熟悉自媒体、直播电商、短视频、私域平台运营流程，对新媒体行业纵深化模式和未来发展趋势有深入了解。",
@@ -48,7 +48,8 @@ window.SITE_DATA = {
       "内容创作",
       "社群营销",
       "PR公关",
-      "SEO优化"
+      "SEO优化",
+      "视频剪辑 PR/AE"
     ]
   },
   "skills": [
@@ -65,7 +66,7 @@ window.SITE_DATA = {
     {
       "label": "私域流量池",
       "desc": "企微 + 社群 + 朋友圈的内容节奏与转化路径设计，把公域流量沉淀成可复用资产。",
-      "proof": "月度企微沉淀 2W+ · 社群体系 0→1"
+      "proof": "月度企微沉淀 2W+（安踏会员项目）· 社群体系 0→1"
     },
     {
       "label": "品牌策划与内容",
@@ -74,6 +75,14 @@ window.SITE_DATA = {
     }
   ],
   "timeline": [
+    {
+      "id": "t0",
+      "draft": true,
+      "date": "2024.10 – 至今",
+      "title": "待补充",
+      "company": "待补充",
+      "desc": "这一段留给你自己填：这两年做了什么、拿到什么结果。填完把 draft 改成 false 就会显示。"
+    },
     {
       "id": "t1",
       "date": "2023.06 - 2024.10",
@@ -219,11 +228,12 @@ window.SITE_DATA = {
         "设计从内容到社群的转化路径"
       ],
       "results": [
-        "企微沉淀 2W+",
+        "从 0 到 1 搭建私域运营体系",
+        "「橙色星球」「橙色星球小卖部」双平台从 0 到 1",
         "社群体系 1 套"
       ],
-      "hl": ["2W+", "月度企微沉淀"],
-      "metrics": "2W+ 企微沉淀;1 套 社群体系",
+      "hl": ["0→1", "私域体系搭建"],
+      "metrics": "0→1 私域体系;2 个 内容平台",
       "link": "",
       "image": ""
     },
@@ -302,27 +312,27 @@ window.SITE_DATA = {
   "life": [
     {
       "id": "l1",
-      "title": "摄影 · 用镜头记录城市",
-      "date": "2024-08",
-      "emoji": "📷",
-      "desc": "喜欢在周末扫街，捕捉城市的光影与烟火气。摄影教会我用镜头讲品牌故事，也讲生活故事。",
-      "images": []
+      "title": "脱下军装那天",
+      "date": "",
+      "emoji": "🎖️",
+      "desc": "这张一直留着。很多做事的方式，是那几年定下来的。",
+      "images": ["assets/life-veteran.jpg"]
     },
     {
       "id": "l2",
-      "title": "城市徒步 · 用脚步丈量杭州",
-      "date": "2024-05",
-      "emoji": "🚶",
-      "desc": "从西湖群山到京杭大运河，徒步是我放空和思考的方式，很多创意灵感都来自路上。",
-      "images": []
+      "title": "夜里走过外滩",
+      "date": "",
+      "emoji": "🌃",
+      "desc": "出差间隙站了一会儿。做内容的人，得先自己对这个城市有感觉。",
+      "images": ["assets/life-shanghai.jpg"]
     },
     {
       "id": "l3",
-      "title": "咖啡与阅读 · 慢下来的时光",
-      "date": "2024-03",
-      "emoji": "☕",
-      "desc": "手冲咖啡配一本好书，是我给自己充电的方式。最近在读品牌管理和消费心理相关书籍。",
-      "images": []
+      "title": "路过重庆李子坝",
+      "date": "",
+      "emoji": "🚝",
+      "desc": "城市在坡上长出来，轻轨从楼里穿过。好内容有时候就是把别人看见但没拍下来的东西拍下来。",
+      "images": ["assets/life-chongqing.jpg"]
     }
   ],
   "social": {
@@ -343,6 +353,6 @@ window.SITE_DATA = {
     "email": "AllenGaoChina@outlook.com",
     "location": "浙江杭州",
     "intent": "新媒体运营 / 品牌策划",
-    "resume": ""
+    "resume": "assets/resume.pdf"
   }
 };
