@@ -33,54 +33,67 @@
     <script src="site-data.js"></script>
     <style>
         :root {
-            --bg: #f8fafc;
-            --bg-soft: #eef2f7;
+            /* 色彩：蓝白为主，暖橙点睛，中性色四级层次 */
+            --bg: #f7f9fc;
+            --bg-soft: #eef2f8;
+            --bg-tint: #eff6ff;
             --card: #ffffff;
-            --ink: #0f172a;
-            --ink-2: #475569;
+            --ink: #0d1525;
+            --ink-2: #4a5a6e;
             --ink-3: #94a3b8;
-            --brand: #2563eb;
+            --brand: #1d4ed8;
             --brand-2: #3b82f6;
-            --brand-soft: rgba(37, 99, 235, 0.08);
+            --brand-soft: rgba(29, 78, 216, 0.07);
             --accent: #f97316;
-            --accent-soft: rgba(249, 115, 22, 0.12);
-            --border: #e2e8f0;
-            --border-2: #cbd5e1;
-            --dark: #0f172a;
-            --dark-2: #1e293b;
+            --accent-soft: rgba(249, 115, 22, 0.1);
+            --border: #e6ecf4;
+            --border-2: #d3ddea;
+            --dark: #0d1525;
+            --dark-2: #16233b;
             --success: #10b981;
             --danger: #ef4444;
             --warn: #f59e0b;
-            --shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
-            --shadow-sm: 0 8px 24px rgba(15, 23, 42, 0.06);
+            /* 阴影三档，柔和不发灰 */
+            --shadow-xs: 0 2px 8px rgba(13, 21, 37, 0.04);
+            --shadow-sm: 0 6px 22px rgba(13, 21, 37, 0.06);
+            --shadow: 0 18px 44px rgba(13, 21, 37, 0.09);
+            /* 圆角梯度 */
+            --r-sm: 10px; --r-md: 16px; --r-lg: 22px; --r-xl: 28px;
         }
         body.dark {
-            --bg: #0b1220;
-            --bg-soft: #111a2c;
-            --card: #151f33;
-            --ink: #f1f5f9;
-            --ink-2: #94a3b8;
-            --ink-3: #64748b;
-            --brand: #60a5fa;
+            --bg: #080d18;
+            --bg-soft: #0f1728;
+            --bg-tint: rgba(59, 130, 246, 0.07);
+            --card: #121c30;
+            --ink: #eef2f8;
+            --ink-2: #93a4bb;
+            --ink-3: #61738c;
+            --brand: #7ba9ff;
             --brand-2: #3b82f6;
-            --brand-soft: rgba(96, 165, 250, 0.1);
-            --border: rgba(148, 163, 184, 0.14);
+            --brand-soft: rgba(123, 169, 255, 0.1);
+            --border: rgba(148, 163, 184, 0.13);
             --border-2: rgba(148, 163, 184, 0.26);
-            --shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
-            --shadow-sm: 0 8px 24px rgba(0, 0, 0, 0.3);
+            --dark: #05080f;
+            --dark-2: #0e1729;
+            --shadow-xs: 0 2px 8px rgba(0,0,0,.25);
+            --shadow-sm: 0 6px 22px rgba(0, 0, 0, 0.32);
+            --shadow: 0 18px 44px rgba(0, 0, 0, 0.42);
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body {
-            background: #f8fafc;
+            background: #f7f9fc;
             background: var(--bg);
-            color: #0f172a;
+            color: #0d1525;
             color: var(--ink);
             font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Segoe UI', sans-serif;
-            line-height: 1.7;
+            font-size: 16px;
+            line-height: 1.75;
+            letter-spacing: 0.005em;
             overflow-x: hidden;
             transition: background 0.4s ease, color 0.4s ease;
             -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
         }
         #preloader {
             position: fixed; inset: 0; background: var(--bg); z-index: 9999;
@@ -158,20 +171,20 @@
         }
         .mobile-menu a:hover { color: var(--brand); }
         /* 通用 */
-        .wrap { max-width: 1200px; margin: 0 auto; padding: 0 5%; }
-        .section { padding: 7rem 0; position: relative; z-index: 2; }
+        .wrap { max-width: 1160px; margin: 0 auto; padding: 0 5%; }
+        .section { padding: 6.5rem 0; position: relative; z-index: 2; }
         .sec-label {
-            display: inline-block; font-size: 0.78rem; font-weight: 700;
-            letter-spacing: 3px; text-transform: uppercase; color: var(--brand);
-            margin-bottom: 1.2rem;
+            display: inline-block; font-size: 0.7rem; font-weight: 700;
+            letter-spacing: 3.5px; text-transform: uppercase; color: var(--brand);
+            margin-bottom: 0.9rem;
         }
         .sec-title {
-            font-size: 2.6rem;
-            font-size: clamp(2rem, 4.6vw, 3.4rem);
-            font-weight: 800; letter-spacing: -0.02em; line-height: 1.15;
-            margin-bottom: 1rem;
+            font-size: 2.5rem;
+            font-size: clamp(1.9rem, 4vw, 2.9rem);
+            font-weight: 800; letter-spacing: -0.025em; line-height: 1.14;
+            margin-bottom: 1.1rem;
         }
-        .sec-sub { font-size: 1.05rem; color: var(--ink-2); max-width: 640px; line-height: 1.8; }
+        .sec-sub { font-size: 1rem; color: var(--ink-2); max-width: 600px; line-height: 1.85; letter-spacing: 0.01em; }
         .btn {
             padding: 0.85rem 2rem; border-radius: 50px; font-size: 0.95rem;
             font-weight: 600; text-decoration: none; cursor: pointer;
@@ -183,10 +196,16 @@
         .btn-ghost { background: transparent; color: var(--ink); border: 1px solid var(--border-2); }
         .btn-ghost:hover { border-color: var(--brand); color: var(--brand); }
         /* Hero */
-        .hero { padding: 10rem 0 6rem; position: relative; overflow: hidden; }
+        .hero { padding: 9rem 0 5rem; position: relative; overflow: hidden; }
+        .hero::after {
+            content: ''; position: absolute; right: -8%; top: 8%;
+            width: 420px; height: 420px; border-radius: 50%;
+            background: radial-gradient(circle, var(--brand-soft) 0%, transparent 70%);
+            pointer-events: none; z-index: -1;
+        }
         .hero-grid {
-            display: grid; grid-template-columns: 1.1fr 0.9fr;
-            gap: 4rem; align-items: center;
+            display: grid; grid-template-columns: 1.15fr 0.85fr;
+            gap: 4.5rem; align-items: center;
         }
         .hero-badge {
             display: inline-flex; align-items: center; gap: 0.5rem;
@@ -195,10 +214,10 @@
             font-size: 0.8rem; font-weight: 600; margin-bottom: 1.8rem;
         }
         .hero-title {
-            font-size: 3.4rem;
-            font-size: clamp(2.6rem, 6.5vw, 5rem);
-            font-weight: 800; letter-spacing: -0.03em; line-height: 1.08;
-            margin-bottom: 1.4rem;
+            font-size: 3rem;
+            font-size: clamp(2.5rem, 5.4vw, 4.1rem);
+            font-weight: 800; letter-spacing: -0.032em; line-height: 1.1;
+            margin-bottom: 1.3rem;
         }
         .hero-title .grad {
             background: linear-gradient(100deg, var(--brand) 0%, var(--brand-2) 45%, var(--accent) 100%);
@@ -210,7 +229,7 @@
             padding-right: 4px; animation: blink 1s step-end infinite; min-height: 1.1em;
         }
         @keyframes blink { 50% { border-color: transparent; } }
-        .hero-sub { font-size: 1.15rem; color: var(--ink-2); margin-bottom: 2.2rem; max-width: 560px; line-height: 1.9; }
+        .hero-sub { font-size: 1.05rem; color: var(--ink-2); margin-bottom: 2.2rem; max-width: 540px; line-height: 1.9; letter-spacing: 0.01em; }
         .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }
         .hero-social-proof { display: flex; align-items: center; gap: 1rem; }
         .avatar-stack { display: flex; }
@@ -226,6 +245,32 @@
         .proof-text strong { color: var(--ink); }
         /* Hero 右侧视觉卡 */
         .hero-visual { position: relative; }
+        .hero-photo {
+            display: block; width: 100%; aspect-ratio: 4/5;
+            object-fit: cover; object-position: center 20%;
+            border-radius: var(--r-xl); background: var(--bg-soft);
+            border: 1px solid var(--border); box-shadow: var(--shadow);
+        }
+        .hero-float {
+            position: absolute; left: -1.4rem; bottom: -1.6rem;
+            width: 250px; padding: 1rem 1.1rem;
+            background: rgba(255, 255, 255, 0.93);
+            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border); border-radius: var(--r-lg);
+            box-shadow: var(--shadow);
+        }
+        body.dark .hero-float { background: rgba(14, 23, 41, 0.9); }
+        .hero-float .stat-row { grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-bottom: 0.55rem; }
+        .hero-float .stat-tile { padding: 0.6rem 0.7rem; border-radius: 12px; }
+        .hero-float .stat-tile .n { font-size: 1.12rem; }
+        .hero-float .stat-tile .l { font-size: 0.66rem; line-height: 1.4; }
+        .hero-float .mini-chart { height: 38px; padding: 7px; border-radius: var(--r-sm); }
+        #avatarFrame { padding: 0.7rem; border-radius: var(--r-xl); }
+        #avatarFrame img {
+            width: 100%; aspect-ratio: 4/5; object-fit: cover;
+            object-position: center 20%; border-radius: 20px; display: block;
+        }
+        #avatarFrame .placeholder { aspect-ratio: 4/5 !important; }
         .hero-card {
             background: var(--card); border: 1px solid var(--border);
             border-radius: 28px; padding: 2.2rem;
@@ -356,6 +401,40 @@
         .work-title { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.4rem; }
         .work-desc { color: var(--ink-2); font-size: 0.88rem; line-height: 1.7; }
         .empty-note { grid-column: 1/-1; text-align: center; padding: 3rem; color: var(--ink-3); font-size: 0.9rem; }
+        /* ===== 排版比例统一 ===== */
+        .work-title, .timeline-title, .life-title {
+            font-size: 1.06rem; font-weight: 700;
+            letter-spacing: -0.01em; margin-bottom: 0.42rem; line-height: 1.45;
+        }
+        .work-desc, .life-desc, .timeline-desc, .testi-text {
+            font-size: 0.875rem; line-height: 1.78; color: var(--ink-2);
+        }
+        .method-card p, .service-card p { font-size: 0.875rem; line-height: 1.78; }
+        .method-card h4, .service-card h4 {
+            font-size: 1.06rem; font-weight: 700;
+            letter-spacing: -0.01em; margin-bottom: 0.45rem;
+        }
+        .work-cat, .life-date, .detail-cat {
+            font-size: 0.72rem; font-weight: 700; letter-spacing: 2px;
+        }
+        .work-body { padding: 1.45rem 1.55rem 1.6rem; }
+        .life-info { padding: 1.25rem 1.45rem 1.45rem; }
+        .method-card { padding: 1.7rem 1.55rem; }
+        /* 区块节奏：标题下统一 3rem */
+        .method-grid { margin-top: 3rem; }
+        .timeline { margin-top: 3rem; }
+        .service-grid, .life-grid, .testi-grid { margin-top: 3rem; }
+        .social-grid { margin-top: 3rem; }
+        .filter-row { margin: 2.8rem 0 2.2rem; }
+        .highlight-grid { margin-top: 3rem !important; }
+        .notes-grid { margin-top: 3rem !important; }
+        .note-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(148, 163, 184, 0.34) !important;
+        }
+        .brands-strip { gap: 1rem 2.4rem; }
+        .brands-strip .b { font-size: 1.05rem; letter-spacing: 0.06em; }
+
         /* 深色对比区块 */
         .dark-band { background: var(--dark); color: #f1f5f9; }
         body.dark .dark-band { background: var(--dark); }
@@ -739,6 +818,26 @@
             .lb-prev { left: 8px; } .lb-next { right: 8px; }
             #back-top { right: 16px; bottom: 16px; }
         }
+        @media (max-width: 900px) {
+            .hero-grid { grid-template-columns: 1fr; gap: 3.2rem; }
+            .contact-wrap { grid-template-columns: 1fr; }
+            .skills-grid { grid-template-columns: 1fr; }
+            .method-grid { grid-template-columns: 1fr 1fr; }
+            /* about-grid 用了内联样式，移动端需强制单栏 */
+            .about-grid { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
+            .hero-visual, #avatarFrame { max-width: 440px; margin-left: auto; margin-right: auto; }
+            .hero-float { left: -0.6rem; width: 232px; }
+        }
+        @media (max-width: 768px) {
+            .hero { padding: 6.5rem 0 4rem; }
+            .hero-float { left: -0.5rem; bottom: -1rem; width: min(218px, 62%); padding: 0.85rem 0.9rem; }
+            .hero-float .stat-tile .n { font-size: 1rem; }
+            .hero-float .stat-tile .l { font-size: 0.62rem; }
+            .method-grid { grid-template-columns: 1fr; }
+            .detail-media { aspect-ratio: 4/3; }
+            .detail-title { font-size: 1.35rem; }
+            .detail-body { padding: 1.6rem 1.5rem 1.8rem; }
+        }
         @media (prefers-reduced-motion: reduce) {
             * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
         }
@@ -806,14 +905,8 @@
                 </div>
             </div>
             <div class="hero-visual">
-                <div class="hero-card">
-                    <div class="card-head">
-                        <div class="ic">📊</div>
-                        <div>
-                            <div class="t" data-i18n="hero_card_t">影响力实时看板</div>
-                            <div class="s" data-i18n="hero_card_s">Personal Impact Dashboard</div>
-                        </div>
-                    </div>
+                <img class="hero-photo" id="heroPhoto" src="assets/avatar.jpg" alt="高洁 Allen Gao" onerror="this.style.display='none'">
+                <div class="hero-float">
                     <div class="stat-row" id="heroStats"></div>
                     <div class="mini-chart" aria-hidden="true">
                         <div class="bar"></div><div class="bar"></div><div class="bar"></div>
@@ -2241,6 +2334,13 @@
             const badge = document.getElementById('heroBadge');
             if (badge && badge.firstChild) {
                 badge.firstChild.style.color = (st.available === false) ? 'var(--ink-3)' : 'var(--success)';
+            }
+            /* 首屏照片跟随头像设置 */
+            const hp = document.getElementById('heroPhoto');
+            if (hp) {
+                const src = AssetStore.resolve(DATA.about.avatar);
+                if (src) { hp.src = src; hp.style.display = ''; }
+                else { hp.style.display = 'none'; }
             }
             document.getElementById('heroLine1').textContent = DATA.hero.line1;
             document.getElementById('heroSubtitle').innerHTML = DATA.hero.subtitle;
