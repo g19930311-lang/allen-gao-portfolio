@@ -2204,9 +2204,19 @@
         catch (e) { DATA = deepMerge(DEFAULT_DATA, {}); }
 
         const LOCAL_KEY = 'gj_site_local';
+        const DATA_VERSION = DEFAULT_DATA.version;
         try {
             const raw = localStorage.getItem(LOCAL_KEY);
-            if (raw) DATA = deepMerge(DATA, JSON.parse(raw));
+            if (raw) {
+                const local = JSON.parse(raw);
+                if ((local.version || 0) >= DATA_VERSION) {
+                    DATA = deepMerge(DATA, local);
+                } else {
+                    /* 低版本本机数据缺少新版真实素材与案例结构：先备份再忽略，避免覆盖 */
+                    try { localStorage.setItem(LOCAL_KEY + '_backup_v' + (local.version || 0), raw); } catch (e2) { /* ignore */ }
+                    try { localStorage.removeItem(LOCAL_KEY); } catch (e3) { /* ignore */ }
+                }
+            }
         } catch (e) { /* 损坏数据忽略 */ }
 
         function saveData(silent) {
