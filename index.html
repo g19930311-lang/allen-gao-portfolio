@@ -1725,7 +1725,7 @@
                 proof_num: '服务过 8+ 知名品牌', proof_sub: '特斯拉 · 蘑菇街 · 安踏 · 惠氏',
                 hero_card_t: '影响力实时看板', hero_card_s: 'Personal Impact Dashboard',
                 lbl_about: 'ABOUT ME', sec_about: '从法庭到流量场', sec_about_sub: '法学跨界新媒体 —— 严谨的思维方式，遇上创造力的内容世界',
-                about_avatar_hint: '个人照片\n（后台设置）',
+                about_avatar_hint: '个人照片（后台设置）',
                 lbl_method: 'MY METHOD', sec_method: '我的方法论 · 生态化流量池', sec_method_sub: '"有水可引、有池可蓄、有鱼可养、有草可种" —— 一套完整的品牌流量经营体系',
                 lbl_exp: 'EXPERIENCE', sec_exp: '工作经历', sec_exp_sub: '从基层到管理，每一步都扎实有力',
                 lbl_works: 'PORTFOLIO', sec_works: '精选作品', sec_works_sub: '用数据说话 —— 每个项目都指向可量化的增长',
@@ -1763,7 +1763,7 @@
                 proof_num: 'Served 8+ leading brands', proof_sub: 'Tesla · Mogujie · Anta · Wyeth',
                 hero_card_t: 'Impact Dashboard', hero_card_s: 'Personal Impact Dashboard',
                 lbl_about: 'ABOUT ME', sec_about: 'From Courtroom to Content', sec_about_sub: 'A law graduate turned digital marketer — rigor meets creativity',
-                about_avatar_hint: 'Your photo\n(add in admin)',
+                about_avatar_hint: 'Your photo (add in admin)',
                 lbl_method: 'MY METHOD', sec_method: 'My Method · The Traffic Pool', sec_method_sub: '"Water to draw, pool to hold, fish to grow, grass to plant" — a complete brand growth system',
                 lbl_exp: 'EXPERIENCE', sec_exp: 'Experience', sec_exp_sub: 'From the ground up, every step counts',
                 lbl_works: 'PORTFOLIO', sec_works: 'Selected Works', sec_works_sub: 'Let the numbers speak — every project drove measurable growth',
@@ -2673,6 +2673,8 @@
             renderTesti();
             renderSocial();
             renderContact();
+            /* 关键：每次重建后必须重新观察入场动画，否则 .fade-in 卡片会一直透明 */
+            observeFades();
         }
 
         /* 数字滚动 & 能力条 */
