@@ -816,48 +816,79 @@
         @keyframes fadeUp { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: translateY(0); } }
         .fade-in { opacity: 0; transform: translateY(26px); transition: all 0.7s ease; }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
+        /* ===== 平板：单栏结构 ===== */
         @media (max-width: 900px) {
-            .hero-grid { grid-template-columns: 1fr; gap: 3rem; }
+            .hero-grid { grid-template-columns: 1fr; gap: 2.6rem; }
             .contact-wrap { grid-template-columns: 1fr; }
-            .skills-grid { grid-template-columns: 1fr; }
+            .about-grid { grid-template-columns: 1fr !important; gap: 2.2rem !important; }
             .method-grid { grid-template-columns: 1fr 1fr; }
+            .hero-visual { width: 100%; max-width: 420px; margin-left: auto; margin-right: auto; }
+            #avatarFrame { max-width: 340px; margin-left: auto; margin-right: auto; }
         }
+        /* ===== 手机：比例与字号专用梯度 ===== */
         @media (max-width: 768px) {
+            /* 结构 */
             .nav-links { display: none; }
             .menu-toggle { display: flex; }
-            .section { padding: 5rem 0; }
-            .hero { padding: 7.5rem 0 4rem; }
+            .section { padding: 4.2rem 0; }
+            .hero { padding: 6.2rem 0 3.2rem; }
+            /* 字号：手机专用，避免大标题挤行 */
+            .hero-title { font-size: 2rem; line-height: 1.22; letter-spacing: -0.02em; }
+            .sec-title { font-size: 1.7rem; line-height: 1.22; }
+            .sec-sub { font-size: 0.92rem; line-height: 1.8; }
+            .hero-sub { font-size: 0.97rem; line-height: 1.85; }
+            /* 首屏：照片限宽居中，数据卡紧凑 */
+            .hero-photo { max-width: 300px; margin: 0 auto; }
+            .hero-visual { gap: 0.9rem; }
+            .hero-float { padding: 0.95rem 1rem; }
+            .hero-float-head { margin-bottom: 0.6rem; }
+            .hero-float .stat-row { gap: 0.45rem; margin-bottom: 0.55rem; }
+            .hero-float .stat-tile { padding: 0.6rem 0.65rem; }
+            .hero-float .stat-tile .n { font-size: 1.02rem; }
+            .hero-float .stat-tile .l { font-size: 0.64rem; line-height: 1.4; }
+            .hero-float .mini-chart { display: none; }
+            /* 卡片内边距收紧 */
+            .work-body { padding: 1.15rem 1.2rem 1.25rem; }
+            .life-info { padding: 1.05rem 1.2rem 1.2rem; }
+            .method-card { padding: 1.35rem 1.25rem; }
+            .service-card { padding: 1.4rem 1.25rem; }
+            .testi-card { padding: 1.4rem 1.25rem; }
+            .contact-card { padding: 1.15rem 1.25rem; }
+            .form-card { padding: 1.5rem 1.35rem; }
+            /* 品牌墙更紧凑 */
+            .brands-strip { gap: 0.6rem 1.3rem; padding: 1.8rem 0; margin-top: 3rem; }
+            .brands-strip .b { font-size: 0.9rem; letter-spacing: 0.03em; }
+            /* 网格单列 */
+            .works-grid, .life-grid { grid-template-columns: 1fr; gap: 1.3rem; }
             .method-grid { grid-template-columns: 1fr; }
-            .timeline::before { left: 18px; }
+            /* 时间线 */
+            .timeline::before { left: 16px; }
             .timeline-item, .timeline-item:nth-child(odd) { flex-direction: column; }
-            .timeline-content { width: calc(100% - 44px); margin-left: 44px; }
-            .timeline-dot { left: 18px; }
-            .works-grid, .life-grid { grid-template-columns: 1fr; }
+            .timeline-content { width: calc(100% - 38px); margin-left: 38px; padding: 1.3rem 1.35rem; }
+            .timeline-dot { left: 16px; }
+            /* 详情弹窗 */
+            .detail-media { aspect-ratio: 4/3; }
+            .detail-title { font-size: 1.28rem; }
+            .detail-body { padding: 1.4rem 1.35rem 1.6rem; }
+            /* 社交：二维码放大便于扫码 */
+            .social-qr { width: 200px; }
+            .social-card { padding: 1.9rem 1.5rem; }
+            /* 后台与提示 */
             .a-row, .a-row3 { grid-template-columns: 1fr; }
             .admin-body { padding: 1.1rem; }
             .toast-area { right: 12px; left: 12px; bottom: 78px; max-width: none; }
             .lb-prev { left: 8px; } .lb-next { right: 8px; }
             #back-top { right: 16px; bottom: 16px; }
         }
-        @media (max-width: 900px) {
-            .hero-grid { grid-template-columns: 1fr; gap: 3.2rem; }
-            .contact-wrap { grid-template-columns: 1fr; }
-            .skills-grid { grid-template-columns: 1fr; }
-            .method-grid { grid-template-columns: 1fr 1fr; }
-            /* about-grid 用了内联样式，移动端需强制单栏 */
-            .about-grid { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
-            .hero-visual, #avatarFrame { max-width: 440px; margin-left: auto; margin-right: auto; }
-            .hero-float { width: 100%; }
-        }
-        @media (max-width: 768px) {
-            .hero { padding: 6.5rem 0 4rem; }
-            .hero-float { padding: 1rem 1.05rem; }
-            .hero-float .stat-tile .n { font-size: 1.15rem; }
-            .hero-float .stat-tile .l { font-size: 0.7rem; }
-            .method-grid { grid-template-columns: 1fr; }
-            .detail-media { aspect-ratio: 4/3; }
-            .detail-title { font-size: 1.35rem; }
-            .detail-body { padding: 1.6rem 1.5rem 1.8rem; }
+        /* ===== 小屏手机 ===== */
+        @media (max-width: 420px) {
+            .hero-title { font-size: 1.8rem; }
+            .sec-title { font-size: 1.55rem; }
+            .hero-photo { max-width: 260px; }
+            .hero-float .stat-tile .n { font-size: 0.95rem; }
+            .hero-float .stat-tile .l { font-size: 0.6rem; }
+            .brands-strip .b { font-size: 0.84rem; }
+            .section { padding: 3.6rem 0; }
         }
         @media (prefers-reduced-motion: reduce) {
             * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
