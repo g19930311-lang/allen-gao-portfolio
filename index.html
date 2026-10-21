@@ -244,27 +244,31 @@
         .proof-text { font-size: 0.85rem; color: var(--ink-2); }
         .proof-text strong { color: var(--ink); }
         /* Hero 右侧视觉卡 */
-        .hero-visual { position: relative; }
+        .hero-visual { position: relative; display: flex; flex-direction: column; gap: 1.15rem; }
         .hero-photo {
-            display: block; width: 100%; aspect-ratio: 4/5;
+            display: block; width: 100%; aspect-ratio: 4/5; max-height: 520px;
             object-fit: cover; object-position: center 20%;
             border-radius: var(--r-xl); background: var(--bg-soft);
             border: 1px solid var(--border); box-shadow: var(--shadow);
         }
+        /* 数据卡：与照片上下分开排列的独立模块（不再叠加遮挡） */
         .hero-float {
-            position: absolute; left: -1.4rem; bottom: -1.6rem;
-            width: 250px; padding: 1rem 1.1rem;
-            background: rgba(255, 255, 255, 0.93);
-            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            width: 100%; padding: 1.15rem 1.25rem;
+            background: var(--card);
             border: 1px solid var(--border); border-radius: var(--r-lg);
-            box-shadow: var(--shadow);
+            box-shadow: var(--shadow-sm);
         }
-        body.dark .hero-float { background: rgba(14, 23, 41, 0.9); }
-        .hero-float .stat-row { grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-bottom: 0.55rem; }
-        .hero-float .stat-tile { padding: 0.6rem 0.7rem; border-radius: 12px; }
-        .hero-float .stat-tile .n { font-size: 1.12rem; }
-        .hero-float .stat-tile .l { font-size: 0.66rem; line-height: 1.4; }
-        .hero-float .mini-chart { height: 38px; padding: 7px; border-radius: var(--r-sm); }
+        .hero-float-head {
+            display: flex; align-items: baseline; justify-content: space-between;
+            gap: 1rem; margin-bottom: 0.8rem;
+        }
+        .hero-float-head .hl { font-size: 0.82rem; font-weight: 700; color: var(--ink); }
+        .hero-float-head .hs { font-size: 0.64rem; letter-spacing: 0.09em; color: var(--ink-3); text-transform: uppercase; }
+        .hero-float .stat-row { grid-template-columns: 1fr 1fr; gap: 0.6rem; margin-bottom: 0.75rem; }
+        .hero-float .stat-tile { padding: 0.75rem 0.85rem; border-radius: var(--r-sm); }
+        .hero-float .stat-tile .n { font-size: 1.28rem; }
+        .hero-float .stat-tile .l { font-size: 0.72rem; line-height: 1.45; }
+        .hero-float .mini-chart { height: 44px; padding: 8px; border-radius: var(--r-sm); }
         #avatarFrame { padding: 0.7rem; border-radius: var(--r-xl); }
         #avatarFrame img {
             width: 100%; aspect-ratio: 4/5; object-fit: cover;
@@ -826,13 +830,13 @@
             /* about-grid 用了内联样式，移动端需强制单栏 */
             .about-grid { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
             .hero-visual, #avatarFrame { max-width: 440px; margin-left: auto; margin-right: auto; }
-            .hero-float { left: -0.6rem; width: 232px; }
+            .hero-float { width: 100%; }
         }
         @media (max-width: 768px) {
             .hero { padding: 6.5rem 0 4rem; }
-            .hero-float { left: -0.5rem; bottom: -1rem; width: min(218px, 62%); padding: 0.85rem 0.9rem; }
-            .hero-float .stat-tile .n { font-size: 1rem; }
-            .hero-float .stat-tile .l { font-size: 0.62rem; }
+            .hero-float { padding: 1rem 1.05rem; }
+            .hero-float .stat-tile .n { font-size: 1.15rem; }
+            .hero-float .stat-tile .l { font-size: 0.7rem; }
             .method-grid { grid-template-columns: 1fr; }
             .detail-media { aspect-ratio: 4/3; }
             .detail-title { font-size: 1.35rem; }
@@ -907,6 +911,10 @@
             <div class="hero-visual">
                 <img class="hero-photo" id="heroPhoto" src="assets/avatar.jpg" alt="高洁 Allen Gao" onerror="this.style.display='none'">
                 <div class="hero-float">
+                    <div class="hero-float-head">
+                        <span class="hl" data-i18n="hero_card_t">影响力看板</span>
+                        <span class="hs" data-i18n="hero_card_s">Personal Impact</span>
+                    </div>
                     <div class="stat-row" id="heroStats"></div>
                     <div class="mini-chart" aria-hidden="true">
                         <div class="bar"></div><div class="bar"></div><div class="bar"></div>
@@ -1723,7 +1731,7 @@
                 hero_badge: '新媒体运营 · 品牌策划 · 9年深耕',
                 hero_view: '查看作品 →', hero_contact: '联系我', hero_resume: '下载简历',
                 proof_num: '服务过 8+ 知名品牌', proof_sub: '特斯拉 · 蘑菇街 · 安踏 · 惠氏',
-                hero_card_t: '影响力实时看板', hero_card_s: 'Personal Impact Dashboard',
+                hero_card_t: '影响力看板', hero_card_s: 'Personal Impact',
                 lbl_about: 'ABOUT ME', sec_about: '从法庭到流量场', sec_about_sub: '法学跨界新媒体 —— 严谨的思维方式，遇上创造力的内容世界',
                 about_avatar_hint: '个人照片（后台设置）',
                 lbl_method: 'MY METHOD', sec_method: '我的方法论 · 生态化流量池', sec_method_sub: '"有水可引、有池可蓄、有鱼可养、有草可种" —— 一套完整的品牌流量经营体系',
@@ -1761,7 +1769,7 @@
                 hero_badge: 'Digital Marketing · Brand Strategy · 9 Years',
                 hero_view: 'View Work →', hero_contact: 'Contact Me', hero_resume: 'Resume',
                 proof_num: 'Served 8+ leading brands', proof_sub: 'Tesla · Mogujie · Anta · Wyeth',
-                hero_card_t: 'Impact Dashboard', hero_card_s: 'Personal Impact Dashboard',
+                hero_card_t: 'Impact Dashboard', hero_card_s: 'Personal Impact',
                 lbl_about: 'ABOUT ME', sec_about: 'From Courtroom to Content', sec_about_sub: 'A law graduate turned digital marketer — rigor meets creativity',
                 about_avatar_hint: 'Your photo (add in admin)',
                 lbl_method: 'MY METHOD', sec_method: 'My Method · The Traffic Pool', sec_method_sub: '"Water to draw, pool to hold, fish to grow, grass to plant" — a complete brand growth system',
