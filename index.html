@@ -1401,10 +1401,8 @@ body { background: var(--bg); }
 body::before {
     content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0;
     background:
-        radial-gradient(46rem 32rem at 10% -10%, rgba(168, 85, 247, 0.18), transparent 62%),
-        radial-gradient(42rem 30rem at 94% 2%, rgba(34, 211, 238, 0.15), transparent 64%),
-        radial-gradient(38rem 28rem at 80% 84%, rgba(236, 72, 153, 0.11), transparent 66%),
-        radial-gradient(34rem 26rem at 6% 90%, rgba(251, 146, 60, 0.10), transparent 66%);
+        radial-gradient(46rem 32rem at 12% -8%, rgba(168, 85, 247, 0.09), transparent 62%),
+        radial-gradient(42rem 30rem at 92% 6%, rgba(34, 211, 238, 0.08), transparent 64%);
 }
 body.dark::before {
     background:
@@ -1461,9 +1459,8 @@ body.dark::before {
 .dark-band::before {
     content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 0;
     background:
-        radial-gradient(42rem 26rem at 6% 0%, rgba(168, 85, 247, 0.38), transparent 62%),
-        radial-gradient(40rem 24rem at 96% 100%, rgba(34, 211, 238, 0.30), transparent 64%),
-        radial-gradient(32rem 22rem at 62% 46%, rgba(236, 72, 153, 0.18), transparent 66%);
+        radial-gradient(42rem 26rem at 6% 0%, rgba(168, 85, 247, 0.16), transparent 62%),
+        radial-gradient(40rem 24rem at 96% 100%, rgba(34, 211, 238, 0.13), transparent 64%);
 }
 .dark-band > .wrap { position: relative; z-index: 1; }
 .dark-band .method-card {
@@ -1474,11 +1471,11 @@ body.dark::before {
 .dark-band .method-card:hover {
     background: rgba(255, 255, 255, 0.1);
     border-color: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+    box-shadow: 0 16px 34px rgba(0, 0, 0, 0.22);
 }
 .dark-band .method-card h4 { color: #ffffff; }
 .dark-band .method-card p { color: #c4bce6; }
-.dark-band .sec-sub { color: #c4bce6; }
+.dark-band .sec-sub { color: #cdc6ec; }
 .dark-band .method-card .step { color: #7dd3fc; }
 /* 深色区内的笔记卡（覆盖内联样式） */
 .dark-band .note-card,
@@ -1495,7 +1492,7 @@ body.dark::before {
 }
 .dark-band .note-card h4, .notes-grid .note-card h4 { color: #ffffff !important; }
 .dark-band .note-card p, .notes-grid .note-card p { color: #c4bce6 !important; }
-.dark-band .note-read { color: #7c74a3; }
+.dark-band .note-read { color: #a9a0d4; }
 .dark-band .note-cta { color: #7dd3fc !important; }
 
 /* ⑤ 小标签与小徽章：渐变或品牌色 */
@@ -1515,7 +1512,7 @@ body.dark::before {
 /* ⑥ 卡片：彩色柔和阴影与悬停光晕 */
 .work-card:hover, .service-card:hover, .life-card:hover, .testi-card:hover,
 .social-card:hover, .contact-card:hover, .hero-float:hover, .timeline-content:hover {
-    box-shadow: 0 24px 54px rgba(109, 40, 217, 0.16);
+    box-shadow: 0 20px 44px rgba(109, 40, 217, 0.10);
     border-color: rgba(109, 40, 217, 0.22);
 }
 .work-card .zoom-badge, .zoom-badge {
@@ -1551,9 +1548,8 @@ body.dark::before {
 /* ⑩ 首屏光斑改为多彩虹彩 */
 .hero::after {
     background:
-        radial-gradient(circle at 30% 30%, rgba(168, 85, 247, 0.30), transparent 62%),
-        radial-gradient(circle at 70% 60%, rgba(34, 211, 238, 0.26), transparent 64%),
-        radial-gradient(circle at 50% 85%, rgba(236, 72, 153, 0.18), transparent 66%);
+        radial-gradient(circle at 32% 32%, rgba(168, 85, 247, 0.16), transparent 62%),
+        radial-gradient(circle at 68% 62%, rgba(34, 211, 238, 0.14), transparent 64%);
 }
 
         /* ===== 笔记头图（与作品封面同系列） ===== */
