@@ -7,7 +7,7 @@
     <meta name="description" content="高洁(Allen Gao)的个人超级展示窗口 - 9年新媒体运营、品牌策划、短视频与私域运营经验">
     <meta name="keywords" content="高洁,Allen Gao,新媒体运营,品牌策划,短视频运营,直播电商,私域运营,杭州">
     <meta name="author" content="高洁 Allen Gao">
-    <meta name="theme-color" content="#f8fafc">
+    <meta name="theme-color" content="#6d28d9">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <meta property="og:type" content="website">
     <meta property="og:title" content="高洁 Allen Gao | 新媒体运营与品牌策划">
@@ -1345,6 +1345,215 @@ body.dark .work-card::after, body.dark .service-card::after, body.dark .life-car
     .work-card::after, .service-card::after, .life-card::after { animation: none !important; }
     .ip-pet.excited .pet-body, .ip-pet.spin .pet-body { animation: none !important; }
     .pet-particle { display: none; }
+}
+/* ==========================================================================
+   霓虹渐变主题（提炼自会议主视觉参考图）
+   主色：紫 #6d28d9 → 靛蓝 #4f46e5 → 青 #06b6d4
+   点缀：品红 #ec4899（霓虹粉）、橙 #f97316、薄荷 #34d399
+   ========================================================================== */
+:root {
+    --bg: #f7f7fd;
+    --bg-soft: #eef0fb;
+    --bg-tint: #f1edfe;
+    --card: #ffffff;
+    --ink: #14103a;
+    --ink-2: #4a4670;
+    --ink-3: #8f8cb0;
+    --brand: #6d28d9;
+    --brand-2: #4f46e5;
+    --brand-3: #06b6d4;
+    --brand-soft: rgba(109, 40, 217, 0.08);
+    --accent: #ec4899;
+    --accent-soft: rgba(236, 72, 153, 0.1);
+    --border: #e7e5f6;
+    --border-2: #d6d3ef;
+    --dark: #180f42;
+    --dark-2: #241a5c;
+    --shadow-xs: 0 2px 10px rgba(76, 29, 149, 0.05);
+    --shadow-sm: 0 8px 26px rgba(76, 29, 149, 0.08);
+    --shadow: 0 20px 50px rgba(76, 29, 149, 0.13);
+    /* 渐变体系 */
+    --grad-brand: linear-gradient(118deg, #6d28d9 0%, #4f46e5 45%, #06b6d4 100%);
+    --grad-irid: linear-gradient(100deg, #e879f9 0%, #a855f7 26%, #6366f1 60%, #22d3ee 100%);
+    --grad-warm: linear-gradient(118deg, #fb923c 0%, #f472b6 55%, #818cf8 100%);
+    --grad-mint: linear-gradient(118deg, #34d399 0%, #22d3ee 100%);
+}
+body.dark {
+    --bg: #0d0a1f;
+    --bg-soft: #14102e;
+    --bg-tint: rgba(109, 40, 217, 0.12);
+    --card: #1a1436;
+    --ink: #efeaff;
+    --ink-2: #b3aada;
+    --ink-3: #7c74a3;
+    --brand: #a78bfa;
+    --brand-2: #818cf8;
+    --brand-3: #22d3ee;
+    --brand-soft: rgba(167, 139, 250, 0.14);
+    --border: rgba(167, 139, 250, 0.16);
+    --border-2: rgba(167, 139, 250, 0.28);
+    --dark: #0a0718;
+    --dark-2: #171036;
+}
+body { background: var(--bg); }
+
+/* 页面彩色光晕底（多色柔光，呼应参考图的多彩渐变） */
+body::before {
+    content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+    background:
+        radial-gradient(46rem 32rem at 10% -10%, rgba(168, 85, 247, 0.18), transparent 62%),
+        radial-gradient(42rem 30rem at 94% 2%, rgba(34, 211, 238, 0.15), transparent 64%),
+        radial-gradient(38rem 28rem at 80% 84%, rgba(236, 72, 153, 0.11), transparent 66%),
+        radial-gradient(34rem 26rem at 6% 90%, rgba(251, 146, 60, 0.10), transparent 66%);
+}
+body.dark::before {
+    background:
+        radial-gradient(46rem 32rem at 10% -10%, rgba(139, 92, 246, 0.22), transparent 62%),
+        radial-gradient(42rem 30rem at 94% 2%, rgba(34, 211, 238, 0.14), transparent 64%),
+        radial-gradient(38rem 28rem at 78% 86%, rgba(236, 72, 153, 0.12), transparent 66%);
+}
+
+/* ① 标题与标签：虹彩渐变文字 */
+.hero-title .grad,
+.typed-line,
+#typedText {
+    background: var(--grad-irid);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; color: transparent;
+}
+.typed-line { border-right-color: #22d3ee; }
+.sec-label {
+    background: var(--grad-brand);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 3.5px;
+}
+.dark-band .sec-label { background: var(--grad-irid); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+
+/* ② 数字：霓虹渐变 */
+.stat-tile .n, .art-data-item .n, .detail-metric .n, .highlight-card .num,
+#highlightGrid > div > div:first-child {
+    background: var(--grad-irid);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* ③ 主按钮与关键控件：品牌渐变 */
+.btn-primary {
+    background: var(--grad-brand);
+    box-shadow: 0 10px 28px rgba(109, 40, 217, 0.28);
+}
+.btn-primary:hover {
+    background: var(--grad-brand);
+    filter: brightness(1.07) saturate(1.05);
+    box-shadow: 0 14px 34px rgba(109, 40, 217, 0.36);
+}
+#progress-bar { background: var(--grad-irid); }
+#back-top { background: var(--grad-brand); color: #fff; }
+#back-top:hover { background: var(--grad-brand); filter: brightness(1.1); }
+
+/* ④ 深色区块：深紫蓝底 + 多彩光带 */
+.dark-band, body.dark .dark-band {
+    background: var(--dark);
+    color: #ece8ff;
+    position: relative; overflow: hidden;
+}
+.dark-band::before {
+    content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 0;
+    background:
+        radial-gradient(42rem 26rem at 6% 0%, rgba(168, 85, 247, 0.38), transparent 62%),
+        radial-gradient(40rem 24rem at 96% 100%, rgba(34, 211, 238, 0.30), transparent 64%),
+        radial-gradient(32rem 22rem at 62% 46%, rgba(236, 72, 153, 0.18), transparent 66%);
+}
+.dark-band > .wrap { position: relative; z-index: 1; }
+.dark-band .method-card {
+    background: rgba(255, 255, 255, 0.065);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: none;
+}
+.dark-band .method-card:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+}
+.dark-band .method-card h4 { color: #ffffff; }
+.dark-band .method-card p { color: #c4bce6; }
+.dark-band .sec-sub { color: #c4bce6; }
+.dark-band .method-card .step { color: #7dd3fc; }
+/* 深色区内的笔记卡（覆盖内联样式） */
+.dark-band .note-card,
+.notes-grid .note-card {
+    background: rgba(255, 255, 255, 0.065) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    box-shadow: none !important;
+}
+.dark-band .note-card:hover,
+.notes-grid .note-card:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+    transform: translateY(-5px);
+}
+.dark-band .note-card h4, .notes-grid .note-card h4 { color: #ffffff !important; }
+.dark-band .note-card p, .notes-grid .note-card p { color: #c4bce6 !important; }
+.dark-band .note-read { color: #7c74a3; }
+.dark-band .note-cta { color: #7dd3fc !important; }
+
+/* ⑤ 小标签与小徽章：渐变或品牌色 */
+.hero-badge {
+    background: var(--brand-soft);
+    color: var(--brand);
+    border: 1px solid rgba(109, 40, 217, 0.22);
+}
+.work-cat, .portfolio-category, .social-type, .article-tag, .life-date, .note-cta, .timeline-date {
+    color: var(--brand-2);
+}
+.social-type, .article-tag, .service-card .tag {
+    background: var(--brand-soft);
+}
+.work-cat, .portfolio-category { letter-spacing: 1.6px; }
+
+/* ⑥ 卡片：彩色柔和阴影与悬停光晕 */
+.work-card:hover, .service-card:hover, .life-card:hover, .testi-card:hover,
+.social-card:hover, .contact-card:hover, .hero-float:hover, .timeline-content:hover {
+    box-shadow: 0 24px 54px rgba(109, 40, 217, 0.16);
+    border-color: rgba(109, 40, 217, 0.22);
+}
+.work-card .zoom-badge, .zoom-badge {
+    background: var(--grad-brand); color: #fff;
+}
+
+/* ⑦ 品牌墙：悬停渐变 */
+.brands-strip .b:hover {
+    background: var(--grad-brand);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* ⑧ 表格与引用（文章页）：品牌色点缀 */
+.art-table th { background: var(--bg-tint); color: var(--brand); }
+.art-table tbody tr:hover { background: var(--brand-soft); }
+.article-body h2::before, .art-case { border-left-color: var(--brand); }
+.article-body blockquote {
+    background: var(--brand-soft);
+    border-left-color: var(--brand-2);
+}
+.art-case .case-title, .note-cta { color: var(--brand-2); }
+.art-tip { background: var(--bg-tint); border-color: var(--border-2); }
+
+/* ⑨ 表单与焦点 */
+.form-row input:focus, .form-row textarea:focus {
+    border-color: var(--brand-2);
+    box-shadow: 0 0 0 3px var(--brand-soft);
+}
+.copy-btn:hover, .pill-btn:hover, .filter-btn:hover { border-color: var(--brand-2); color: var(--brand-2); }
+.filter-btn.active { background: var(--grad-brand); border-color: transparent; color: #fff; }
+
+/* ⑩ 首屏光斑改为多彩虹彩 */
+.hero::after {
+    background:
+        radial-gradient(circle at 30% 30%, rgba(168, 85, 247, 0.30), transparent 62%),
+        radial-gradient(circle at 70% 60%, rgba(34, 211, 238, 0.26), transparent 64%),
+        radial-gradient(circle at 50% 85%, rgba(236, 72, 153, 0.18), transparent 66%);
 }
     </style>
 </head>
